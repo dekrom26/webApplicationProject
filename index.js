@@ -17,11 +17,19 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         console.log(err)
     })
     
-    app.use("/",express.static(path.resolve(__dirname,"view","static")));
+    // var public = path.join(__dirname + "/view");
+    // app.use(express.static('view'));
+    app.use("/",express.static(path.resolve(__dirname,"view")));
 
-    app.get("/",(req,res) => {
-        res.sendFile(path.resolve(__dirname+"/view/public/homePage.html"));
-    })
+    // app.get("/",(req,res) => {
+    //     res.sendFile(path.resolve(__dirname+"/view/public"));
+    // })
+    app.get("/",(request,response)=>{ 
+        response.sendFile(path.resolve(__dirname+"/view/public/homePage.html"));
+       });
+
+
+    
 
 
 app.listen(8080, () => {
