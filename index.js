@@ -8,6 +8,7 @@ const Flights = require('./models/Flights');
 
 
 
+
 mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("MONGO CONNECTION OPEN!!!")
