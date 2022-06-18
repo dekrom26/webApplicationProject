@@ -4,6 +4,7 @@
 }
 
 
+
 .img{
     background-image: url('img2.jpg');
     background-repeat: no-repeat;
@@ -319,6 +320,11 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
+.travel{
+  text-align: center;
+}
+
 .main {
 	max-height: 550px;;
 	background-color: #292c2f;
