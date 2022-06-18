@@ -36,3 +36,5 @@ function AddMarker(mapArgument, map) {
 }
 
 console.log(document.getElementById("price"));
+
+
