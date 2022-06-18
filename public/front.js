@@ -9,4 +9,4 @@ window.onload = function() {
 
 console.log(document.getElementById("price"));
 
-console.log("hi");
+
