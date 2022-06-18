@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="reset part 2 17/06" />
+    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="test commit 17/06">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/front.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/front.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/style/front.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/front.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,6 +42,10 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\models" />
+      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\public" />
+      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\public\style" />
+      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\public\imgs" />
       <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject" />
     </key>
   </component>
@@ -50,7 +59,10 @@
     <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/server.js" working-dir="$PROJECT_DIR$">
+    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
+      <EXTENSION ID="com.jetbrains.nodejs.run.NodeStartBrowserRunConfigurationExtension">
+        <browser start="true" url="http://localhost:8080/" />
+      </EXTENSION>
       <method v="2" />
     </configuration>
     <list>
@@ -78,6 +90,7 @@
       <workItem from="1655402659497" duration="917000" />
       <workItem from="1655403598449" duration="763000" />
       <workItem from="1655456350723" duration="6221000" />
+      <workItem from="1655545873487" duration="4612000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -103,7 +116,19 @@
       <option name="presentableId" value="LOCAL‎00004" />
       <updated>1655405269994</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL‎00005" summary="reset part 2 17/06">
+      <created>1655484635457</created>
+      <option name="number" value="LOCAL‎00005" />
+      <option name="presentableId" value="LOCAL‎00005" />
+      <updated>1655484635457</updated>
+    </task>
+    <task id="LOCAL‎00006" summary="test commit 17/06">
+      <created>1655484856066</created>
+      <option name="number" value="LOCAL‎00006" />
+      <option name="presentableId" value="LOCAL‎00006" />
+      <updated>1655484856066</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +161,9 @@
     <MESSAGE value="first push" />
     <MESSAGE value="test push" />
     <MESSAGE value="working project 16/6 21:47" />
-    <option name="LAST_COMMIT_MESSAGE" value="working project 16/6 21:47" />
+    <MESSAGE value="reset part 2 17/06" />
+    <MESSAGE value="test commit 17/06" />
+    <option name="LAST_COMMIT_MESSAGE" value="test commit 17/06" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
