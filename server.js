@@ -28,6 +28,9 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
     {
        res.sendFile(public);
     });  
+    app.get('/cart', function (req, res) {
+        res.sendfile(public + '/shoppingCart.html')
+      });
 
 app.listen(8080, () => {
     console.log("APP IS LISTENING ON PORT 8080!")

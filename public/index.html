@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
-<script src="front.js"></script>
+
 
 </head>
 <body>
@@ -30,7 +30,8 @@
             <li class="item"><a href="#">Home</a></li>
             <li class="item"><a href="#">About</a></li>
             <li class="item"><a href="#">Services</a></li>
-            <li class="item"><a href="#">
+            <li class="item"><a id="cart" class="cart" href="/cart">
+              
                 <i style="font-size:24px" class="fa">&#xf07a;</i>
                 <li class="toggle"><span class="bars"></span></li>
             </a>
@@ -53,64 +54,73 @@
  
   <div class="media-scroller snaps-inline">
     <div class="media-element">
-      <img src="imgs/france.jpg" alt="">
+      <img class="img-0" src="imgs/france.jpg" alt="">
       
       <div class="text">
           <div class="title">
-            <h2 id="title">טיסה לצרפת</h2>
-            <h2 id="price">50$</h2>
+            <h2 id="title-0">טיסה לצרפת</h2>
+            <h2 id="price-0">50$</h2>
+            <button class="button">ORDER NOW</button>
         </div>
           </div>
     </div>
 
 
     <div class="media-element">
-      <img src="imgs/spain.jpg" alt="">
+      <img class="img-1" src="imgs/spain.jpg" alt="">
       <div class="text">
         <div class="title">
-          <h2 id="title">טיסה לספרד</h2>
-          <h2 id="price">90$</h2>
+          <h2 id="title-1">טיסה לספרד</h2>
+          <h2 id="price-1">90$</h2>
+          <button class="button">ORDER NOW</button>
       </div>
         </div>
   </div>
 
     <div class="media-element">
-      <img src="imgs/dubai.jpg" alt="">
+      <img class="img-2" src="imgs/dubai.jpg" alt="">
       <div class="text">
         <div class="title">
-          <h2 id="title">טיסה לדובאי</h2>
-          <h2 id="price">150$</h2>
+          <h2 id="title-2">טיסה לדובאי</h2>
+          <h2 id="price-2">150$</h2>
+          <button class="button">ORDER NOW</button>
       </div>
         </div>
   </div>
 
     <div class="media-element">
-      <img src="imgs/greece.jpg" alt="">
+      <img class="img-3" src="imgs/greece.jpg" alt="">
       <div class="text">
         <div class="title">
-          <h2 id="title">טיסה ליוון</h2>
-          <h2 id="price">40$</h2>
+          <h2 id="title-3">טיסה ליוון</h2>
+          <h2 id="price-3">40$</h2>
+          <button class="button">ORDER NOW</button>
       </div>
         </div>
   </div>
 
     <div class="media-element">
-      <img src="imgs/portugal.jpg" alt="">
+      <img class="img-4" src="imgs/portugal.jpg" alt="">
       <div class="text">
         <div class="title">
-          <h2 id="title">טיסה לפורטוגל</h2>
-          <h2 id="price">60$</h2>
+          <h2 id="title-4">טיסה לפורטוגל</h2>
+          <h2 id="price-4">60$</h2>
+          <button class="button">ORDER NOW</button>
       </div>
         </div>
   </div>
 
     <div class="media-element">
-      <img src="imgs/newZealand.jpg" alt="">
+      <img class="img-5" src="imgs/newZealand.jpg" alt="">
       <div class="text">
         <div class="title">
-          <h2 id="title">טיסה לניו זילנד</h2>
-          <h2 id="price">80$</h2>
+          <h2 id="title-5">טיסה לניו זילנד</h2>
+          <h2 id="price-5">80$</h2>
+          <button class="button">ORDER NOW</button>
       </div>
+
+        
+
         </div>
   </div>
   </div>
@@ -137,7 +147,6 @@
       src="https://www.youtube.com/embed/h_xjfqrFl7o">
       </iframe>
      </div>
-    
    
     <br>
     <br>
@@ -209,6 +218,6 @@
           </div>
 
       </footer>
-
+      <script src="index.js"></script>
 </body>
 </html>

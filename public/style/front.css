@@ -286,7 +286,7 @@
     text-align: left;
 }
 
-#title{
+#title-0,#title-1,#title-2,#title-3,#title-4,#title-5{
   float:right;
 }
 
@@ -498,10 +498,14 @@ body {
     text-align: center;
   }
 
-  /* #travel ,#video{
-    display: inline;
-  } */
+/* .button-0,.button-1,.button-2,.button-3,.button-4,.button-5{
+  position: relative;
+  left: 85%;
+} */
 
-  
+
+
+
+
 
 }
