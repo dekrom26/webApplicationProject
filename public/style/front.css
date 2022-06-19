@@ -507,7 +507,10 @@ body {
   position: relative;
   left: 85%;
 } */
-
+#video-text {
+  height: 50px;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
 
 
 
