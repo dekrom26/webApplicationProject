@@ -204,10 +204,12 @@
   grid-auto-flow: column;
   grid-auto-columns: 33%;
 
+
   padding: 0 var(--_spacer) var(--_spacer);
 
   overflow-x: auto;
   overscroll-behavior-inline: contain;
+
 }
 
 .media-scroller--with-groups {
@@ -231,6 +233,7 @@
   inline-size: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  border-radius: 30px;
 }
 
 .snaps-inline {
@@ -242,6 +245,9 @@
   scroll-snap-align: start;
 }
 
+.scrollable-element {
+  scrollbar-color: black;
+}
 /* general styling */
 
 .container {
