@@ -17,7 +17,7 @@ function initMap() {
     AddMarker({
         coords: {lat: 31.969896, lng: 34.772101},
         map: map,
-        text: ["<h2 class='text-center'>כאן נמצא</h2>", "<div class='text-center'>בן הסתום</div>"]
+        text: ["<h2 class='text-center'>כאן נמצא</h2>", "<div class='text-center'>דקל אוכל בתחת</div>"]
     }, map);
 }
 function AddMarker(mapArgument, map) {
@@ -41,24 +41,24 @@ function AddMarker(mapArgument, map) {
 
 // })
 
-const changePrice =  function(){// change the price from 50 to 1500
-    //const date = new Date().getMonth();
-    const randomPrice0 = Math.trunc(Math.random() * 1000) + 1;
-    const randomPrice1 =  Math.trunc(Math.random() * 1000) + 1;
-    const randomPrice2 = Math.trunc(Math.random() * 1000) + 1;
-    const randomPrice3 = Math.trunc(Math.random() * 1000) + 1;
-    const randomPrice4 =  Math.trunc(Math.random() * 1000) + 1;
-    const randomPrice5 = Math.trunc(Math.random() * 1000) + 1;
+// const changePrice =  function(){// change the price from 50 to 1500
+//     //const date = new Date().getMonth();
+//     const randomPrice0 = Math.trunc(Math.random() * 1000) + 1;
+//     const randomPrice1 =  Math.trunc(Math.random() * 1000) + 1;
+//     const randomPrice2 = Math.trunc(Math.random() * 1000) + 1;
+//     const randomPrice3 = Math.trunc(Math.random() * 1000) + 1;
+//     const randomPrice4 =  Math.trunc(Math.random() * 1000) + 1;
+//     const randomPrice5 = Math.trunc(Math.random() * 1000) + 1;
 
-    document.getElementById("price-0").textContent = `$ ${randomPrice0}`; //price for france
-    document.getElementById("price-1").textContent = `$ ${randomPrice1}`;//price for spain  
-    document.getElementById("price-2").textContent = `$ ${randomPrice2}`; //price for dubai
-    document.getElementById("price-3").textContent =  `$ ${randomPrice3}`;//price for Greece
-    document.getElementById("price-4").textContent =  `$ ${randomPrice4}`;//price for Portugal
-    document.getElementById("price-5").textContent =  `$ ${randomPrice5}`;//price for New Zealand
-    //console.log(date);
-}
-changePrice();
+//     document.getElementById("price-0").textContent = `$ ${randomPrice0}`; //price for france
+//     document.getElementById("price-1").textContent = `$ ${randomPrice1}`;//price for spain  
+//     document.getElementById("price-2").textContent = `$ ${randomPrice2}`; //price for dubai
+//     document.getElementById("price-3").textContent =  `$ ${randomPrice3}`;//price for Greece
+//     document.getElementById("price-4").textContent =  `$ ${randomPrice4}`;//price for Portugal
+//     document.getElementById("price-5").textContent =  `$ ${randomPrice5}`;//price for New Zealand
+//     //console.log(date);
+// }
+// changePrice();
 function randomFly(){
     // diceEl.src = `dice-${dice}.png`;
     // const diceEl = document.querySelector('.dice');
@@ -72,6 +72,8 @@ function randomFly(){
 
 }
 randomFly();
+
+
 
 
 
