@@ -1,13 +1,27 @@
-const express = require('express');
+// const express = require('express');
 const bodyParser=require('body-parser')
-const app = express();
+// const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const Flights = require('./models/flights');
 const { send } = require('process');
-const http = require('http');
-const server = http.createServer(app);
-const io = require('socket.io')(server);
+// const http = require('http');
+const socket = require("socket.io-client")("https://example.com");
+// const server = http.createServer(app);
+// const io = require('socket.io')(server);
+
+
+var express = require('express')
+  , app = express()
+  , http = require('http')
+  , server = http.createServer(app)
+  , io = require('socket.io')(server);
+
+server.listen(8080);
+
+
+
+
 
 var public = path.join(__dirname + "/public");
 app.use("/",express.static(public));
@@ -34,16 +48,23 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
     {
        res.sendFile(public);
     });  
-    // app.get('/cart', function (req, res) {
-    //     res.sendfile(public + '/shoppingCart.html')
-    //   });
+
+    io.on('connection', socket => {
+      console.log('Conection to socket.io');
+      socket.on('message', ({ name, message }) => {
+        io.emit('message', { name, message })
+      })
+    });
+
+    // io.on('connection', (socket) => {
+    //   console.log('a user connected');
+    // });
 
       app.get('/chat', function (req, res) {
         res.sendFile(public + '/html/index.html');
       });
       
 
-    
 
 
     ///////////////
@@ -99,9 +120,17 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
 
 
 
-app.listen(8080, () => {
-    console.log("APP IS LISTENING ON PORT 8080!")
-})
+
+
+// socket.on("connect_error", (err) => {
+//   console.log(`connect_error due to ${err.message}`);
+// });
+
+
+
+// server.listen(8080, () => {
+//     console.log("APP IS LISTENING ON PORT 8080!")
+// })
 
 var usernames = {};
 
