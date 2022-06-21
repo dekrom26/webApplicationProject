@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser=require('body-parser')
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
@@ -10,7 +11,6 @@ const io = require('socket.io')(server);
 
 var public = path.join(__dirname + "/public");
 app.use("/",express.static(public));
-
 
 
 
