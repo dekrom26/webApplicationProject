@@ -17,7 +17,7 @@ function initMap() {
     AddMarker({
         coords: {lat: 31.969896, lng: 34.772101},
         map: map,
-        text: ["<h2 class='text-center'>כאן נמצא</h2>", "<div class='text-center'>בן הסתום</div>"]
+        text: ["<h2 class='text-center'>כאן נמצא</h2>", "<div class='text-center'>דקל אוכל בתחת</div>"]
     }, map);
 }
 function AddMarker(mapArgument, map) {
@@ -41,24 +41,6 @@ function AddMarker(mapArgument, map) {
 
 // })
 
-const changePrice =  function(){// change the price from 50 to 1500
-    //const date = new Date().getMonth();
-    const randomPrice0 = Math.trunc(Math.random() * 1000) + 1;
-    const randomPrice1 =  Math.trunc(Math.random() * 1000) + 1;
-    const randomPrice2 = Math.trunc(Math.random() * 1000) + 1;
-    const randomPrice3 = Math.trunc(Math.random() * 1000) + 1;
-    const randomPrice4 =  Math.trunc(Math.random() * 1000) + 1;
-    const randomPrice5 = Math.trunc(Math.random() * 1000) + 1;
-
-    document.getElementById("price-0").textContent = `$ ${randomPrice0}`; //price for france
-    document.getElementById("price-1").textContent = `$ ${randomPrice1}`;//price for spain  
-    document.getElementById("price-2").textContent = `$ ${randomPrice2}`; //price for dubai
-    document.getElementById("price-3").textContent =  `$ ${randomPrice3}`;//price for Greece
-    document.getElementById("price-4").textContent =  `$ ${randomPrice4}`;//price for Portugal
-    document.getElementById("price-5").textContent =  `$ ${randomPrice5}`;//price for New Zealand
-    //console.log(date);
-}
-changePrice();
 function randomFly(){
     // diceEl.src = `dice-${dice}.png`;
     // const diceEl = document.querySelector('.dice');
@@ -72,41 +54,70 @@ function randomFly(){
 
 }
 randomFly();
+let counter = [0,0,0,0,0,0];
+let cart = [];
+const element = document.getElementsByClassName("media-element");
+
+let img0 = document.getElementsByClassName("img-0");
+let img1 = document.getElementsByClassName("img-1");
+let img2 = document.getElementsByClassName("img-2");
+let img3 = document.getElementsByClassName("img-3");
+let img4 = document.getElementsByClassName("img-4");
+let img5 = document.getElementsByClassName("img-5");
+
+const cart0 = document.getElementById("cart-0");
+const cart1 = document.getElementById("cart-1");
+const cart2 = document.getElementById("cart-2");
+const cart3 = document.getElementById("cart-3");
+const cart4 = document.getElementById("cart-4");
+const cart5 = document.getElementById("cart-5");
+const cart6 = document.getElementById("cart-6");
+
+
+function amountOfOrders(){
+
+    cart0.addEventListener("click", function() {
+        counter[0]++;
+      });
+
+    cart1.addEventListener("click", function() {
+        counter[1]++;
+      });
+
+    cart2.addEventListener("click", function() {
+        counter[2]++;
+      });
+
+    cart3.addEventListener("click", function() {
+        counter[3]++;
+      });
+
+    cart4.addEventListener("click", function() {
+        counter[4]++;
+      });
+
+    cart5.addEventListener("click", function() {
+        counter[5]++;
+      });
+
+}
+
+amountOfOrders();
+
+let max =0;
+function maxOreders()
+{
+    for (const orders of counter) {
+        if(orders > max)
+        max = orders;
+    }
+}
+
+maxOreders();
+
+console.log(maxOreders.max);
 
 
 
-
-// let count =0;
-// const counter = document.getElementById('counter');
-// document.getElementById('button').addEventListener('click',event =>{
-//     const cl = counter.classList;
-//     const c = 'new-counter';
-//     count++;
-
-//     counter.innerText = count;
-//     cl.remove(c, cl.contains(c));
-//     setTimeout(() => 
-//     counter.classList.add('new-counter'),0);
-// })
-
-
-// function getCart(){
-//     $.get("cart",(data)=>{
-//       let blabla = data;
-//     //   showAd(screenAds.shift());
-//     console.log(blalba);
-//     });
-//   }
-
-
-//   $(() => {
-//     getCart();
-//   });
-
-
-
-
-
-
-
+console.log(counter);
 
