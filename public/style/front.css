@@ -1,8 +1,6 @@
-#h1{
-    text-align: center;
-    height: fit-content;
-}
 
+  /* background image
+  ---------------------------------- */
 
 .img{
     background-image: url('https://www.elal.com/SiteCollectionImages/1920X1055_Plasma2019/North-America/Boston_plazma.jpg');
@@ -15,6 +13,8 @@
 }
 
 
+  /* logo in the nav bar
+  ---------------------------------- */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -53,6 +53,8 @@
     border-bottom: 1px #444 solid;
   }
   
+
+
   /* Mobile menu */
   .menu {
     display: flex;
@@ -60,52 +62,12 @@
     justify-content: space-between;
     align-items: center;
   }
-  .toggle {
-    order: 1;
-  }
-  .item.button {
-    order: 2;
-  }
-  .item {
-    width: 100%;
-    text-align: center;
-    order: 3;
-    display: none;
-  }
-  .item.active {
-    display: block;
-  }
-  
-  /* Navbar Toggle */
-  .toggle {
-    cursor:pointer;
-  }
-  .bars {
-    background: #999;
-    display: inline-block;
-    height: 2px;
-    position: relative;
-    transition: background .2s ease-out;
-    width: 18px;
-  }
-  .bars:before,
-  .bars:after {
-    background: #999;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    width: 100%;
-  }
-  .bars:before {
-    top: 5px;
-  }
-  .bars:after {
-    top: -5px;
-  }
-  
-  /* Tablet menu */
+
+
+
+
+  /* Tablet menu
+  ---------------------------------------- */
   @media all and (min-width: 468px) {
     .menu {
         justify-content: center;
@@ -114,39 +76,10 @@
     .logo {
         flex: 1;
     }
+
+
+
   
-    .item.button {
-        width: auto;
-        order: 1;
-        display: block;
-    }
-    .toggle {
-        order: 2;
-    }
-    .button.secondary {
-        border: 0;
-    }
-    .button a {
-        padding: 7.5px 15px;
-        background: teal;
-        border: 1px #006d6d solid;
-        border-radius:50em;
-    }
-    .button.secondary a {
-        background: transparent;    
-    }
-    .button a:hover {
-        text-decoration: none;
-        transition:all .25s;
-    }
-    .button:not(.secondary) a:hover {
-        background: #006d6d;
-        border-color: #005959;
-    }
-    .button.secondary a:hover {
-        color: #ddd;
-    } 
-  }
   
   /* Desktop menu */
   @media all and (min-width: 768px) {
@@ -175,25 +108,22 @@
   }
 
 
-#flight{
-    text-align: center;
-    margin-top: 5%;
-    margin-bottom: 2%;
-    color: #132333;
-    font-family: aaa,Sans-serif;
-    font-size: 35px;
-    font-weight: 400;
-}
+
+/* map size
+-----------------*/
 
 #map{
     height: 300px;
     width: 100%;
 }
 
+
+
 /*-----------------------------------------------------*/
 
 
-
+/* add to cart button
+-----------------*/
 
 button{
   width: 103px;
@@ -214,16 +144,10 @@ button{
   font-weight: bolder;
   border: 2px solid black;
 }
-.cart span{
-  transition: 400ms;
-}
 
-button:focus{
-  outline: none;
-}
-/* .fa fa-shopping-basket{
-  position: relative;
-} */
+
+
+
 
 
 @import "https://unpkg.com/open-props";
@@ -244,11 +168,15 @@ button:focus{
 
 }
 
-.media-scroller--with-groups {
-  grid-auto-columns: 80%;
+#mss{
+  height: 50px;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
 }
 
 
+/* best deals display
+-------------------------------*/
 .media-element {
   display: grid;
   grid-template-rows: min-content;
@@ -268,122 +196,49 @@ button:focus{
   border-radius: 30px;
 }
 
-.snaps-inline {
-  scroll-snap-type: inline mandatory;
-  scroll-padding-inline: var(--_spacer, 1rem);
-}
-
-.snaps-inline > * {
-  scroll-snap-align: start;
-}
-
-.scrollable-element {
-  scrollbar-color: black;
-}
-/* general styling */
 
 .container {
-  /* inline-size: min(100% - 4rem, 70rem); */
   margin-inline: auto;
 }
 
-.flow {
-  display: grid;
-  gap: var(--size-3);
-}
 
-.page-header {
-  padding-block: var(--size-9);
-  margin-block-end: var(--size-9);
-  background: var(--gradient-16);
-  color: var(--gray-0);
-  box-shadow: var(--shadow-2);
-}
 
-.page-title {
-  font-size: var(--font-size-fluid-3);
 
-}
 
-.page-subtitle {
-  font-size: var(--font-size-fluid-1);
-}
+/* video
+--------------------------*/
 
-.section-title {
-  padding-inline-start: var(--size-6);
-  margin-block: var(--size-9) var(--size-3);
-}
 #video-text {
   height: 50px;
   text-align: center;
   font-family: 'Rubik', sans-serif;
 }
+/* the title for the video
+---------------*/
 
 .title {
   font-family: 'Rubik', sans-serif;
 }
-/* #text{
-    text-align: right;
-} */
 
-#price{
-    display: inline-block;
-    width: 17%;
-    vertical-align: top;
-    text-align: left;
-}
+
+
+/* destination and price location
+---------------------*/
 
 #title-0,#title-1,#title-2,#title-3,#title-4,#title-5{
   float:right;
 }
 
 
-.fa{
-  color: #ddd;
-}
-
-#mss{
-  height: 50px;
-    text-align: center;
-    font-family: 'Rubik', sans-serif;
-}
-
-#price ,#title{
-  display: inline;
-}
-canvas  #myCanvas{
-  content: "\2708";
-  color: #000;
-}
-
-video {
-  display: inline;
-  margin-left: 2%;
-  margin-right: auto;
-}
-
-
-body {
-	margin: 0;
-	padding: 0;
-}
-
 .travel{
   text-align: center;
 }
 
-.main {
-	max-height: 550px;;
-	background-color: #292c2f;
-	color: white;
-	font-size: 38pt;
-	text-align: center;
-	line-height: 550px;
-}
-/* footer{
-	
-	bottom: 0;
-} */
+
+
+/* foother
+-------------------------------*/
+
 .footer-distributed{
 	background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -544,16 +399,7 @@ body {
   #travel{
     text-align: center;
   }
-
-/* .button-0,.button-1,.button-2,.button-3,.button-4,.button-5{
-  position: relative;
-  left: 85%;
-} */
-
-
-
-
-
+}
 
 
 
