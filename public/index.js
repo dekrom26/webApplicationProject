@@ -43,15 +43,21 @@ function checkLoginState() {
         statusChangeCallback(response);
     });
 }
+
+document.getElementById("share").addEventListener('click',postApi());
+//access token EAAKDZAT4efZCYBAFajHPn1CtZAuLmvxo7vo6edJI6yoikBZBm7vrA37ODX4bB6n0o1mjBwpQZCOoPlg7I0rK6uodGEL2OrFhDavkiec0wxlYuhHmFCtWLkW4SkTWCBl9Qrxq5ta3kXf5vtkk1Kfmo74mNh5ks0FLOq8rvcXXhgi8jdZB0hj6vK
 function postApi() {
+
+    console.log("test");
     FB.api(
         '/107487608674072/feed',
         'POST',
-        {"message": "test 3"},
+        {"message": "ben"},
         function (response) {
             // Insert your code here
         }
     );
+
 }
 
 

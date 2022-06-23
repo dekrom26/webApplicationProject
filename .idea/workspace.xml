@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="facebook log in - not working yet">
+    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="facebook post - not working yet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,6 +90,7 @@
       <workItem from="1655403598449" duration="763000" />
       <workItem from="1655456350723" duration="6221000" />
       <workItem from="1655545873487" duration="5927000" />
+      <workItem from="1655984143869" duration="2532000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -138,7 +140,13 @@
       <option name="presentableId" value="LOCAL‎00008" />
       <updated>1655970639988</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL‎00009" summary="facebook post - not working yet">
+      <created>1655981129568</created>
+      <option name="number" value="LOCAL‎00009" />
+      <option name="presentableId" value="LOCAL‎00009" />
+      <updated>1655981129568</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +183,8 @@
     <MESSAGE value="test commit 17/06" />
     <MESSAGE value="google map api" />
     <MESSAGE value="facebook log in - not working yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="facebook log in - not working yet" />
+    <MESSAGE value="facebook post - not working yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="facebook post - not working yet" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
