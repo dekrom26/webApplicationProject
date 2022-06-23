@@ -72,12 +72,12 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         res.sendFile(public + '/cart/shoppingCart.html');
       });
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
       // app.get('/facebook', function (req, res) {
       //   res.sendFile(public + '/facebook/index.html');
       // });
 
-=======
+//=======
       const seedFlight = [
         {
           Name:"F234Y",
@@ -104,7 +104,7 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         .catch(e => {
             console.log(e)
         });
->>>>>>> 848b7cee1dab37497dc027af8d16cc21ea7af5ab
+//>>>>>>> 848b7cee1dab37497dc027af8d16cc21ea7af5ab
 
 
     ///////////////
