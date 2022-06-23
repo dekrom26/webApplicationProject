@@ -72,12 +72,20 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         res.sendFile(public + '/cart/shoppingCart.html');
       });
 
-//  HEAD
+// <<<<<<< HEAD
+// //  HEAD
+// =======
+// //<<<<<<< HEAD
+// >>>>>>> 81f850a04fe8fb875112bbb792c81eda6f9183d6
       // app.get('/facebook', function (req, res) {
       //   res.sendFile(public + '/facebook/index.html');
       // });
 
+// <<<<<<< HEAD
 
+// =======
+// //=======
+// >>>>>>> 81f850a04fe8fb875112bbb792c81eda6f9183d6
       const seedFlight = [
         {
           Name:"F234Y",
@@ -130,7 +138,11 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         .catch(e => {
             console.log(e)
         });
-// >>>>>>> 848b7cee1dab37497dc027af8d16cc21ea7af5ab
+// <<<<<<< HEAD
+// // >>>>>>> 848b7cee1dab37497dc027af8d16cc21ea7af5ab
+// =======
+// //>>>>>>> 848b7cee1dab37497dc027af8d16cc21ea7af5ab
+// >>>>>>> 81f850a04fe8fb875112bbb792c81eda6f9183d6
 
 
 

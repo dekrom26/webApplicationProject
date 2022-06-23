@@ -63,7 +63,11 @@ window.onload = function() {
 
 document.getElementById("fb-share-button").addEventListener('click', function() {
     let xhr = new XMLHttpRequest();
+// <<<<<<< HEAD
     var message = "hello1";
+// =======
+    var message = window.prompt("תנו לנו ביקורת:");
+// >>>>>>> 81f850a04fe8fb875112bbb792c81eda6f9183d6
     var accessToken = "EAAPjYG6LzYMBAG00lwAzFMMp8li26nphSjHALtBNAmW8eZALfj2CZC2PQxy79tZCOVHH276w3M5fjBVM5qDULChLCGjUeEak0ELpJXZCCSH367aveQKhQxvlYxYauOt5ZC3OiDRZBo3JJkwybyAQejxWyylifS6cJ4kgZC8ZCbBEF6EwzVKvMXdtncedBGH1uEnkz7jTaSjtkAZDZD"
     var createPostRequest = "https://graph.facebook.com/v14.0/104839158945939/feed?message=" + encodeURIComponent(message) + "&access_token=" + accessToken
     xhr.open("POST", createPostRequest);
