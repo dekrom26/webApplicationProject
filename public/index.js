@@ -45,7 +45,7 @@ function checkLoginState() {
 }
 
 document.getElementById("share").addEventListener('click',postApi());
-//access token EAAKDZAT4efZCYBAFajHPn1CtZAuLmvxo7vo6edJI6yoikBZBm7vrA37ODX4bB6n0o1mjBwpQZCOoPlg7I0rK6uodGEL2OrFhDavkiec0wxlYuhHmFCtWLkW4SkTWCBl9Qrxq5ta3kXf5vtkk1Kfmo74mNh5ks0FLOq8rvcXXhgi8jdZB0hj6vK
+//access token EAAKDZAT4efZCYBAJiPXOZCLsRfHZC2geCmzUWPJz17JZAtfZBFyyPSn3wpQVQvhWvWFkfI14aROWW1pFfTLdHv330upVeJNsalMwyoCexZCFHBxzJicEE7tXZAcB6cD0uqZCdRw2lmO0ve35pK6v55ZCcYbI7wP5gzrUjZCAitDHKWZCBUuoXXEbIHyX
 function postApi() {
 
     console.log("test");
