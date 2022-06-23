@@ -405,13 +405,6 @@ button{
   /* facebook logo
   -------------------------------*/
 }
-body {
-  margin: 5%;
-  font-family: Helvetica;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
 #fb-share-button {
   background: #3b5998;
   border-radius: 3px;
