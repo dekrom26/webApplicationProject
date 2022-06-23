@@ -59,7 +59,7 @@ class View {
             <button class="bag-btn" data-id=${item.id}>Add to Cart</button>
             </div>
             <h3>${item.title}</h3>
-            <h4>${item.price}</h4>
+            <h4>$${item.price}</h4>
             </article>
             `
         })
@@ -112,7 +112,7 @@ class View {
         <img src=${item.image} alt=${item.title} />
         <div>
             <h4>${item.title}</h4>
-            <h5>${item.price}</h5>
+            <h5>$${item.price}</h5>
             <span class="remove-item" data-id=${item.id}>Remove</span>
         </div>
         <div>
