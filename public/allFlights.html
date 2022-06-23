@@ -24,21 +24,37 @@
 
 // document.getElementById("text").innerHTML = "I have changed!";
 // document.getElementById("text").innerHTML += "HIII!";
+
+function ClearDiv(){
+    document.getElementById("text").innerHTML = "";
+}
+
 function getAllFlights(){
+  
   $.get("/allflights",(data)=>{
     for (var i = 0; i < data.length; i++){
           const name=data[i].Name;
     document.getElementById("text").innerHTML += name;
     document.getElementById("text").innerHTML+="<br>";
+    document.getElementById("text").innerHTML+=`<img id="image_`+i+`" src="" />`;
+      $("#image" + "_" + i).attr("src",data[i].URL);
+      $("#image" + "_" + i).attr("width", "30%");
+      $("#image" + "_" + i).attr("height", "30%");
     }
-  
   });
-}
+
+  }
+
 
 
 $(() => {
-    getAllFlights();
+   // ClearDiv();
+        getAllFlights();
 });
+    
+
+
+
 
 
 </script>
