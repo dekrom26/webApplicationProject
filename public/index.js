@@ -44,6 +44,22 @@ function checkLoginState() {
     });
 }
 
+document.getElementById("share").addEventListener('click',postApi());
+//access token EAAKDZAT4efZCYBAJiPXOZCLsRfHZC2geCmzUWPJz17JZAtfZBFyyPSn3wpQVQvhWvWFkfI14aROWW1pFfTLdHv330upVeJNsalMwyoCexZCFHBxzJicEE7tXZAcB6cD0uqZCdRw2lmO0ve35pK6v55ZCcYbI7wP5gzrUjZCAitDHKWZCBUuoXXEbIHyX
+function postApi() {
+
+    console.log("test");
+    FB.api(
+        '/107487608674072/feed',
+        'POST',
+        {"message": "ben"},
+        function (response) {
+            // Insert your code here
+        }
+    );
+
+}
+
 
 function initMap() {
     // map options.
