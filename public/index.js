@@ -43,6 +43,16 @@ function checkLoginState() {
         statusChangeCallback(response);
     });
 }
+function postApi() {
+    FB.api(
+        '/107487608674072/feed',
+        'POST',
+        {"message": "test 3"},
+        function (response) {
+            // Insert your code here
+        }
+    );
+}
 
 
 function initMap() {
