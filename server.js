@@ -17,7 +17,7 @@ var express = require('express')
   , server = http.createServer(app)
   , io = require('socket.io')(server);
 
-server.listen(8080, () => {
+server.listen(3030, () => {
   console.log("APP IS LISTENING ON PORT 8080!")
 })
 
@@ -37,11 +37,16 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         console.log(err)
     })
     
+    
+    app.get("/flights",(req,res)=>{
+      res.sendFile(path.join(__dirname, '/public', 'allFlights.html'));
+    })
 
-    app.get("/flights",async(req,res)=>{
+    app.get("/allflights",async(req,res)=>{
         const flights = await Flights.find({})
         // console.log(flights);
-        res.send(flights);
+        res.json(flights);
+        // res.send(flights);
     })
 
     app.get("/",(req,res)=>

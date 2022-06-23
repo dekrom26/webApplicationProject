@@ -5,6 +5,10 @@ const flightsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    URL: {
+        type: String,
+        required: true
+    },
     Duration:{
     type:Number,
     require:true
