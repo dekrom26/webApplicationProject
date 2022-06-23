@@ -6,59 +6,71 @@ window.onload = function() {
    ctx.drawImage(img, 0, 0,52,52);
 };
 
-    window.fbAsyncInit = function() {
-    FB.init({
-        appId      : '707420810543094',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v14.0'
-    });
+//     window.fbAsyncInit = function() {
+//     FB.init({
+//         appId      : '707420810543094',
+//         cookie     : true,
+//         xfbml      : true,
+//         version    : 'v14.0'
+//     });
 
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
+//         FB.getLoginStatus(function(response) {
+//             statusChangeCallback(response);
+//         });
 
-};
-
-
-    (function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-    function statusChangeCallback(response){
-        if(response.status === 'connected'){
-            console.log('Logged in and authenticated');
-        }else{
-            console.log('Not authenticated');
-        }
-    }
+// };
 
 
-function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
-}
+//     (function(d, s, id){
+//     var js, fjs = d.getElementsByTagName(s)[0];
+//     if (d.getElementById(id)) {return;}
+//     js = d.createElement(s); js.id = id;
+//     js.src = "https://connect.facebook.net/en_US/sdk.js";
+//     fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
 
-document.getElementById("share").addEventListener('click',postApi());
-//access token EAAKDZAT4efZCYBAJiPXOZCLsRfHZC2geCmzUWPJz17JZAtfZBFyyPSn3wpQVQvhWvWFkfI14aROWW1pFfTLdHv330upVeJNsalMwyoCexZCFHBxzJicEE7tXZAcB6cD0uqZCdRw2lmO0ve35pK6v55ZCcYbI7wP5gzrUjZCAitDHKWZCBUuoXXEbIHyX
-function postApi() {
+//     function statusChangeCallback(response){
+//         if(response.status === 'connected'){
+//             console.log('Logged in and authenticated');
+//         }else{
+//             console.log('Not authenticated');
+//         }
+//     }
 
-    console.log("test");
-    FB.api(
-        '/107487608674072/feed',
-        'POST',
-        {"message": "ben"},
-        function (response) {
-            // Insert your code here
-        }
-    );
 
-}
+// function checkLoginState() {
+//     FB.getLoginStatus(function(response) {
+//         statusChangeCallback(response);
+//     });
+// }
+
+// document.getElementById("share").addEventListener('click',postApi());
+// //access token EAAKDZAT4efZCYBAJiPXOZCLsRfHZC2geCmzUWPJz17JZAtfZBFyyPSn3wpQVQvhWvWFkfI14aROWW1pFfTLdHv330upVeJNsalMwyoCexZCFHBxzJicEE7tXZAcB6cD0uqZCdRw2lmO0ve35pK6v55ZCcYbI7wP5gzrUjZCAitDHKWZCBUuoXXEbIHyX
+// function postApi() {
+
+//     console.log("test");
+//     FB.api(
+//         '/107487608674072/feed',
+//         'POST',
+//         {"message": "ben"},
+//         function (response) {
+//             // Insert your code here
+//         }
+//     );
+
+// }
+
+
+document.getElementById("fb-share-button").addEventListener('click', function() {
+    let xhr = new XMLHttpRequest();
+    var message = "hello";
+    var accessToken = "EAAPjYG6LzYMBAG00lwAzFMMp8li26nphSjHALtBNAmW8eZALfj2CZC2PQxy79tZCOVHH276w3M5fjBVM5qDULChLCGjUeEak0ELpJXZCCSH367aveQKhQxvlYxYauOt5ZC3OiDRZBo3JJkwybyAQejxWyylifS6cJ4kgZC8ZCbBEF6EwzVKvMXdtncedBGH1uEnkz7jTaSjtkAZDZD"
+    var createPostRequest = "https://graph.facebook.com/v14.0/104839158945939/feed?message=" + encodeURIComponent(message) + "&access_token=" + accessToken
+    xhr.open("POST", createPostRequest);
+    xhr.onload = () => console.log(xhr.responseText);
+    xhr.send()
+});
+
 
 
 function initMap() {
