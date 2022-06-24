@@ -65,6 +65,10 @@
             <button class="cart" id="cart-0">
               <span>Add to Cart</span>
           </button>
+              <a class="weatherwidget-io" href="https://forecast7.com/en/48d862d35/paris/" data-label_1="PARIS" data-label_2="WEATHER" data-mode="Current" >PARIS WEATHER</a>
+              <script>
+                  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+              </script>
         </div>
           </div>
     </div>
@@ -79,6 +83,10 @@
           <button class="cart" id="cart-1">
             <span>Add to Cart</span>
         </button>
+            <a class="weatherwidget-io" href="https://forecast7.com/en/40d42n3d70/madrid/" data-label_1="MADRID" data-label_2="WEATHER" data-mode="Current" >MADRID WEATHER</a>
+            <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+            </script>
       </div>
         </div>
   </div>
@@ -165,7 +173,7 @@
 
       </div>
 
-      <div id='fb'>
+      <!-- <div id='fb'>
 
           <fb:login-button
                   scope="public_profile,email"
@@ -173,7 +181,7 @@
           </fb:login-button>
 
           <button type = "button" onclick="postApi()" id = "share" >Share</button>
-      </div>
+      </div> -->
 
       <footer class="footer-distributed">
 
@@ -223,15 +231,24 @@
                   <span>קצת עלינו</span>
                   חברת תעופה שהוקמה למען ציון טוב בפרוייקט
               </p>
+<div></div>
 
-              <div class="footer-icons">
+              <div id="fb-share-button">
+                <svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet">
+                    <path class="svg-icon-path" d="M9.1,0.1V2H8C7.6,2,7.3,2.1,7.1,2.3C7,2.4,6.9,2.7,6.9,3v1.4H9L8.8,6.5H6.9V12H4.7V6.5H2.9V4.4h1.8V2.8 c0-0.9,0.3-1.6,0.7-2.1C6,0.2,6.6,0,7.5,0C8.2,0,8.7,0,9.1,0.1z"></path>
+                </svg>
+                <span>Share</span>
+            </div>
 
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
+
+              <!-- <div class="footer-icons"> -->
+
+                  <!-- <a id="share-button" href="#"><i class="fa fa-facebook"></i></a> -->
+                  <!-- <a href="#"><i class="fa fa-twitter"></i></a>
                   <a href="#"><i class="fa fa-linkedin"></i></a>
-                  <a href="#"><i class="fa fa-github"></i></a>
-
-              </div>
+                  <a href="#"><i class="fa fa-github"></i></a> -->
+<!-- 
+              </div> -->
 
           </div>
 

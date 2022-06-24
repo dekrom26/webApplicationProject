@@ -28,7 +28,6 @@
 function ClearDiv(){
     document.getElementById("text").innerHTML = ``;
 }
-
 function getAllFlights(){
   $.get("/allflights",(data)=>{
     $("#text").empty();
