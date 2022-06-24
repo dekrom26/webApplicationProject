@@ -40,6 +40,18 @@ const seedFlight = [
       Date:"2022-09-28",
       Category:"shopping",
     },
+    {
+      Name:"4",
+      URL:"imgs/newZealand.jpg",
+      Duration:8,
+      Departure:"Israel",
+      Arrivle:"paris",
+      Price:900,
+      Temperature:21,
+      // Continent:"northAmerica",
+      Date:"2022-09-28",
+      Category:"shopping",
+    },
 
 ]
 

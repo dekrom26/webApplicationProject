@@ -31,14 +31,13 @@ app.use("/",express.static(public));
 mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("MONGO CONNECTION OPEN!!!")
-    },()=>{ 
-  seed.seedDB();
-  })
+    })
     .catch(err => {
         console.log("OH NO MONGO CONNECTION ERROR!!!!")
         console.log(err)
     })
     
+    seed.seedDB();
     
     app.get("/flights",(req,res)=>{
       res.sendFile(path.join(__dirname, '/public', 'allFlights.html'));
