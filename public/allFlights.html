@@ -26,12 +26,12 @@
 // document.getElementById("text").innerHTML += "HIII!";
 
 function ClearDiv(){
-    document.getElementById("text").innerHTML = "";
+    document.getElementById("text").innerHTML = ``;
 }
 
 function getAllFlights(){
-  
   $.get("/allflights",(data)=>{
+    $("#text").empty();
     for (var i = 0; i < data.length; i++){
           const name=data[i].Name;
     document.getElementById("text").innerHTML += name;
@@ -48,7 +48,6 @@ function getAllFlights(){
 
 
 $(() => {
-   // ClearDiv();
         getAllFlights();
 });
     
