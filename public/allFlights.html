@@ -31,18 +31,20 @@
             <option value="shopping">shopping</option>
             <option value="sunbathing">sunbathing</option>
         </select> -->
-  
+        <div class="box">
       <label for="continent">Continent</label>
       <select name="continent" id="continent">
+        <option value="all">all</option>
           <option value="asia">asia</option>
           <option value="africa">africa</option>
           <option value="northAmerica">northAmerica</option>
           <option value="soutAmerica">soutAmerica</option>
           <option value="europe">europe</option>
       </select>
-  
 
       <button type="button" id="myButton">Search</button>
+    </div>
+
       <script>
         var continentUser="";
         document.getElementById("myButton").onclick= function(){

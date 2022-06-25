@@ -1,13 +1,49 @@
 
+body{
+  background-image: url('back.jpg');
+  background-repeat: round;
+
+}
+
 h1 {
     text-align:center;
     font-size: 150%;
 }
 
-#text{
-    font-size: 75%;
+p{
+  margin-bottom: 1%;
 }
 
+#text{
+    font-size: 75%;
+    font: bold 14px sans-serif;
+}
+
+.continent{
+  font: bold 14px sans-serif;
+}
+
+#myButton{
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: none;
+    background: #00a3b8;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+
+.box select {
+  background-color: #00a3b8;
+  color: white;
+  padding: 2px;
+  border: none;
+  font-size: 20px;
+  border-radius: 4px;
+}
 .center {
     display: block;
     margin-left: auto;
@@ -18,3 +54,6 @@ h1 {
   img {
     border-radius: 20%;
   }
+
+
+  
