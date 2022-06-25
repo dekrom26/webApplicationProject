@@ -1,0 +1,20 @@
+
+h1 {
+    text-align:center;
+    font-size: 150%;
+}
+
+#text{
+    font-size: 75%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+  }
+
+  img {
+    border-radius: 20%;
+  }

@@ -6,6 +6,7 @@
       type="text/javascript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     ></script>
+    <link rel="stylesheet" href="allFlight.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,15 @@
 </head>
 <body>
     <h1>All Flights!!!!!!</h1>
+    <p>
+        <label for="price">please select a price</label>
+        <select name="price" id="price">
+            <option value="cheap">עד 100$</option>
+            <option value="regular">מ-100$ עד 300$</option>
+            <option value="expensive">מעל 300$</option>
+        </select>
+    </p>
+    <hr>
     <!-- <label for="Flight-search">Search the Flight:</label>
     <input type="search" id="flight-search" name="q">
     
@@ -26,36 +36,50 @@
 // document.getElementById("text").innerHTML += "HIII!";
 
 function ClearDiv(){
-    document.getElementById("text").innerHTML = "";
+    document.getElementById("text").innerHTML = ``;
 }
 function getAllFlights(){
-  
   $.get("/allflights",(data)=>{
+    $("#text").empty();
     for (var i = 0; i < data.length; i++){
-          const name=data[i].Name;
-    document.getElementById("text").innerHTML += name;
-    document.getElementById("text").innerHTML+="<br>";
-    document.getElementById("text").innerHTML+=`<img id="image_`+i+`" src="" />`;
+    const name=data[i].Name;
+    $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
+        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
+        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
+        <p><b>Category:</b> ${data[i].Category}</p>`);
+
+    document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
       $("#image" + "_" + i).attr("src",data[i].URL);
-      $("#image" + "_" + i).attr("width", "30%");
-      $("#image" + "_" + i).attr("height", "30%");
+      $("#image" + "_" + i).attr("width", "40%");
+      $("#image" + "_" + i).attr("height", "40%"); 
     }
   });
 
   }
 
+//   Name
+//     URL
+//     Duration
+//     Departure   
+//     Arrivle
+//     Price
+//     Temperature
+//     Continent
+//     Date
+//     Category
+                   
 
 
 $(() => {
-   // ClearDiv();
         getAllFlights();
 });
     
-
-
-
-
-
 </script>
+
+
+
+
+
+
 </body>
 </html>

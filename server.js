@@ -7,6 +7,7 @@ const Flights = require('./models/flights');
 const { send } = require('process');
 // const http = require('http');
 const socket = require("socket.io-client")("https://example.com");
+const seed=require('./seed')
 // const server = http.createServer(app);
 // const io = require('socket.io')(server);
 
@@ -18,8 +19,9 @@ var express = require('express')
   , server = http.createServer(app)
   , io = require('socket.io')(server);
 
-
-
+server.listen(3030, () => {
+  console.log("APP IS LISTENING ON PORT 8080!")
+})
 
 var public = path.join(__dirname + "/public");
 app.use("/",express.static(public));
@@ -35,6 +37,7 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         console.log(err)
     })
     
+    seed.seedDB();
     
     app.get("/flights",(req,res)=>{
       res.sendFile(path.join(__dirname, '/public', 'allFlights.html'));
@@ -72,79 +75,98 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         res.sendFile(public + '/cart/shoppingCart.html');
       });
 
-// <<<<<<< HEAD
-// //  HEAD
-// =======
-// //<<<<<<< HEAD
-// >>>>>>> 81f850a04fe8fb875112bbb792c81eda6f9183d6
-      // app.get('/facebook', function (req, res) {
-      //   res.sendFile(public + '/facebook/index.html');
-      // });
+    //   const seedFlight = [
+    //     {
+    //       Name:"F234Y",
+    //       URL:"imgs/dubai.jpg",
+    //       Duration:12,
+    //       Departure:"Israel",
+    //       Arrivle:"New-York",
+    //       Price:600,
+    //       Temperature:10,
+    //       Continent:"northAmerica",
+    //       Date:"2022-09-28",
+    //       Category:"shopping"
+    //     },
+    // ]
 
-// <<<<<<< HEAD
-
-// =======
-// //=======
-// >>>>>>> 81f850a04fe8fb875112bbb792c81eda6f9183d6
-      const seedFlight = [
-        {
-          Name:"F234Y",
-          URL:"imgs/dubai.jpg",
-          Duration:12,
-          Departure:"Israel",
-          Arrivle:"New-York",
-          Price:600,
-          Temperature:10,
-          // Continent:"northAmerica",
-          Date:"2022-09-28",
-          Category:"shopping",
-        },
-
-        {
-          Name:"2",
-          URL:"imgs/france.jpg",
-          Duration:14,
-          Departure:"Israel",
-          Arrivle:"paris",
-          Price:800,
-          Temperature:3,
-          // Continent:"northAmerica",
-          Date:"2022-09-28",
-          Category:"shopping",
-        },
-        {
-          Name:"3",
-          URL:"imgs/greece.jpg",
-          Duration:8,
-          Departure:"Israel",
-          Arrivle:"paris",
-          Price:900,
-          Temperature:21,
-          // Continent:"northAmerica",
-          Date:"2022-09-28",
-          Category:"shopping",
-        },
-
-    ]
-
-    // [{"_id":"62a5db12d3649b6db876b912","Name":"F234Y","Duration":12,"Departure":"Israel","Arrivle":"New-York","Price":600,"Temperature":10,"Continent":"northAmerica","Date":"2022-09-28T00:00:00.000Z","Category":"shopping","__v":0}
-    // ,{"_id":"62a5db12d3649b6db876b913","Name":"V2G42","Duration":1,"Departure":"Israel","Arrivle":"Greece","Price":150,"Temperature":30,"Continent":"europe","Date":"2022-07-28T00:00:00.000Z","Category":"sunbathing","__v":0},
-    // {"_id":"62a5db12d3649b6db876b914","Name":"F244Y","Duration":12,"Departure":"New-York","Arrivle":"Israel","Price":600,"Temperature":30,"Continent":"europe","Date":"2022-10-04T00:00:00.000Z","Category":"shopping","__v":0},
-    // {"_id":"62a5db12d3649b6db876b915","Name":"V2G42","Duration":1,"Departure":"Israel","Arrivle":"Paris","Price":400,"Temperature":25,"Continent":"europe","Date":"2022-08-28T00:00:00.000Z","Category":"shopping","__v":0},
-    // {"_id":"62a5db12d3649b6db876b916","Name":"V2G42","Duration":1,"Departure":"Israel","Arrivle":"Thailand","Price":800,"Temperature":32,"Continent":"asia","Date":"2022-07-28T00:00:00.000Z","Category":"sunbathing","__v":0}]
+    // // [{"_id":"62a5db12d3649b6db876b912","Name":"F234Y","Duration":12,"Departure":"Israel","Arrivle":"New-York","Price":600,"Temperature":10,"Continent":"northAmerica","Date":"2022-09-28T00:00:00.000Z","Category":"shopping","__v":0}
+    // // ,{"_id":"62a5db12d3649b6db876b913","Name":"V2G42","Duration":1,"Departure":"Israel","Arrivle":"Greece","Price":150,"Temperature":30,"Continent":"europe","Date":"2022-07-28T00:00:00.000Z","Category":"sunbathing","__v":0},
+    // // {"_id":"62a5db12d3649b6db876b914","Name":"F244Y","Duration":12,"Departure":"New-York","Arrivle":"Israel","Price":600,"Temperature":30,"Continent":"europe","Date":"2022-10-04T00:00:00.000Z","Category":"shopping","__v":0},
+    // // {"_id":"62a5db12d3649b6db876b915","Name":"V2G42","Duration":1,"Departure":"Israel","Arrivle":"Paris","Price":400,"Temperature":25,"Continent":"europe","Date":"2022-08-28T00:00:00.000Z","Category":"shopping","__v":0},
+    // // {"_id":"62a5db12d3649b6db876b916","Name":"V2G42","Duration":1,"Departure":"Israel","Arrivle":"Thailand","Price":800,"Temperature":32,"Continent":"asia","Date":"2022-07-28T00:00:00.000Z","Category":"sunbathing","__v":0}]
     
-    Flights.insertMany(seedFlight)
-        .then(res => {})
-        .catch(e => {
-            console.log(e)
-        });
-// <<<<<<< HEAD
-// // >>>>>>> 848b7cee1dab37497dc027af8d16cc21ea7af5ab
-// =======
-// //>>>>>>> 848b7cee1dab37497dc027af8d16cc21ea7af5ab
-// >>>>>>> 81f850a04fe8fb875112bbb792c81eda6f9183d6
+    // Flights.insertMany(seedFlight)
+    //     .then(res => {})
+    //     .catch(e => {
+    //         console.log(e)
+    //     });
 
 
+    ///////////////
+
+// app.use(express.urlencoded({ extended: true }));
+// app.use(methodOverride('_method'))
+
+
+// app.get('/products', async (req, res) => {
+//     const { category } = req.query;
+//     if (category) {
+//         const products = await Product.find({ category })
+//         res.render('products/index', { products, category })
+//     } else {
+//         const products = await Product.find({})
+//         res.render('products/index', { products, category: 'All' })
+//     }
+// })
+
+// app.get('/products/new', (req, res) => {
+//     res.render('products/new', { categories })
+// })
+
+// app.post('/products', async (req, res) => {
+//     const newProduct = new Product(req.body);
+//     await newProduct.save();
+//     res.redirect(`/products/${newProduct._id}`)
+// })
+
+// app.get('/products/:id', async (req, res) => {
+//     const { id } = req.params;
+//     const product = await Product.findById(id)
+//     res.render('products/show', { product })
+// })
+
+// app.get('/products/:id/edit', async (req, res) => {
+//     const { id } = req.params;
+//     const product = await Product.findById(id);
+//     res.render('products/edit', { product, categories })
+// })
+
+// app.put('/products/:id', async (req, res) => {
+//     const { id } = req.params;
+//     const product = await Product.findByIdAndUpdate(id, req.body, { runValidators: true, new: true });
+//     res.redirect(`/products/${product._id}`);
+// })
+
+// app.delete('/products/:id', async (req, res) => {
+//     const { id } = req.params;
+//     const deletedProduct = await Product.findByIdAndDelete(id);
+//     res.redirect('/products');
+// })
+
+
+
+
+
+// socket.on("connect_error", (err) => {
+//   console.log(`connect_error due to ${err.message}`);
+// });
+
+
+
+// server.listen(8080, () => {
+//     console.log("APP IS LISTENING ON PORT 8080!")
+// })
 
 var usernames = {};
 
@@ -193,7 +215,10 @@ console.log("connect1");
 
 
 
+// <<<<<<< HEAD
 server.listen(8080, () => {
   console.log("APP IS LISTENING ON PORT 8080!")
 })
+// =======
+// >>>>>>> d20cadcae2578bb765b003a9ce2a61416686f9e6
 
