@@ -16,25 +16,27 @@
     <h1>Find your favorite vacation</h1>
     <br>
    
-        <!-- <label for="price">Price</label>
+        <label for="price">Price</label>
         <select name="price" id="price">
+            <option value="all">all</option>
             <option value="cheap">Less than 100$</option>
-            <option value="regular">Between 100$ and 300$</option>
-            <option value="expensive">Over 300$</option>
+            <option value="regular">Between 100$ and 500$</option>
+            <option value="expensive">Over 500$</option>
         </select>
    
         <label for="category">Category</label>
         <select name="category" id="category">
+            <option value="all">all</option>
             <option value="urban">urban</option>
             <option value="exotic">exotic</option>
             <option value="nature">nature</option>
             <option value="shopping">shopping</option>
             <option value="sunbathing">sunbathing</option>
-        </select> -->
-        <div class="box">
+        </select> 
+  
       <label for="continent">Continent</label>
       <select name="continent" id="continent">
-        <option value="all">all</option>
+          <option value="all">all</option>
           <option value="asia">asia</option>
           <option value="africa">africa</option>
           <option value="northAmerica">northAmerica</option>
@@ -42,26 +44,60 @@
           <option value="europe">europe</option>
       </select>
 
-      <button type="button" id="myButton">Search</button>
-    </div>
+      <button type="button1" id="myButton1">Search</button>
+      <br><br><br>
 
+      <label for="start">Start date:</label>
+      <input type="date" id="start" name="trip-start"
+       value="2022-06-01"
+       min="2022-06-01" max="2024-12-31">
+
+       <label for="end">End date:</label>
+       <input type="date" id="end" name="trip-end"
+        value="2022-06-01"
+        min="2022-06-01" max="2024-12-31">
+
+        <label for="temperature">Temperature</label>
+        <select name="temperature" id="temperature">
+            <option value="all">all</option>
+            <option value="cold">Less than 15C</option>
+            <option value="regular">Between 15C and 24C</option>
+            <option value="hot">Over 24C</option>
+        </select>
+
+      <button type="button2" id="myButton2">Search</button>
       <script>
         var continentUser="";
-        document.getElementById("myButton").onclick= function(){
-          // var price=document.getElementById("price").value;
-          // var category=document.getElementById("category").value;
-          continentUser=document.getElementById("continent").value;
-          // console.log(price);
-          // console.log(category);
-          console.log(continent);
+        var priceUser="";
+        var categoryUser="";
+        document.getElementById("myButton1").onclick= function(){
+          var priceUser=document.getElementById("price").value;
+          var categoryUser=document.getElementById("category").value;
+          var continentUser=document.getElementById("continent").value;
+          console.log(priceUser);
+          console.log(categoryUser);
+          console.log(continentUser);
           $.get("/allflights",(data)=>{
           $("#text").empty();
           for (var i = 0; i < data.length; i++){
           const continent=data[i].Continent;
-          if(continent!=continentUser)
-          continue;
+          const price=data[i].Price;
+          const category=data[i].Category;
+
+          if((continentUser=="all"||continent==continentUser) &&
+           (categoryUser=="all"||category==categoryUser)){
+            //priceUser=="all"||price==priceUser
+            if(priceUser=="cheap" && price>=100)
+            continue;
+
+            if(priceUser=="regular" && (price<100 || price>=500))
+            continue;
+
+            if(priceUser=="expensive" && price<500)
+            continue;
+
           const name=data[i].Name;
-     $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
+        $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
         <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
         <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
         <p><b>Category:</b> ${data[i].Category}</p>`);
@@ -70,9 +106,11 @@
       $("#image" + "_" + i).attr("src",data[i].URL);
       $("#image" + "_" + i).attr("width", "40%");
       $("#image" + "_" + i).attr("height", "40%"); 
+     }
     }
   });
           }
+
       </script>
     
     <hr>
