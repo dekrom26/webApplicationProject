@@ -15,7 +15,7 @@ document.getElementById("fb-share-button").addEventListener('click', function() 
     var message = window.prompt("תנו לנו ביקורת:");
     // console.log(message);
 // >>>>>>> 81f850a04fe8fb875112bbb792c81eda6f9183d6
-    var accessToken = "EAAPjYG6LzYMBAFxo6fbUCHUumyt6ZAceU5YBJPAnvtrZCWQZCOBAoRksMjWESeT7OeJTZBYh5VcLx4VMJO635iQDdbvsdZBBTbnPDwGY6Tgv890pCMw2k9vXg6IpK38k2HLnWNZABiMYOocLkfGsT9e7heduHsZBRADmBPNGPwtjgZDZD\n"
+    var accessToken = "EAAPjYG6LzYMBAPTUSwlCALb1cFQPewOLX44jGz8ltTdBSZCvX6C0R6i7Cf4ZA8ywtkQEMhPdX3gXR6r6xV0JdbJni2xHgm4CKKEM2l5spqZAZAtFe8M6LR2NxSU70XtQFJlthqkju5GBbIXysQuZCLyljId27DThP9ClGZBKgpOjPaSOUMCfxW"
     var createPostRequest = "https://graph.facebook.com/v14.0/104839158945939/feed?message=" + encodeURIComponent(message) + "&access_token=" + accessToken
     xhr.open("POST", createPostRequest);
     xhr.onload = () => console.log(xhr.responseText);

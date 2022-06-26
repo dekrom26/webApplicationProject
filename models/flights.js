@@ -34,7 +34,7 @@ const flightsSchema = new mongoose.Schema({
     Continent: {
         type: String,
      
-        enum: ['asia', 'africa', 'northAmerica','soutAmerica','europe']
+        enum: ['asia', 'africa', 'northAmerica','southAmerica','europe']
         // type: String,
         // required: true
     },

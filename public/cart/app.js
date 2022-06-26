@@ -11,9 +11,15 @@ const clearCartBtn = document.querySelector('.clear-cart')
 
 let cart = []
 
+
 class Product {
     async getProducts() {
-        try {
+        try {//////////////////////////
+                $.get("/allflights",(blabla)=>{
+                    $("#text").empty();
+                    console.log(blabla);
+                });
+            /////////////////////////
             // get the data from the json
             const result = await fetch('products.json')
             const data = await result.json()

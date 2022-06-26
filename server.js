@@ -19,7 +19,7 @@ var express = require('express')
   , server = http.createServer(app)
   , io = require('socket.io')(server);
 
-server.listen(8080, () => {
+server.listen(7000, () => {
   console.log("APP IS LISTENING ON PORT 8080!")
 })
 
@@ -74,6 +74,12 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
       app.get('/cart', function (req, res) {
         res.sendFile(public + '/cart/shoppingCart.html');
       });
+
+
+      app.get("/allcart",async(req,res)=>{
+        const flights = await Flights.find({})
+        res.json(flights);
+    })
 
     //   const seedFlight = [
     //     {
@@ -215,10 +221,9 @@ console.log("connect1");
 
 
 
-// <<<<<<< HEAD
+
 // server.listen(8080, () => {
 //   console.log("APP IS LISTENING ON PORT 8080!")
 // })
-// =======
-// >>>>>>> d20cadcae2578bb765b003a9ce2a61416686f9e6
+
 
