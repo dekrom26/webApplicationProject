@@ -36,7 +36,7 @@ function initMap() {
     AddMarker({
         coords: {lat: 31.969896, lng: 34.772101},
         map: map,
-        text: ["<h2 class='text-center'>כאן נמצא</h2>", "<div class='text-center'>דקל אוכל בתחת</div>"]
+        text: ["<h2 class='text-center'>כאן נמצא</h2>", "<div class='text-center'>משרדי החברה</div>"]
     }, map);
 }
 function AddMarker(mapArgument, map) {
