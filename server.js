@@ -19,8 +19,10 @@ var express = require('express')
   , server = http.createServer(app)
   , io = require('socket.io')(server);
 
+
 server.listen(7000, () => {
   console.log("APP IS LISTENING ON PORT 7000!")
+
 })
 
 var public = path.join(__dirname + "/public");
