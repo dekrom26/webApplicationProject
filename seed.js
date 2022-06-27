@@ -5,7 +5,7 @@ const Flights = require('./models/flights');
 
 const seedFlight = [
     {
-      Name:"1",
+      Name:"dubai",
       URL:"imgs/dubai.jpg",
       Duration:12,
       Departure:"Israel",
@@ -18,7 +18,7 @@ const seedFlight = [
     },
 
     {
-      Name:"2",
+      Name:"paris",
       URL:"imgs/france.jpg",
       Duration:14,
       Departure:"Israel",
@@ -30,11 +30,11 @@ const seedFlight = [
       Category:"shopping",
     },
     {
-      Name:"3",
+      Name:"Athens",
       URL:"imgs/greece.jpg",
       Duration:8,
       Departure:"Israel",
-      Arrivle:"paris",
+      Arrivle:"Athens",
       Price:900,
       Temperature:21,
       Continent:"europe",
@@ -42,10 +42,10 @@ const seedFlight = [
       Category:"shopping",
     },
     {
-      Name:"4",
+      Name:"Wellington",
       URL:"imgs/newZealand.jpg",
       Duration:8,
-      Departure:"Israel",
+      Departure:"Wellington",
       Arrivle:"paris",
       Price:900,
       Temperature:21,
@@ -55,11 +55,11 @@ const seedFlight = [
     },
 
     {
-      Name:"5",
+      Name:"Lisbon",
       URL:"imgs/portugal.jpg",
       Duration:5,
       Departure:"Israel",
-      Arrivle:"Humberto Delgado",
+      Arrivle:"Lisbon",
       Price:300,
       Temperature:25,
       Continent:"europe",
@@ -69,7 +69,7 @@ const seedFlight = [
     
 
     {
-      Name:"6",
+      Name:"madrid",
       URL:"imgs/spain.jpg",
       Duration:5,
       Departure:"Israel",
@@ -82,11 +82,11 @@ const seedFlight = [
     },
 
     {
-      Name:"7",
+      Name:"Brasilia",
       URL:"imgs/brazil.jpg",
       Duration:14,
       Departure:"Israel",
-      Arrivle:"rio de janeiro",
+      Arrivle:"Brasilia",
       Price:720,
       Temperature:25,
       Continent:"southAmerica",
@@ -96,11 +96,11 @@ const seedFlight = [
 
     
     {
-      Name:"8",
+      Name:"male",
       URL:"imgs/maldives.jpg",
       Duration:7,
       Departure:"Israel",
-      Arrivle:"Velana International",
+      Arrivle:"male",
       Price:800,
       Temperature:24,
       Continent:"asia",
@@ -109,11 +109,11 @@ const seedFlight = [
     },
 
     {
-      Name:"9",
+      Name:"Albany",
       URL:"imgs/newyork.jpg",
       Duration:12,
       Departure:"Israel",
-      Arrivle:"new york",
+      Arrivle:"Albany",
       Price:850,
       Temperature:15,
       Continent:"northAmerica",
@@ -122,11 +122,11 @@ const seedFlight = [
     },
 
     {
-      Name:"10",
+      Name:"Stone Town",
       URL:"imgs/zanzibar.jpg",
       Duration:7,
       Departure:"Israel",
-      Arrivle:"zanzibar",
+      Arrivle:"Stone Town",
       Price:450,
       Temperature:30,
       Continent:"africa",
@@ -135,26 +135,11 @@ const seedFlight = [
     },
 
 ]
-
-// [{"_id":"62a5db12d3649b6db876b912","Name":"F234Y","Duration":12,"Departure":"Israel","Arrivle":"New-York","Price":600,"Temperature":10,"Continent":"northAmerica","Date":"2022-09-28T00:00:00.000Z","Category":"shopping","__v":0}
-// ,{"_id":"62a5db12d3649b6db876b913","Name":"V2G42","Duration":1,"Departure":"Israel","Arrivle":"Greece","Price":150,"Temperature":30,"Continent":"europe","Date":"2022-07-28T00:00:00.000Z","Category":"sunbathing","__v":0},
-// {"_id":"62a5db12d3649b6db876b914","Name":"F244Y","Duration":12,"Departure":"New-York","Arrivle":"Israel","Price":600,"Temperature":30,"Continent":"europe","Date":"2022-10-04T00:00:00.000Z","Category":"shopping","__v":0},
-// {"_id":"62a5db12d3649b6db876b915","Name":"V2G42","Duration":1,"Departure":"Israel","Arrivle":"Paris","Price":400,"Temperature":25,"Continent":"europe","Date":"2022-08-28T00:00:00.000Z","Category":"shopping","__v":0},
-// {"_id":"62a5db12d3649b6db876b916","Name":"V2G42","Duration":1,"Departure":"Israel","Arrivle":"Thailand","Price":800,"Temperature":32,"Continent":"asia","Date":"2022-07-28T00:00:00.000Z","Category":"sunbathing","__v":0}]
-
 const seedDB= async ()=>{
     await Flights.deleteMany({});
     await Flights.insertMany(seedFlight);
     console.log("Seed file uploaded successfully")
 }
-// let limit = Flights.collection.find({_id:"2"}).sort({ length: -1 }).limit(3);
 
-
-// collection.find(query).sort({ length: -1 }).limit(3);
-// collection.find(query).limit(3).sort({ length: -1 });
-
-// seedDB().then(()=>{
-//     console.log("Seed file uploaded successfully")
-// });
 
 exports.seedDB = seedDB
