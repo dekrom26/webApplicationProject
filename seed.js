@@ -15,6 +15,7 @@ const seedFlight = [
       Continent:"northAmerica",
       Date:"2022-09-28",
       Category:"shopping",
+      API:"25d2055d27",
     },
 
     {
@@ -28,9 +29,10 @@ const seedFlight = [
       Continent:"europe",
       Date:"2022-09-28",
       Category:"shopping",
+      API:"48d862d35",
     },
     {
-      Name:"Athens",
+      Name:"athens",
       URL:"imgs/greece.jpg",
       Duration:8,
       Departure:"Israel",
@@ -40,9 +42,10 @@ const seedFlight = [
       Continent:"europe",
       Date:"2022-09-28",
       Category:"shopping",
+      API:"33d95n83d36",
     },
     {
-      Name:"Wellington",
+      Name:"new-zealand",
       URL:"imgs/newZealand.jpg",
       Duration:8,
       Departure:"Wellington",
@@ -52,10 +55,11 @@ const seedFlight = [
       Continent:"northAmerica",
       Date:"2022-09-28",
       Category:"shopping",
+      API:"n40d90174d89",
     },
 
     {
-      Name:"Lisbon",
+      Name:"lisbon",
       URL:"imgs/portugal.jpg",
       Duration:5,
       Departure:"Israel",
@@ -65,6 +69,7 @@ const seedFlight = [
       Continent:"europe",
       Date:"2022-07-15",
       Category:"exotic",
+      API:"38d72n9d14",
     },
     
 
@@ -79,10 +84,11 @@ const seedFlight = [
       Continent:"europe",
       Date:"2022-09-21",
       Category:"shopping",
+      API:"40d42n3d70",
     },
 
     {
-      Name:"Brasilia",
+      Name:"brasilia",
       URL:"imgs/brazil.jpg",
       Duration:14,
       Departure:"Israel",
@@ -92,11 +98,12 @@ const seedFlight = [
       Continent:"southAmerica",
       Date:"2022-01-13",
       Category:"nature",
+      API:"n15d79n47d88",
     },
 
     
     {
-      Name:"male",
+      Name:"maldives",
       URL:"imgs/maldives.jpg",
       Duration:7,
       Departure:"Israel",
@@ -106,10 +113,11 @@ const seedFlight = [
       Continent:"asia",
       Date:"2022-11-02",
       Category:"sunbathing",
+      API:"3d2073d22",
     },
 
     {
-      Name:"Albany",
+      Name:"albany",
       URL:"imgs/newyork.jpg",
       Duration:12,
       Departure:"Israel",
@@ -119,10 +127,11 @@ const seedFlight = [
       Continent:"northAmerica",
       Date:"2022-04-09",
       Category:"urban",
+      API:"42d65n73d76",
     },
 
     {
-      Name:"Stone Town",
+      Name:"zanzibar",
       URL:"imgs/zanzibar.jpg",
       Duration:7,
       Departure:"Israel",
@@ -132,14 +141,24 @@ const seedFlight = [
       Continent:"africa",
       Date:"2022-03-02",
       Category:"exotic",
+      API:"n6d1739d20",
     },
 
 ]
 const seedDB= async ()=>{
     await Flights.deleteMany({});
     await Flights.insertMany(seedFlight);
+    await Flights.aggregate( [
+  {
+    $group: {
+      _id: "shopping",
+       count: { $count: { } }
+    }
+  }
+] )
     console.log("Seed file uploaded successfully")
 }
+
 
 
 exports.seedDB = seedDB
