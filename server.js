@@ -19,7 +19,7 @@ var express = require('express')
   , server = http.createServer(app)
   , io = require('socket.io')(server);
 
-server.listen(7000, () => {
+server.listen(8080, () => {
   console.log("APP IS LISTENING ON PORT 8080!")
 })
 
