@@ -39,20 +39,20 @@ mongoose
 
 seed.seedDB();
 
-app.get("/flights", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public", "allFlights.html"));
-});
+// app.get("/flights", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/public", "allFlights.html"));
+// });
 
-app.get("/Home", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public", "index.html"));
-});
+// app.get("/Home", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/public", "index.html"));
+// });
 
-app.get("/allflights", async (req, res) => {
-  const flights = await Flights.find({});
-  res.json(flights);
-  // res.send(flights);
-  //
-});
+// app.get("/allflights", async (req, res) => {
+//   const flights = await Flights.find({});
+//   res.json(flights);
+//   // res.send(flights);
+//   //
+// });
 
 app.get("/order", async (req, res) => {
   const flights1 = await Flights.find().sort({ Price: 1 });
