@@ -6,7 +6,7 @@
       type="text/javascript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     ></script>
-    <link rel="stylesheet" href="./allFlight.css" />
+    <link rel="stylesheet" href="allFlight.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -83,7 +83,7 @@
       //                  <p blabla class="weatherwidget-io" href=${data.API} data-label_1="DUBAI" data-label_2="WEATHER" data-mode="Current" ></p>
       document.getElementById("myButton3").onclick = function () {
         $.get("/order", (data) => {
-          $("#text").empty();
+          $("#app").empty();
           console.log(data);
           for (var i = 0; i < data.length; i++) {
             const continent = data[i].Continent;
@@ -91,14 +91,14 @@
             const category = data[i].Category;
             const name = data[i].Name;
             let upName = data[i].Name.toUpperCase();
-            $("#text")
+            $("#app")
               .append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
         <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
         <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
         <p><b>Category:</b> ${data[i].Category}</p>
         <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
         `);
-            document.getElementById("text").innerHTML +=
+            document.getElementById("app").innerHTML +=
               `<p><img id="image_` + i + `" class="center"/></p></td><hr><br>`;
             $("#image" + "_" + i).attr("src", data[i].URL);
             $("#image" + "_" + i).attr("width", "40%");
@@ -121,7 +121,7 @@
         // console.log(categoryUser);
         // console.log(continentUser);
         $.get("/allflights", (data) => {
-          $("#text").empty();
+          $("#app").empty();
           for (var i = 0; i < data.length; i++) {
             const continent = data[i].Continent;
             const price = data[i].Price;
@@ -140,7 +140,7 @@
               if (priceUser == "expensive" && price < 500) continue;
               let upName = data[i].Name.toUpperCase();
               const name = data[i].Name;
-              $("#text")
+              $("#app")
                 .append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
         <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
         <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
@@ -148,7 +148,7 @@
         <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
         `);
 
-              document.getElementById("text").innerHTML +=
+              document.getElementById("app").innerHTML +=
                 `<p><img id="image_` +
                 i +
                 `" class="center"/></p></td><hr><br>`;
@@ -185,15 +185,15 @@
       // document.getElementById("text").innerHTML += "HIII!";
 
       function ClearDiv() {
-        document.getElementById("text").innerHTML = ``;
+        document.getElementById("app").innerHTML = ``;
       }
       function getAllFlights() {
         $.get("/allflights", (data) => {
-          $("#text").empty();
+          $("#app").empty();
           for (var i = 0; i < data.length; i++) {
             const name = data[i].Name;
             let upName = data[i].Name.toUpperCase();
-            $("#text")
+            $("#app")
               .append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
         <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
         <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
@@ -201,7 +201,7 @@
         <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a><p>
         `);
 
-            document.getElementById("text").innerHTML +=
+            document.getElementById("app").innerHTML +=
               `<p><img id="image_` + i + `" class="center"/></p></td><hr><br>`;
             $("#image" + "_" + i).attr("src", data[i].URL);
             $("#image" + "_" + i).attr("width", "40%");

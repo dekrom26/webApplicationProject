@@ -176,9 +176,15 @@ customElements.define("mfooter", MyFooter);
 
 async function router() {
   const routes = [
-    { path: "/", view: "./index.html" },
-    { path: "/Home", view: "./index.html" },
+    { path: "/", view: "./home/home.html" },
+    { path: "/Home", view: "./home/home.html" },
+    { path: "/Home/", view: "./home/home.html" },
     { path: "/Flights", view: "./allFlights/allFlights.html" },
+    { path: "/Flights/", view: "./allFlights/allFlights.html" },
+    { path: "/chat", view: "./chat/chat.html" },
+    { path: "/chat/", view: "./chat/chat.html" },
+    { path: "/cart", view: "./cart/shoppingCart.html" },
+    { path: "/cart/", view: "./cart/shoppingCart.html" },
   ];
   const matchRoute = routes.find(
     (route) => route.path == window.location.pathname

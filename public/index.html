@@ -1,51 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flights for you</title>
     <script
-    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-    crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"
+    ></script>
     <!-- <link rel="stylesheet" type="text/css" href="http://localhoststyle/index.css" /> -->
-    <link rel="stylesheet" href="style/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="index.js"></script>
-
-</head>
-<body>
-
-  <div id="app"></div>
-
-      <nav>
-        <div class="container">
+    <link rel="stylesheet" href="style/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
         <ul class="menu">
-            <canvas id="myCanvas" width="50" height="50" style="border:1px solid #000000;">
-                <img id="imgCanvas" src="imgs/img0.jpg" alt="">
-                </canvas>
-            <li class="logo"><a href="#">Cheapest Flights</a></li>
-            <li class="item"><a href="/Home" data-link>Home</a></li>
-            <li class="item"><a href="/Flights" data-link>Flights</a></li>
-            <li class="item"><a href="/chat" data-link>Chat</a></li>
-            <li class="item"><a id="cart" data-link class="cart1" href="/cart">
-              
-                <i style="font-size:24px" class="fa">&#xf07a;</i>
-                <li class="toggle"><span class="bars"></span></li>
+          <canvas
+            id="myCanvas"
+            width="50"
+            height="50"
+            style="border: 1px solid #000000"
+          >
+            <img id="imgCanvas" src="imgs/img0.jpg" alt="" />
+          </canvas>
+          <li class="logo"><a href="#">Cheapest Flights</a></li>
+          <li class="item"><a href="/Home" data-link>Home</a></li>
+          <li class="item"><a href="/Flights" data-link>Flights</a></li>
+          <li class="item"><a href="/chat" data-link>Chat</a></li>
+          <li class="item">
+            <!-- <li class="item"><a href="/cart" data-link class="cart1"></a></li> -->
+            <a id="cart" data-link class="cart1" href="/cart">
+              <i style="font-size: 24px" class="fa">&#xf07a;</i>
+              <li class="toggle"><span class="bars"></span></li>
             </a>
-            </li>
-            
+          </li>
         </ul>
-        </div>
-
+      </div>
     </nav>
-    <div class="img">
+    <div id="app"></div>
+    <!-- <div class="img">
 
     </div>
 
@@ -138,76 +146,70 @@
    
     <br>
     <br>
-    <br>
+    <br> -->
 
+    <footer class="footer-distributed">
+      <div class="footer-left">
+        <h3>Cheapest<span>Flights</span></h3>
 
+        <p class="footer-links">
+          <a href="#">Home</a>
+          ·
+          <a href="#">Blog</a>
+          ·
+          <a href="#">Pricing</a>
+          ·
+          <a href="#">About</a>
+          ·
+          <a href="#">Faq</a>
+          ·
+          <a href="#">Contact</a>
+        </p>
 
+        <p class="footer-company-name">CheapestFlights © 2022</p>
+      </div>
 
-      <footer class="footer-distributed">
-
-          <div class="footer-left">
-
-              <h3>Cheapest<span>Flights</span></h3>
-
-              <p class="footer-links">
-                  <a href="#">Home</a>
-                  ·
-                  <a href="#">Blog</a>
-                  ·
-                  <a href="#">Pricing</a>
-                  ·
-                  <a href="#">About</a>
-                  ·
-                  <a href="#">Faq</a>
-                  ·
-                  <a href="#">Contact</a>
-              </p>
-
-              <p class="footer-company-name">CheapestFlights © 2022</p>
+      <div class="footer-center">
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>2 אלי ויזל</span> ראשון לציון, ישראל</p>
+          <div id="map">
+            <script
+              async
+              defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1lRPzPBHuKlkSVrXGlWvhGYQlISrMSBE&callback=initMap"
+            ></script>
           </div>
+        </div>
 
-          <div class="footer-center">
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>03-1234567</p>
+        </div>
 
-              <div>
-                  <i class="fa fa-map-marker"></i>
-                  <p><span>2 אלי ויזל</span> ראשון לציון, ישראל</p>
-                  <div id="map">
-                      <script async defer
-                              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1lRPzPBHuKlkSVrXGlWvhGYQlISrMSBE&callback=initMap">
-                      </script>
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="">contact@CheapestFlights.com</a></p>
+        </div>
+      </div>
 
-                  </div>
-              </div>
+      <div class="footer-right">
+        <p class="footer-company-about">
+          <span>קצת עלינו</span>
+          חברת תעופה שהוקמה למען ציון טוב בפרוייקט
+        </p>
+        <div></div>
 
-              <div>
-                  <i class="fa fa-phone"></i>
-                  <p>03-1234567</p>
-              </div>
-
-              <div>
-                  <i class="fa fa-envelope"></i>
-                  <p><a href="">contact@CheapestFlights.com</a></p>
-              </div>
-
-          </div>
-
-          <div class="footer-right">
-
-              <p class="footer-company-about">
-                  <span>קצת עלינו</span>
-                  חברת תעופה שהוקמה למען ציון טוב בפרוייקט
-              </p>
-<div></div>
-
-              <div id="fb-share-button">
-                <svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet">
-                    <path class="svg-icon-path" d="M9.1,0.1V2H8C7.6,2,7.3,2.1,7.1,2.3C7,2.4,6.9,2.7,6.9,3v1.4H9L8.8,6.5H6.9V12H4.7V6.5H2.9V4.4h1.8V2.8 c0-0.9,0.3-1.6,0.7-2.1C6,0.2,6.6,0,7.5,0C8.2,0,8.7,0,9.1,0.1z"></path>
-                </svg>
-                <span>Share</span>
-            </div>
-
-          </div>
-
-      </footer>
-</body>
+        <div id="fb-share-button">
+          <svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet">
+            <path
+              class="svg-icon-path"
+              d="M9.1,0.1V2H8C7.6,2,7.3,2.1,7.1,2.3C7,2.4,6.9,2.7,6.9,3v1.4H9L8.8,6.5H6.9V12H4.7V6.5H2.9V4.4h1.8V2.8 c0-0.9,0.3-1.6,0.7-2.1C6,0.2,6.6,0,7.5,0C8.2,0,8.7,0,9.1,0.1z"
+            ></path>
+          </svg>
+          <span>Share</span>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
