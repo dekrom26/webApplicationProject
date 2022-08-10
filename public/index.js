@@ -172,7 +172,7 @@ class MyFooter extends HTMLElement {
   </footer>`;
   }
 }
-customElements.define("mfooter", MyFooter);
+//customElements.define("mfooter", MyFooter);
 
 async function router() {
   const routes = [
@@ -180,6 +180,7 @@ async function router() {
     { path: "/Home", view: "./home/home.html" },
     { path: "/Home/", view: "./home/home.html" },
     { path: "/Flights", view: "./allFlights/allFlights.html" },
+    //{ path: "/Flights", view: allFlights },
     { path: "/Flights/", view: "./allFlights/allFlights.html" },
     { path: "/chat", view: "./chat/chat.html" },
     { path: "/chat/", view: "./chat/chat.html" },
@@ -197,5 +198,9 @@ function navigateTo(url) {
   router();
 }
 async function getTemplate(url) {
-  return fetch(url).then((res) => res.text());
+  return fetch(url).then((res) => res.text()).then(function (html){
+    var praser = new DOMParser();
+    var doc =praser.parseFromString(html,'text/html');
+    return doc.body.innerHTML;
+  });
 }

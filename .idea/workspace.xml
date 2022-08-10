@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="new token to FB">
+    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="weather changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/allFlights/allFlight.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/allFlights/allFlight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/allFlights/allFlights.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/allFlights/allFlights.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/style/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -93,7 +104,12 @@
       <workItem from="1655984143869" duration="3261000" />
       <workItem from="1656226385864" duration="1464000" />
       <workItem from="1656315224505" duration="417000" />
-      <workItem from="1656336371519" duration="1091000" />
+      <workItem from="1656336371519" duration="1574000" />
+      <workItem from="1656352878578" duration="357000" />
+      <workItem from="1659859839359" duration="9797000" />
+      <workItem from="1660069213225" duration="1114000" />
+      <workItem from="1660117018183" duration="2243000" />
+      <workItem from="1660122183169" duration="5962000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -185,7 +201,13 @@
       <option name="presentableId" value="LOCAL‎00015" />
       <updated>1656227842534</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL‎00016" summary="weather changes">
+      <created>1656337939938</created>
+      <option name="number" value="LOCAL‎00016" />
+      <option name="presentableId" value="LOCAL‎00016" />
+      <updated>1656337939938</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +251,8 @@
     <MESSAGE value="weather" />
     <MESSAGE value="relocate map" />
     <MESSAGE value="new token to FB" />
-    <option name="LAST_COMMIT_MESSAGE" value="new token to FB" />
+    <MESSAGE value="weather changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="weather changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

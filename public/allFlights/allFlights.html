@@ -6,16 +6,18 @@
       type="text/javascript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     ></script>
-    <link rel="stylesheet" href="allFlight.css" />
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Flights</title>
   </head>
-  <body>
+  <body class="allFlights">
+
     <h1>Find your favorite vacation</h1>
     <br />
 
+    <link rel="stylesheet" href="public/allFlights/allFlight.css" />
     <label for="price">Price</label>
     <select name="price" id="price">
       <option value="all">all</option>
@@ -113,6 +115,7 @@
       var priceUser = "";
       var categoryUser = "";
       var api = "";
+      console.log("igor")
       document.getElementById("myButton1").onclick = function () {
         var priceUser = document.getElementById("price").value; //the price the user put.
         var categoryUser = document.getElementById("category").value; //the category the user put.

@@ -17,12 +17,12 @@ var express = require("express"),
   server = http.createServer(app),
   io = require("socket.io")(server);
 
-server.listen(7000, () => {
-  console.log("APP IS LISTENING ON PORT 7000!");
+server.listen(8080, () => {
+  console.log("APP IS LISTENING ON PORT 8080!");
 });
 
 var public = path.join(__dirname + "/public");
-app.use("/", express.static(public));
+app.use(express.static(public));
 
 mongoose
   .connect("mongodb://localhost:27017/Flights", {
@@ -36,6 +36,8 @@ mongoose
     console.log("OH NO MONGO CONNECTION ERROR!!!!");
     console.log(err);
   });
+
+
 
 seed.seedDB();
 

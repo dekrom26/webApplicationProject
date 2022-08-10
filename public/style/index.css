@@ -1,6 +1,10 @@
 
-  /* background image
+
+
+/* background image
   ---------------------------------- */
+
+
 
 .img{
     background-image: url('https://www.elal.com/SiteCollectionImages/1920X1055_Plasma2019/North-America/Boston_plazma.jpg');
@@ -11,6 +15,8 @@
     background-position: center;
     object-fit: none;
 }
+
+.allFlights{}
 
 
   /* logo in the nav bar
