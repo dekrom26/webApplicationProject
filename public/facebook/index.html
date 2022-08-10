@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id = "buttons">
+        <button type = "button" id="share-button">Share</button>
+    </div>
+
+    <script>
+        document.getElementById("share-button").addEventListener('click', function() {
+        let xhr = new XMLHttpRequest();
+        var message = "hi ksldjcklsdfkl;."
+        var accessToken = "EAAPjYG6LzYMBAG00lwAzFMMp8li26nphSjHALtBNAmW8eZALfj2CZC2PQxy79tZCOVHH276w3M5fjBVM5qDULChLCGjUeEak0ELpJXZCCSH367aveQKhQxvlYxYauOt5ZC3OiDRZBo3JJkwybyAQejxWyylifS6cJ4kgZC8ZCbBEF6EwzVKvMXdtncedBGH1uEnkz7jTaSjtkAZDZD"
+        var createPostRequest = "https://graph.facebook.com/v14.0/104839158945939/feed?message=" + encodeURIComponent(message) + "&access_token=" + accessToken
+        xhr.open("POST", createPostRequest);
+        xhr.onload = () => console.log(xhr.responseText);
+        xhr.send()
+    });
+    </script>
+</body>
+</html>

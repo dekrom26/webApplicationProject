@@ -59,6 +59,20 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
       res.json(flights1);
   })
 
+
+  app.get("/blabla",async(req,res)=>{
+    const blabla = await Flights.aggregate( [
+      {
+        $group: {
+          _id: "$Continent",totalPrice:{$sum :"$Price"}
+        }
+      }
+    ] )
+    console.log(blabla);
+  res.json(blabla);
+})
+
+
     app.get("/",(req,res)=>
     {
        res.sendFile(public);
@@ -89,6 +103,9 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         const flights = await Flights.find({})
         res.json(flights);
     })
+
+
+
 
 var usernames = {};
 

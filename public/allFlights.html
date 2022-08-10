@@ -14,6 +14,7 @@
 </head>
 <body>
     <h1>Find your favorite vacation</h1>
+    <a href="/blabla">aaaaaaaaaaaaaaaaaaaaaaaa</a>
     <br>
    
         <label for="price">Price</label>
@@ -69,14 +70,25 @@
 
       <button type="button3" id="myButton3">order by price</button>
      
-
+<script>
+  
+  !function temperature(d,s,id){
+                      var js,fjs=d.getElementsByTagName(s)[0];
+                      if(!d.getElementById(id)){
+                          js=d.createElement(s);
+                          js.id=id;
+                          js.src='https://weatherwidget.io/js/widget.min.js';
+                          fjs.parentNode.insertBefore(js,fjs);
+                      }
+                  }(document,'script','weatherwidget-io-js');
+</script>
 
 <script>
 //                  <p blabla class="weatherwidget-io" href=${data.API} data-label_1="DUBAI" data-label_2="WEATHER" data-mode="Current" ></p>
+
         document.getElementById("myButton3").onclick= function(){
             $.get("/order",(data)=>{
           $("#text").empty();
-          console.log(data);
           for (var i = 0; i < data.length; i++){
           const continent=data[i].Continent;
           const price=data[i].Price;
@@ -87,16 +99,23 @@
         <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
         <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
         <p><b>Category:</b> ${data[i].Category}</p>
-        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
-        `
-        );
+        <a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current">WEATHER</a> 
+         `
+         );
+        
     document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
       $("#image" + "_" + i).attr("src",data[i].URL);
       $("#image" + "_" + i).attr("width", "40%");
       $("#image" + "_" + i).attr("height", "40%"); 
           }
+
+
+
+
             });
           }
+
+
 </script>
 
 
@@ -139,12 +158,13 @@
         <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
         <p><b>Category:</b> ${data[i].Category}</p>
         <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
-        `);
+       `);
 
     document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
       $("#image" + "_" + i).attr("src",data[i].URL);
       $("#image" + "_" + i).attr("width", "40%");
       $("#image" + "_" + i).attr("height", "40%"); 
+     
     
      }
     }
@@ -158,17 +178,7 @@
     <input type="search" id="flight-search" name="q">
     
 <button>Search</button> -->
-<script>
-      !function (d,s,id){
-                    var js,fjs=d.getElementsByTagName(s)[0];
-                    if(!d.getElementById(id)){
-                        js=d.createElement(s);
-                        js.id=id;
-                        js.src='https://weatherwidget.io/js/widget.min.js';
-                        fjs.parentNode.insertBefore(js,fjs);
-                    }
-                }(document,'script','weatherwidget-io-js');
- </script>
+
               
                 
 
@@ -207,22 +217,11 @@ function getAllFlights(){
   });
 
   }
-//   <a class="weatherwidget-io" href="https://forecast7.com/en/25d2055d27/dubai/" data-label_1="DUBAI" data-label_2="WEATHER" data-mode="Current" >DUBAI WEATHER</a>
-//   Name
-//     URL
-//     Duration
-//     Departure   
-//     Arrivle
-//     Price
-//     Temperature
-//     Continent
-//     Date
-//     Category
-                   
 
 
 $(() => {
         getAllFlights();
+
 });
     
 </script>

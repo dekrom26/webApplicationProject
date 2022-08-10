@@ -148,14 +148,6 @@ const seedFlight = [
 const seedDB= async ()=>{
     await Flights.deleteMany({});
     await Flights.insertMany(seedFlight);
-    await Flights.aggregate( [
-  {
-    $group: {
-      _id: "shopping",
-       count: { $count: { } }
-    }
-  }
-] )
     console.log("Seed file uploaded successfully")
 }
 
