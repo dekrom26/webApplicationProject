@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="weather changes">
+    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="changes in spa 10/08/22">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/allFlights/allFlight.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/allFlights/allFlight.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/allFlights/allFlights.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/allFlights/allFlights.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/style/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +104,7 @@
       <workItem from="1659859839359" duration="9797000" />
       <workItem from="1660069213225" duration="1114000" />
       <workItem from="1660117018183" duration="2243000" />
-      <workItem from="1660122183169" duration="5962000" />
+      <workItem from="1660122183169" duration="7548000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -207,7 +202,13 @@
       <option name="presentableId" value="LOCAL‎00016" />
       <updated>1656337939938</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL‎00017" summary="changes in spa 10/08/22">
+      <created>1660130324952</created>
+      <option name="number" value="LOCAL‎00017" />
+      <option name="presentableId" value="LOCAL‎00017" />
+      <updated>1660130324952</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +253,8 @@
     <MESSAGE value="relocate map" />
     <MESSAGE value="new token to FB" />
     <MESSAGE value="weather changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="weather changes" />
+    <MESSAGE value="changes in spa 10/08/22" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes in spa 10/08/22" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
