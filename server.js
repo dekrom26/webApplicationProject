@@ -42,6 +42,12 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
       res.sendFile(path.join(__dirname, '/public', 'allFlights.html'));
     })
 
+    app.get("/home",(req,res)=>{
+      res.sendFile(path.join(__dirname, '/public', 'home.html'));
+    })
+
+
+
     app.get("/allflights",async(req,res)=>{
         const flights = await Flights.find({});
         res.json(flights);

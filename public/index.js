@@ -24,7 +24,7 @@ function showFlightPage(){
 function showHomePage(){
     $(document).ready(function(){
         preload();
-        $("#app").load("flights");
+        $("#app").load("home");
     });
 }
 

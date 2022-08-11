@@ -52,6 +52,10 @@
   .button.secondary {
     border-bottom: 1px #444 solid;
   }
+
+  #button{
+    color: #999;
+  }
   
   /* Mobile menu */
   .menu {
