@@ -126,7 +126,7 @@
 -----------------*/
 
 button{
-  width: 103px;
+  /* width: 103px; */
   height: 35px;
   cursor: pointer;
   margin: 5px;
@@ -135,6 +135,7 @@ button{
   display: flex;
   align-items: center;
   justify-content: center;
+  color: ivory;
 }
 .cart{
   background: #fdbb2d;

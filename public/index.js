@@ -28,6 +28,7 @@ function showHomePage(){
     });
 }
 
+
 function showChatPage(){
     $(document).ready(function(){
         preload();
@@ -43,6 +44,13 @@ function showCartPage(){
     });
 }
 
+
+function showMasterPage(){
+    $(document).ready(function(){
+        preload();
+        $("#app").load("public/Master/master.html");
+    });
+}
 
 
 
