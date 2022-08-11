@@ -31,7 +31,7 @@ function showHomePage(){
 function showChatPage(){
     $(document).ready(function(){
         preload();
-        $("#app").load("public/allFlights.html");
+        $("#app").load("chat");
     });
 }
 
@@ -92,3 +92,4 @@ function AddMarker(mapArgument, map) {
         infoWindow.open(map, marker);
     });
 }
+
