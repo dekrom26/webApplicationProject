@@ -52,6 +52,10 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         //        
     })
 
+    app.get("/Master", async (req, res) => {
+      const flights = await Flights.find({});
+      res.json(flights);
+    });
 
     
     app.get("/order",async(req,res)=>{
