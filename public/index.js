@@ -7,6 +7,29 @@ window.onload = function() {
 };
 
 
+
+let buttons = document.getElementsByTagName("button");
+
+const cart = [];
+
+for(var i=0; i<buttons.length; i++) {
+  let button = buttons[i];
+  console.log(button);
+  button.addEventListener('click', function(event){
+    console.clear();
+    console.log(event.target);
+    console.log(event.target.dataset.productSku);
+    cart.push( event.target.dataset.productSku );
+    console.log(cart)    
+  });
+}
+
+
+
+// const result = await fetch('')
+
+
+
 function preload(){
     $(document).ready(function(){
         $("#app").empty();
@@ -48,7 +71,7 @@ function showCartPage(){
 function showMasterPage(){
     $(document).ready(function(){
         preload();
-        $("#app").load("public/Master/master.html");
+        $("#app").load("public/master.html");
     });
 }
 
@@ -100,3 +123,9 @@ function AddMarker(mapArgument, map) {
         infoWindow.open(map, marker);
     });
 }
+
+
+
+
+
+
