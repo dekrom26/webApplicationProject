@@ -1,13 +1,19 @@
 
+
 body{
-  background-image: url('back.jpg');
+  /*background-image: url('back.jpg');*/
   background-repeat: round;
+  background-color:white;
 
 }
 
 h1 {
     text-align:center;
     font-size: 150%;
+}
+
+button{
+  color:dimgray;
 }
 
 p{

@@ -7,6 +7,45 @@ window.onload = function() {
 };
 
 
+function preload(){
+    $(document).ready(function(){
+        $("#app").empty();
+    })
+}
+
+
+function showFlightPage(){
+    $(document).ready(function(){
+        preload();
+       $("#app").load("flights");
+    });
+}
+
+function showHomePage(){
+    $(document).ready(function(){
+        preload();
+        $("#app").load("flights");
+    });
+}
+
+function showChatPage(){
+    $(document).ready(function(){
+        preload();
+        $("#app").load("public/allFlights.html");
+    });
+}
+
+
+function showCartPage(){
+    $(document).ready(function(){
+        preload();
+        $("#app").load("public/allFlights.html");
+    });
+}
+
+
+
+
 document.getElementById("fb-share-button").addEventListener('click', function() {
     let xhr = new XMLHttpRequest();
 // <<<<<<< HEAD
