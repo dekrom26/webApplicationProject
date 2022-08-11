@@ -37,6 +37,14 @@ function preload(){
 }
 
 
+
+function showMasterPage(){
+    $(document).ready(function(){
+        preload();
+       $("#app").load("master");
+    });
+}
+
 function showFlightPage(){
     $(document).ready(function(){
         preload();
@@ -55,7 +63,7 @@ function showHomePage(){
 function showChatPage(){
     $(document).ready(function(){
         preload();
-        $("#app").load("public/allFlights.html");
+        $("#app").load("chat");
     });
 }
 
@@ -68,12 +76,6 @@ function showCartPage(){
 }
 
 
-function showMasterPage(){
-    $(document).ready(function(){
-        preload();
-        $("#app").load("public/master.html");
-    });
-}
 
 
 
@@ -123,9 +125,3 @@ function AddMarker(mapArgument, map) {
         infoWindow.open(map, marker);
     });
 }
-
-
-
-
-
-

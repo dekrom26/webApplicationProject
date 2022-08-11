@@ -46,6 +46,14 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
       res.sendFile(path.join(__dirname, '/public', 'home.html'));
     })
 
+    app.get("/chat",(req,res)=>{
+      res.sendFile(path.join(__dirname, '/public', 'chat.html'));
+    })
+
+
+    app.get("/master",(req,res)=>{
+      res.sendFile(path.join(__dirname, '/public', 'master.html'));
+    });
 
     app.get("/allflights",async(req,res)=>{
         const flights = await Flights.find({});
@@ -53,8 +61,6 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         // res.send(flights);
         //        
     })
-
-    
     app.get("/order",async(req,res)=>{
         const flights1 = await Flights.find().sort({Price:1});
       res.json(flights1);
@@ -76,9 +82,9 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
     //   console.log('a user connected');
     // });
 
-      app.get('/chat', function (req, res) {
-        res.sendFile(public + '/html/index.html');
-      });
+      // app.get('/chat', function (req, res) {
+      //   res.sendFile(public + '/html/index.html');
+      // });
       
       // C:\Users\97252\OneDrive\מסמכים\GitHub\webApplicationProject\public\chat\shoppingCart.html
       app.get('/cart', function (req, res) {
