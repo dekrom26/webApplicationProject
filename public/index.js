@@ -14,6 +14,14 @@ function preload(){
 }
 
 
+
+function showMasterPage(){
+    $(document).ready(function(){
+        preload();
+       $("#app").load("master");
+    });
+}
+
 function showFlightPage(){
     $(document).ready(function(){
         preload();
@@ -48,7 +56,7 @@ function showCartPage(){
 function showMasterPage(){
     $(document).ready(function(){
         preload();
-        $("#app").load("public/Master/master.html");
+        $("#app").load("master");
     });
 }
 

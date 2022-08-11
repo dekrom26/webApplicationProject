@@ -51,6 +51,10 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
     })
 
 
+    app.get("/master",(req,res)=>{
+      res.sendFile(path.join(__dirname, '/public', 'master.html'));
+    });
+
 
     app.get("/allflights",async(req,res)=>{
         const flights = await Flights.find({});
@@ -59,10 +63,10 @@ mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, u
         //        
     })
 
-    app.get("/Master", async (req, res) => {
-      const flights = await Flights.find({});
-      res.json(flights);
-    });
+    // app.get("/Master", async (req, res) => {
+    //   const flights = await Flights.find({});
+    //   res.json(flights);
+    // });
 
     
     app.get("/order",async(req,res)=>{
