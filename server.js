@@ -22,13 +22,10 @@ var express = require('express')
 
 server.listen(7000, () => {
   console.log("APP IS LISTENING ON PORT 7000!")
-
 })
 
 var public = path.join(__dirname + "/public");
 app.use("/",express.static(public));
-
-
 
 mongoose.connect('mongodb://localhost:27017/Flights', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {

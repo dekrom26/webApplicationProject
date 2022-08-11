@@ -9,6 +9,9 @@
     src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
     crossorigin="anonymous"></script>
+
+    
+    
     <!-- <link rel="stylesheet" type="text/css" href="http://localhoststyle/front.css" /> -->
     <link rel="stylesheet" href="style/front.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,11 +21,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
+<script src=
+		"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
 
 </head>
 <body>
-
-
       <nav>
         <div class="container">
         <ul class="menu">
@@ -30,29 +33,41 @@
                 <img id="imgCanvas" src="style/img0.jpg" alt="">
                 </canvas>
             <li class="logo"><a href="#">Cheapest Flights</a></li>
-            <li class="item"><a href="/Home">Home</a></li>
+            <!-- <li class="item"><a href="/Home">Home</a></li>
             <li class="item"><a href="/Flights">Flights</a></li>
             <li class="item"><a href="/chat">Chat</a></li>
-            <li class="item"><a id="cart" class="cart1" href="/cart">
+            <li class="item"><a id="cart" class="cart1" href="/cart"> -->
+
+              <li class="item">
+                <button type="button" class="button" onclick="showHomePage()">Home</button>
+              </li>
+
+              <li class="item">
+                <button type="button" class="button" onclick="showFlightPage()">Flights</button>
+              </li>
               
+              <li class="item">
+                <button type="button" class="button" onclick="showChatPage()">Chat</button>
+              </li>
+
+              <li class="item">
+                <button type="button" class="button" onclick="showCartPage()">
                 <i style="font-size:24px" class="fa">&#xf07a;</i>
                 <li class="toggle"><span class="bars"></span></li>
-            </a>
             </li>
             
         </ul>
         </div>
 
     </nav>
-    <div class="img">
+    
+    <div id="app">
+    <div class="img"></div>
 
-    </div>
+  <h1 id="mss">יעדים פופולריים</h1>
 
-<h1 id="mss">יעדים פופולריים</h1>
-
-<header class="page-header">
-    <div class="container flow">
-    </div>
+  <header class="page-header">
+    <div class="container flow"> </div>
   </header>
  
   <div class="media-scroller snaps-inline">
@@ -117,7 +132,6 @@
         </div>
   </div>
 
-        </div>
   </div>
 
     <br>
@@ -130,17 +144,16 @@
         <source src="video.mp4" type="video/mp4">
       </video>
      </div>
-     <div class="travel">
-
+   
      </div>
+     
     </div>
    
     <br>
     <br>
     <br>
-
-
-
+    
+    </div>
 
       <footer class="footer-distributed">
 
