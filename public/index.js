@@ -125,3 +125,37 @@ function AddMarker(mapArgument, map) {
         infoWindow.open(map, marker);
     });
 }
+
+
+function showallFlights(){
+    $.get("/allflights",(data)=>{
+        $("#main").empty();
+        console.log(data);
+        for (var i = 0; i < data.length; i++){
+        const continent=data[i].Continent;
+        const price=data[i].Price;
+        const category=data[i].Category;
+        const name=data[i].Name;
+        let upName = data[i].Name.toUpperCase();
+      $("#main").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
+      <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
+      <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
+      <p><b>Category:</b> ${data[i].Category}</p>
+      `
+      );
+     document.getElementById("main").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
+    $("#image" + "_" + i).attr("src",data[i].URL);
+    $("#image" + "_" + i).attr("width", "40%");
+    $("#image" + "_" + i).attr("height", "40%"); 
+        }
+          });
+        };
+        
+
+
+function showCreateFlights(){
+    $("#main").empty();
+    $("#create").empty();
+    $("#main").append('');
+
+}

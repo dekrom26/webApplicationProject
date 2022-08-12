@@ -49,6 +49,18 @@ p{
     color: #fff;
 }
 
+#myButton2{
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: none;
+  background: #00a3b8;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  color: #fff;
+}
+
 
 .box select {
   background-color: #00a3b8;
