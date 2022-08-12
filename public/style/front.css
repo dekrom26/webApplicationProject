@@ -1,7 +1,6 @@
 
   /* background image
   ---------------------------------- */
-
 .img{
     background-image: url('https://www.elal.com/SiteCollectionImages/1920X1055_Plasma2019/North-America/Boston_plazma.jpg');
     background-repeat: no-repeat;
@@ -438,4 +437,6 @@ button{
   padding: 0 3px
 }
 
+
 }
+
