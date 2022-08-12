@@ -1,290 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <script
       language="JavaScript"
       type="text/javascript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     ></script>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="master.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="master.css" />
     <title>Document</title>
     <script
-    language="JavaScript"
-    type="text/javascript"
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      language="JavaScript"
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
     <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-    crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="allFlight.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="allFlight.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Flights</title>
-</head>
-<body>
-    <h1>Find your favorite vacation</h1>
-    <br>
-   
-        <label for="price">Price</label>
-        <select name="price" id="price">
-            <option value="all">all</option>
-            <option value="cheap">Less than 100$</option>
-            <option value="regular">Between 100$ and 500$</option>
-            <option value="expensive">Over 500$</option>
-        </select>
-   
-        <label for="category">Category</label>
-        <select name="category" id="category">
-            <option value="all">all</option>
-            <option value="urban">urban</option>
-            <option value="exotic">exotic</option>
-            <option value="nature">nature</option>
-            <option value="shopping">shopping</option>
-            <option value="sunbathing">sunbathing</option>
-        </select> 
-  
-      <label for="continent">Continent</label>
-      <select name="continent" id="continent">
-          <option value="all">all</option>
-          <option value="asia">asia</option>
-          <option value="africa">africa</option>
-          <option value="northAmerica">northAmerica</option>
-          <option value="southAmerica">soutAmerica</option>
-          <option value="europe">europe</option>
-      </select>
+  </head>
+  <body>
+    <h1>Hello manager, what would you like to do?</h1>
+    <div class="container">
+      <button type="button" class="master-button" onclick="showallFlights()">
+        See all Flights
+      </button>
+      <br />
+      <button type="button" class="master-button" onclick="showCreateFlights()">
+        Create new Flight
+      </button>
+      <br />
+      <button type="button" class="master-button">Flight update</button>
+      <br />
+      <button type="button" class="master-button">Delete a Flight</button>
+    </div>
+    <div id="main"></div>
+    <div id="create"></div>
 
-      <button type="button1" id="myButton1">Search</button>
-      <br><br><br>
-
-      <label for="start">Start date:</label>
-      <input type="date" id="start" name="trip-start"
-       value="2022-06-01"
-       min="2022-06-01" max="2024-12-31">
-
-       <label for="end">End date:</label>
-       <input type="date" id="end" name="trip-end"
-        value="2022-06-01"
-        min="2022-06-01" max="2024-12-31">
-
-        <label for="temperature">Temperature</label>
-        <select name="temperature" id="temperature">
-            <option value="all">all</option>
-            <option value="cold">Less than 15C</option>
-            <option value="regular">Between 15C and 24C</option>
-            <option value="hot">Over 24C</option>
-        </select>
-
-      <button type="button2" id="myButton2">Search</button>
-
-      <button type="button3" id="myButton3">order by price</button>
-     
-
-<h1>Hello manager, what would you like to do?</h1>
-<button type="button" class="master button" id="seeAll">See all Flights</button>
-<button type="button" class="master button" id="create">Create new Flight</button>
-<button type="button" class="master button" id="updete">Flight update</button>
-<button type="button" class="master button" id="delete">Delete a Flight</button>
-<script>
-       document.getElementById("seeAll").onclick= function(){
-            $.get("/order",(data)=>{
+    <script>
+      function col() {
+        $.get("/allflights", (data) => {
           $("#text").empty();
           console.log(data);
-          for (var i = 0; i < data.length; i++){
-          const continent=data[i].Continent;
-          const price=data[i].Price;
-          const category=data[i].Category;
-          const name=data[i].Name;
-          let upName = data[i].Name.toUpperCase();
-        $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-        <p><b>Category:</b> ${data[i].Category}</p>
-        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
-        `
-        );
-    document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
-      $("#image" + "_" + i).attr("src",data[i].URL);
-      $("#image" + "_" + i).attr("width", "40%");
-      $("#image" + "_" + i).attr("height", "40%"); 
-          }
-            });
-          }
-  
-   
-
-</script>
-
-
-
-<script>
-//                  <p blabla class="weatherwidget-io" href=${data.API} data-label_1="DUBAI" data-label_2="WEATHER" data-mode="Current" ></p>
-  document.getElementById("myButton3").onclick= function(){
-            $.get("/order",(data)=>{
-          $("#text").empty();
-          console.log(data);
-          for (var i = 0; i < data.length; i++){
-          const continent=data[i].Continent;
-          const price=data[i].Price;
-          const category=data[i].Category;
-          const name=data[i].Name;
-          let upName = data[i].Name.toUpperCase();
-        $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-        <p><b>Category:</b> ${data[i].Category}</p>
-        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
-        `
-        );
-    document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
-      $("#image" + "_" + i).attr("src",data[i].URL);
-      $("#image" + "_" + i).attr("width", "40%");
-      $("#image" + "_" + i).attr("height", "40%"); 
-          }
-            });
-          }
-</script>
-
-
-
-
-      <script>
-        var continentUser="";
-        var priceUser="";
-        var categoryUser="";
-        var api="";
-        document.getElementById("myButton1").onclick= function(){
-          var priceUser=document.getElementById("price").value;//the price the user put.
-          var categoryUser=document.getElementById("category").value;//the category the user put.
-          var continentUser=document.getElementById("continent").value;//the contienet the user put.
-          $.get("/allflights",(data)=>{
-          $("#text").empty();
-          for (var i = 0; i < data.length; i++){
-          const continent=data[i].Continent;
-          const price=data[i].Price;
-          const category=data[i].Category;
-          console.log(category);
-          if((continentUser=="all"||continent==continentUser) &&
-           (categoryUser=="all"||category==categoryUser)){
-            //priceUser=="all"||price==priceUser
-            if(priceUser=="cheap" && price>=100)
-            continue;
-
-            if(priceUser=="regular" && (price<100 || price>=500))
-            continue;
-
-            if(priceUser=="expensive" && price<500)
-            continue;
-            let upName = data[i].Name.toUpperCase();
-          const name=data[i].Name;
-        $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-        <p><b>Category:</b> ${data[i].Category}</p>
-        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
-        `);
-
-    document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
-      $("#image" + "_" + i).attr("src",data[i].URL);
-      $("#image" + "_" + i).attr("width", "40%");
-      $("#image" + "_" + i).attr("height", "40%"); 
-    
-     }
-    }
-  });
-          }
-
-      </script>
-    
-    <hr>
-<script>
-      !function (d,s,id){
-                    var js,fjs=d.getElementsByTagName(s)[0];
-                    if(!d.getElementById(id)){
-                        js=d.createElement(s);
-                        js.id=id;
-                        js.src='https://weatherwidget.io/js/widget.min.js';
-                        fjs.parentNode.insertBefore(js,fjs);
-                    }
-                }(document,'script','weatherwidget-io-js');
- </script>
-              
-                
-
-
-           
-<div id="text">
- 
-
-</div>
-<script>
-
-function ClearDiv(){
-    document.getElementById("text").innerHTML = ``;
-}
-function getAllFlights(){
-  $.get("/allflights",(data)=>{
-    $("#text").empty();
-    for (var i = 0; i < data.length; i++){
-    const name=data[i].Name;
-    let upName = data[i].Name.toUpperCase();
-    $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-        <p><b>Category:</b> ${data[i].Category}</p>
-        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a><p>
-        `);
-
-    document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
-      $("#image" + "_" + i).attr("src",data[i].URL);
-      $("#image" + "_" + i).attr("width", "40%");
-      $("#image" + "_" + i).attr("height", "40%"); 
-    }
-  });
-
-  }
-
-
-
-$(() => {
-        getAllFlights();
-});
-    
-</script>
-
-
-
-
-
-
-</body>
+        });
+      }
+      col();
+    </script>
+  </body>
 </html>
-
-<div class='container'>
-<button type="button" class="master-button" onclick="showallFlights()">See all Flights</button>
-<br>
-<button type="button" class="master-button" onclick="showCreateFlights()" >Create new Flight</button>
-<br>
-<button type="button" class="master-button">Flight update</button>
-<br>
-<button type="button" class="master-button">Delete a Flight</button>
-</div>
-
-<div id="main"></div>
-<div id="create"></div>
-
-<script>
-function col(){
-    $.get("/allflights",(data)=>{
-        $("#text").empty();
-        console.log(data);
-  });
-
-}
-col();
-</script>
-
