@@ -23,11 +23,6 @@
     <title>All Flights</title>
 </head>
 <body>
-  <div class="divCol">
-    <button  class="update" onclick="update()">update</button>
-    <button class="delete" onclick="Delete()">delete</button>
-    <button class="create" onclick="create()">create</button>
-  </div>
     <h1>Find your favorite vacation</h1>
     <br>
    
@@ -91,27 +86,32 @@
 <button type="button" class="master button" id="updete">Flight update</button>
 <button type="button" class="master button" id="delete">Delete a Flight</button>
 <script>
-
-function update(){
-
-}
-
-
-function Delete(){
-
-}
-
-
-function create(){
-
-}
-
-
-
-
-
-
-
+       document.getElementById("seeAll").onclick= function(){
+            $.get("/order",(data)=>{
+          $("#text").empty();
+          console.log(data);
+          for (var i = 0; i < data.length; i++){
+          const continent=data[i].Continent;
+          const price=data[i].Price;
+          const category=data[i].Category;
+          const name=data[i].Name;
+          let upName = data[i].Name.toUpperCase();
+        $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
+        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
+        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
+        <p><b>Category:</b> ${data[i].Category}</p>
+        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
+        `
+        );
+    document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
+      $("#image" + "_" + i).attr("src",data[i].URL);
+      $("#image" + "_" + i).attr("width", "40%");
+      $("#image" + "_" + i).attr("height", "40%"); 
+          }
+            });
+          }
+  
+   
 
 </script>
 
@@ -119,7 +119,7 @@ function create(){
 
 <script>
 //                  <p blabla class="weatherwidget-io" href=${data.API} data-label_1="DUBAI" data-label_2="WEATHER" data-mode="Current" ></p>
-        document.getElementById("myButton3").onclick= function(){
+  document.getElementById("myButton3").onclick= function(){
             $.get("/order",(data)=>{
           $("#text").empty();
           console.log(data);

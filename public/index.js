@@ -67,14 +67,13 @@ function showChatPage(){
     });
 }
 
-
 function showCartPage(){
     $(document).ready(function(){
         preload();
-        $("#app").load("public/allFlights.html");
+        $("#app").load("cart");
     });
 }
-
+//C:\Users\97252\OneDrive\מסמכים\GitHub\webApplicationProject\public\cart\shoppingCart.html
 
 
 
