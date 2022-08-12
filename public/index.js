@@ -125,3 +125,4 @@ function AddMarker(mapArgument, map) {
         infoWindow.open(map, marker);
     });
 }
+
