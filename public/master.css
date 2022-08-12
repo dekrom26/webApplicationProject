@@ -1,0 +1,11 @@
+.master button {
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: none;
+    background: #ead705;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    color: #fff;
+  }
