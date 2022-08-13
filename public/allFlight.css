@@ -36,6 +36,9 @@ p{
 .price{
   font: bold 14px sans-serif;
 }
+divCol{
+  column-count: 3;
+}
 
 #myButton1{
     font-size: 16px;
@@ -47,6 +50,18 @@ p{
     border-width: 1px;
     border-radius: 4px;
     color: #fff;
+}
+
+#myButton2{
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: none;
+  background: #00a3b8;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  color: #fff;
 }
 
 
@@ -69,4 +84,7 @@ p{
     border-radius: 20%;
   }
 
+
+
+  
   

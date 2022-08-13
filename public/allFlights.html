@@ -115,9 +115,6 @@
           var priceUser=document.getElementById("price").value;//the price the user put.
           var categoryUser=document.getElementById("category").value;//the category the user put.
           var continentUser=document.getElementById("continent").value;//the contienet the user put.
-          // console.log(priceUser);
-          // console.log(categoryUser);
-          // console.log(continentUser);
           $.get("/allflights",(data)=>{
           $("#text").empty();
           for (var i = 0; i < data.length; i++){
@@ -158,10 +155,6 @@
       </script>
     
     <hr>
-    <!-- <label for="Flight-search">Search the Flight:</label>
-    <input type="search" id="flight-search" name="q">
-    
-<button>Search</button> -->
 <script>
       !function (d,s,id){
                     var js,fjs=d.getElementsByTagName(s)[0];
@@ -183,9 +176,6 @@
 
 </div>
 <script>
-
-// document.getElementById("text").innerHTML = "I have changed!";
-// document.getElementById("text").innerHTML += "HIII!";
 
 function ClearDiv(){
     document.getElementById("text").innerHTML = ``;
@@ -211,18 +201,7 @@ function getAllFlights(){
   });
 
   }
-//   <a class="weatherwidget-io" href="https://forecast7.com/en/25d2055d27/dubai/" data-label_1="DUBAI" data-label_2="WEATHER" data-mode="Current" >DUBAI WEATHER</a>
-//   Name
-//     URL
-//     Duration
-//     Departure   
-//     Arrivle
-//     Price
-//     Temperature
-//     Continent
-//     Date
-//     Category
-                   
+
 
 
 $(() => {
