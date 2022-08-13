@@ -15,6 +15,7 @@ const seedFlight = [
       Continent:"northAmerica",
       Date:"2022-09-28",
       Category:"shopping",
+      Rating: 40,
       API:"25d2055d27",
     },
 
@@ -29,6 +30,7 @@ const seedFlight = [
       Continent:"europe",
       Date:"2022-09-28",
       Category:"shopping",
+      Rating: 85,
       API:"48d862d35",
     },
     {
@@ -42,6 +44,7 @@ const seedFlight = [
       Continent:"europe",
       Date:"2022-09-28",
       Category:"shopping",
+      Rating: 35,
       API:"33d95n83d36",
     },
     {
@@ -55,6 +58,7 @@ const seedFlight = [
       Continent:"northAmerica",
       Date:"2022-09-28",
       Category:"shopping",
+      Rating: 60,
       API:"n40d90174d89",
     },
 
@@ -69,6 +73,7 @@ const seedFlight = [
       Continent:"europe",
       Date:"2022-07-15",
       Category:"exotic",
+      Rating: 47,
       API:"38d72n9d14",
     },
     
@@ -84,6 +89,7 @@ const seedFlight = [
       Continent:"europe",
       Date:"2022-09-21",
       Category:"shopping",
+      Rating: 66,
       API:"40d42n3d70",
     },
 
@@ -98,6 +104,7 @@ const seedFlight = [
       Continent:"southAmerica",
       Date:"2022-01-13",
       Category:"nature",
+      Rating: 71,
       API:"n15d79n47d88",
     },
 
@@ -113,6 +120,7 @@ const seedFlight = [
       Continent:"asia",
       Date:"2022-11-02",
       Category:"sunbathing",
+      Rating: 92,
       API:"3d2073d22",
     },
 
@@ -127,6 +135,7 @@ const seedFlight = [
       Continent:"northAmerica",
       Date:"2022-04-09",
       Category:"urban",
+      Rating: 15,
       API:"42d65n73d76",
     },
 
@@ -141,6 +150,7 @@ const seedFlight = [
       Continent:"africa",
       Date:"2022-03-02",
       Category:"exotic",
+      Rating: 84,
       API:"n6d1739d20",
     },
 
