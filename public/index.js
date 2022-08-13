@@ -143,12 +143,17 @@ function showallFlights() {
       <p><b>Category:</b> ${data[i].Category}</p>
       `);
       document.getElementById("main").innerHTML +=
-        `<p><img id="image_` + i + `" class="center"/></p></td><hr><br>`;
+          `<p><img id="image_` + i + `" class="center"/></p></td><hr><br>`;
       $("#image" + "_" + i).attr("src", data[i].URL);
       $("#image" + "_" + i).attr("width", "40%");
       $("#image" + "_" + i).attr("height", "40%");
     }
   });
+}
+function showGraphs(){
+  $("#main").empty();
+  $("#create").empty();
+  $("#main").append(loadRating());
 }
 
 function showCreateFlights() {

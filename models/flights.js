@@ -48,6 +48,11 @@ const flightsSchema = new mongoose.Schema({
         type: String,
         enum: ['urban', 'exotic', 'nature','shopping','sunbathing']
     },
+    Rating: {
+       type: Number,
+       required:true,
+       min: 0
+    },
     API:{
         type: String,
     }

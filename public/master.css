@@ -8,8 +8,10 @@
     border-width: 1px;
     border-radius: 4px;
     color: #fff;
+
   }
 
-  .container {
-    text-align: center;
+  .master-control {
+      text-align: center;
+      display: inline-flex;
   }
