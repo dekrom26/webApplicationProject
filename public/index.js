@@ -129,6 +129,7 @@ function AddMarker(mapArgument, map) {
 function showallFlights() {
   $.get("/allflights", (data) => {
     $("#main").empty();
+    //graph=$("#graphs").detach();
     console.log(data);
     for (var i = 0; i < data.length; i++) {
       const continent = data[i].Continent;
@@ -150,15 +151,29 @@ function showallFlights() {
     }
   });
 }
-function showGraphs(){
+let graph;
+function removeGraph(){
+  if (graph){
+    graph=null;
+  }
+  else {
+    graph=$("#graphs").detach();
+  }
+}
+function showGraphs() {
   $("#main").empty();
   $("#create").empty();
-  $("#main").append(loadRating());
+  //$("#graphs").detach();
+  if (!graph) {
+    graph = loadRating();
+  }
+  $("#main").append(graph);
 }
 
 function showCreateFlights() {
   $("#main").empty();
   $("#create").empty();
+  graph=$("#graphs").detach();
   $("#main").append("");
 }
 

@@ -46,11 +46,10 @@ function graph_flights_ratings(rating_json){
         .data(rating_json)
         .join("rect")
         .attr("fill", d => {
-            return 'royalblue';
-        })
+            return 'royalblue';})
         .attr("x", (d, i) => x(i))
         .attr("y", d => y(d.Rating))
-        .attr('title', (d) => d.Name)
+        .attr('title', (d) => d.Rating)
         .attr("class", "rect")
         .attr("height", d => y(0) - y(d.Rating))
         .attr("width", x.bandwidth());
@@ -63,7 +62,7 @@ function graph_flights_ratings(rating_json){
     }
     function xAxis(g) {
         g.attr("transform", `translate(0,${height - margin.bottom})`)
-            .call(d3.axisBottom(x).tickFormat(i => rating_json[i].name))
+            .call(d3.axisBottom(x).tickFormat(i => rating_json[i].Name))
             .attr("font-size", '15px')
     }
 
