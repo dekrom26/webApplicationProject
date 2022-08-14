@@ -173,9 +173,30 @@ function showGraphs() {
 function showCreateFlights() {
   $("#main").empty();
   $("#create").empty();
+  $("#update").empty();
+  $("#delete").empty();
   graph=$("#graphs").detach();
   $("#create").load("creat.html")
 }
+
+function showUpdateFlights() {
+  $("#main").empty();
+  $("#create").empty();
+  $("#update").empty();
+  $("#delete").empty();
+  graph=$("#graphs").detach();
+  $("#update").load("update.html")
+}
+
+function showDeleteFlights() {
+  $("#main").empty();
+  $("#create").empty();
+  $("#update").empty();
+  $("#delete").empty();
+  graph=$("#graphs").detach();
+  $("#delete").load("delete.html")
+}
+
 
 function User_Authentication() {
   var EmailUser = document.getElementById("email").value; //the email the user put.

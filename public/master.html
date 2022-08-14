@@ -37,13 +37,16 @@
       <button type="button" class="master-button" onclick="showCreateFlights()">
         Create new Flight
       </button>
-      <button type="button" class="master-button">Flight update</button>
-      <button type="button" class="master-button">Delete a Flight</button>
+      <button type="button" class="master-button" onclick="showUpdateFlights()">
+        Flight update</button>
+      <button type="button" class="master-button" onclick="showDeleteFlights()">
+        Delete a Flight</button>
       <button type="button" class="master-button" onclick="showGraphs()">Show stats</button>
     </div>
     <div id="main"></div>
     <div id="create"></div>
-
+    <div id="update"></div>
+    <div id="delete"></div>
     <script>
       function col() {
         $.get("/allflights", (data) => {
