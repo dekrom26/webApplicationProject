@@ -173,10 +173,10 @@ divCol{
 
 .cart {
     position: absolute;
-    top: 0;
+    /* top: 0; */
     right: 0;
     width: 350px;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     padding: 1.5rem;
     background: var(--bg-color);
     box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);

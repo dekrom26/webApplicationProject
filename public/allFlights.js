@@ -144,7 +144,7 @@ function getAllFlights(){
               document.getElementById("app").getElementsByClassName("cart-product-title")[0].innerHTML += `<div class="item_` + i + `"><p><img id="img_` + i + `" class="center"/></p></div>`;
               $("#img" + "_" + i).attr("src", data[i].URL);
               $("#img" + "_" + i).attr("width", "150px");
-              $("#img" + "_" + i).attr("height", "");
+              $("#img" + "_" + i).attr("height", "100px");
               document.getElementById("app").getElementsByClassName("cart-product-title")[0].innerHTML += `<div class="item_` + i + `"><button id="botton_` + i + `" onclick="Remove(` + i + `)">Remove</button></div><br>`;
               document.getElementById("app").getElementsByClassName("cart-product-title")[0].innerHTML += `<div class="item_` + i + `"><button class="btn minus-btn" type="button" onclick="MinusQuantity(` + i + `)">-</button><div class="pin_` + i + `">1</div>
               <button class="btn plus-btn" type="button" onclick="PlusQuantity(` + i + `)">+</button>`;
@@ -156,9 +156,9 @@ function getAllFlights(){
           if (indexes[i] != undefined && indexes[i] != 1) {
               document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[0].innerHTML += `<p><b><Company:</b></font> ${data[i].Name}<b></p><p>Price:</b>${data[i].Price}$</p>`;
               document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[1].innerHTML += `<p><img id="img_` + i + `" class="center"/></p>`;
-              $("#img" + "_" + i).attr("src", data[i].Url);
-              $("#img" + "_" + i).attr("width", "40%");
-              $("#img" + "_" + i).attr("height", "40%");
+              $("#img" + "_" + i).attr("src", data[i].URL);
+              $("#img" + "_" + i).attr("width", "150px");
+              $("#img" + "_" + i).attr("height", "100px");
               document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[2].innerHTML += `<button id="botton_` + i + `" onclick="Remove(` + i + `)">Remove</button></div>`;
               document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[3].innerHTML += `<div class="item_` + i + `"><button class="btn minus-btn" type="button" onclick="MinusQuantity(` + i + `)">-</button> <div class="pin_` + i + `">1</div>
               <button class="btn plus-btn" type="button" onclick="PlusQuantity(` + i + `)">+</button>`;
@@ -219,28 +219,28 @@ function getAllFlights(){
 
 
 
-//   function BuyNow() {
-//     document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "";
-//     document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = "";
-//     let fileduserID = document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("un")[0].value;
-//     let filedPrice = document.getElementById("app").getElementsByClassName("cart-total")[0].innerHTML;
-//     if (fileduserID == "") {
-//         document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "This is Required Filed" + `<br>`;
-//     }
-//     if (filedPrice == "0") {
-//         document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = " Your Cart is Empty";
-//     }
-//     var user = fileduserID;
-//     $.get("/allflights", function (data, status) {
-//         for (let i = 0; i < data.length; i++) {
-//             if (indexes[i] == 1) {
-//                 let value = parseInt(document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[3].getElementsByClassName("pin_" + i)[0].innerHTML);
-//                 $.post("http://localhost:8080/form", { user: user, productId: data[i]._id, price: data[i].price, quantity: value }, function (data) {
-//                 });
-//             }
-//         }
-//     });
-// }
+  function BuyNow() {
+    document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "";
+    document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = "";
+    let fileduserID = document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("un")[0].value;
+    let filedPrice = document.getElementById("app").getElementsByClassName("cart-total")[0].innerHTML;
+    if (fileduserID == "") {
+        document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "This is Required Filed" + `<br>`;
+    }
+    if (filedPrice == "0") {
+        document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = " Your Cart is Empty";
+    }
+    var user = fileduserID;
+    $.get("/allflights", function (data, status) {
+        for (let i = 0; i < data.length; i++) {
+            if (indexes[i] == 1) {
+                let value = parseInt(document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[3].getElementsByClassName("pin_" + i)[0].innerHTML);
+                $.post("http://localhost:8080/form", { user: user, productId: data[i]._id, price: data[i].price, quantity: value }, function (data) {
+                });
+            }
+        }
+    });
+}
 
 
 
