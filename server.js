@@ -8,17 +8,23 @@ const { send } = require("process");
 // const http = require('http');
 const socket = require("socket.io-client")("https://example.com");
 const seed = require("./seed");
+const cors = require('cors');
+
 // const server = http.createServer(app);
 // const io = require('socket.io')(server);
 
 var express = require("express"),
-  app = express(),
-  http = require("http"),
+  app = express();
+  app.use(cors());
+  app.use(express.json());
+ var http = require("http"),
   server = http.createServer(app),
   io = require("socket.io")(server);
 
-server.listen(8000, () => {
-  console.log("APP IS LISTENING ON PORT 8000!");
+  // app.use(bodyParser);
+
+server.listen(8080, () => {
+  console.log("APP IS LISTENING ON PORT 8080!");
 });
 
 var public = path.join(__dirname + "/public");
