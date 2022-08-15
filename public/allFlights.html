@@ -72,147 +72,42 @@
       <button type="button2" id="myButton2">Search</button>
 
       <button type="button3" id="myButton3">order by price</button>
-     
-
-
-<script>
-//                  <p blabla class="weatherwidget-io" href=${data.API} data-label_1="DUBAI" data-label_2="WEATHER" data-mode="Current" ></p>
-        document.getElementById("myButton3").onclick= function(){
-            $.get("/order",(data)=>{
-          $("#text").empty();
-          console.log(data);
-          for (var i = 0; i < data.length; i++){
-          const continent=data[i].Continent;
-          const price=data[i].Price;
-          const category=data[i].Category;
-          const name=data[i].Name;
-          let upName = data[i].Name.toUpperCase();
-        $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-        <p><b>Category:</b> ${data[i].Category}</p>
-        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
-        `
-        );
-    document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
-      $("#image" + "_" + i).attr("src",data[i].URL);
-      $("#image" + "_" + i).attr("width", "40%");
-      $("#image" + "_" + i).attr("height", "40%"); 
-          }
-            });
-          }
-</script>
 
 
 
-
-      <script>
-        var continentUser="";
-        var priceUser="";
-        var categoryUser="";
-        var api="";
-        document.getElementById("myButton1").onclick= function(){
-          var priceUser=document.getElementById("price").value;//the price the user put.
-          var categoryUser=document.getElementById("category").value;//the category the user put.
-          var continentUser=document.getElementById("continent").value;//the contienet the user put.
-          $.get("/allflights",(data)=>{
-          $("#text").empty();
-          for (var i = 0; i < data.length; i++){
-          const continent=data[i].Continent;
-          const price=data[i].Price;
-          const category=data[i].Category;
-          console.log(category);
-          if((continentUser=="all"||continent==continentUser) &&
-           (categoryUser=="all"||category==categoryUser)){
-            //priceUser=="all"||price==priceUser
-            if(priceUser=="cheap" && price>=100)
-            continue;
-
-            if(priceUser=="regular" && (price<100 || price>=500))
-            continue;
-
-            if(priceUser=="expensive" && price<500)
-            continue;
-            let upName = data[i].Name.toUpperCase();
-          const name=data[i].Name;
-        $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-        <p><b>Category:</b> ${data[i].Category}</p>
-        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
-        `);
-
-    document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
-      $("#image" + "_" + i).attr("src",data[i].URL);
-      $("#image" + "_" + i).attr("width", "40%");
-      $("#image" + "_" + i).attr("height", "40%"); 
-    
-     }
-    }
-  });
-          }
-
-      </script>
-    
-    <hr>
-<script>
-      !function (d,s,id){
-                    var js,fjs=d.getElementsByTagName(s)[0];
-                    if(!d.getElementById(id)){
-                        js=d.createElement(s);
-                        js.id=id;
-                        js.src='https://weatherwidget.io/js/widget.min.js';
-                        fjs.parentNode.insertBefore(js,fjs);
-                    }
-                }(document,'script','weatherwidget-io-js');
- </script>
-              
-                
-
-
-           
+<section class="products">
+  <div class="section-title">
+      <h2>Products</h2>
+  </div>
+  <div class="products-center"></div>
+</section>
+<div class="cart-overlay">
+  <div class="cart">
+      <span class="close-cart">
+        <i style="font-size:24px" class="fa">&#xf07a;</i>
+        <li class="toggle"><span class="bars"></span></li>
+      </span>
+      <br>
+      <h2>Cart</h2>
+      <div class="cart-content">
+          <div class="cart-box">
+              <div class="detail-box">
+                  <div class="cart-product-title"></div>
+                  <div class="cart-price"></div>
+              </div>
+          </div>
+      </div>
+      <div class="cart-footer">
+          <h3>Total Price: $<span class="cart-total">0</span></h3>
+      </div>
+      <button type="button" class="btn-buy">Buy Now</button>
+  </div>
+</div>
 <div id="text">
- 
 
 </div>
-<script>
 
-function ClearDiv(){
-    document.getElementById("text").innerHTML = ``;
-}
-function getAllFlights(){
-  $.get("/allflights",(data)=>{
-    $("#text").empty();
-    for (var i = 0; i < data.length; i++){
-    const name=data[i].Name;
-    let upName = data[i].Name.toUpperCase();
-    $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-        <p><b>Category:</b> ${data[i].Category}</p>
-        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a><p>
-        `);
-
-    document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
-      $("#image" + "_" + i).attr("src",data[i].URL);
-      $("#image" + "_" + i).attr("width", "40%");
-      $("#image" + "_" + i).attr("height", "40%"); 
-    }
-  });
-
-  }
-
-
-
-$(() => {
-        getAllFlights();
-});
-    
-</script>
-
-
-
-
+<script src="allFlights.js"></script>
 
 
 </body>
