@@ -173,9 +173,30 @@ function showGraphs() {
 function showCreateFlights() {
   $("#main").empty();
   $("#create").empty();
+  $("#update").empty();
+  $("#delete").empty();
   graph=$("#graphs").detach();
-  $("#main").append("");
+  $("#create").load("creat.html")
 }
+
+function showUpdateFlights() {
+  $("#main").empty();
+  $("#create").empty();
+  $("#update").empty();
+  $("#delete").empty();
+  graph=$("#graphs").detach();
+  $("#update").load("update.html")
+}
+
+function showDeleteFlights() {
+  $("#main").empty();
+  $("#create").empty();
+  $("#update").empty();
+  $("#delete").empty();
+  graph=$("#graphs").detach();
+  $("#delete").load("delete.html")
+}
+
 
 function User_Authentication() {
   var EmailUser = document.getElementById("email").value; //the email the user put.
@@ -189,3 +210,29 @@ function User_Authentication() {
   }
 }
 /////////cart
+
+function createFlight(name,URL,duration,departure,arrivle,price,temperature,continent,date,category,API){
+  console.log(name);
+  // $.post("/create", obj);
+  $.ajax({
+    url: "http://localhost:8080/create",
+    type: "POST",
+    data: JSON.stringify({ name: name ,
+      URL:URL,
+      duration:duration,
+      departure:departure,
+      arrivle:arrivle,
+      price:price,
+      temperature:temperature,
+      continent:continent,
+      date:date,
+      category:category,
+      API:API
+    }),
+    contentType: "application/json",
+    dataType: "json",
+    success: function() {
+      console.log("request successfully!");
+    }
+  });
+}

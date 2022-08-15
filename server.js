@@ -8,16 +8,22 @@ const { send } = require("process");
 // const http = require('http');
 const socket = require("socket.io-client")("https://example.com");
 const seed = require("./seed");
+const cors = require('cors');
+
 // const server = http.createServer(app);
 // const io = require('socket.io')(server);
 
 var express = require("express"),
-  app = express(),
-  http = require("http"),
+  app = express();
+  app.use(cors());
+  app.use(express.json());
+ var http = require("http"),
   server = http.createServer(app),
   io = require("socket.io")(server);
 
-server.listen(7000, () => {
+
+
+server.listen(8080, () => {
   console.log("APP IS LISTENING ON PORT 8080!");
 });
 
@@ -77,6 +83,26 @@ app.get("/order", async (req, res) => {
 app.get("/", (req, res) => {
   res.sendFile(public);
 });
+
+
+app.post("/create", async (req, res) => {
+  console.log(`${req.body.name}`);
+
+  await Flights.create({ "Name": req.body.name,
+  "URL":req.body.URL,
+  "Duration":req.body.duration,
+  "Departure":req.body.departure,
+  "Arrivle":req.body.arrivle,
+  "Price":req.body.price,
+  "Temperature":req.body.temperature,
+  "Continent":req.body.continent,
+  "Date":req.body.date,
+  "Category":req.body.category,
+  "API":req.body.API,
+ });
+  res.json({"status": 200});
+})
+
 
 io.on("connection", (socket) => {
   console.log("Conection to socket.io");

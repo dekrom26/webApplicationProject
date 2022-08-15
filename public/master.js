@@ -70,3 +70,31 @@ function graph_flights_ratings(rating_json){
     svg.append("g").call(yAxis);
     svg.node();
 }
+
+function createFlight(name,URL,duration,departure,arrivle,price,temperature,continent,date,category,API){
+    console.log(name);
+    // $.post("/create", obj);
+    $.ajax({
+      url: "http://localhost:8080/create",
+      type: "POST",
+      data: JSON.stringify({ name: name ,
+        URL:URL,
+        duration:duration,
+        departure:departure,
+        arrivle:arrivle,
+        price:price,
+        temperature:temperature,
+        continent:continent,
+        date:date,
+        category:category,
+        API:API
+      }),
+      contentType: "application/json",
+      dataType: "json",
+      success: function() {
+        console.log("request successfully!");
+      }
+    });
+  }
+
+

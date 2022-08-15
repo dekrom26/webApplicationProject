@@ -3,32 +3,32 @@ const mongoose = require('mongoose');
 const flightsSchema = new mongoose.Schema({
     Name: {
         type: String,
-        required: true
+        // required: true
     },
     URL: {
         type: String,
-        required: true
+        // required: true
     },
     Duration:{
     type:Number,
-    require:true
+    // require:true
     },
     Departure: {
         type: String,
-        required: true
+        // required: true
     },
     Arrivle: {
         type: String,
-        required: true
+        // required: true
     },
     Price: {
         type: Number,
-        required: true,
+        // required: true,
         min: 0
     },
     Temperature: {
         type: Number,
-        required: true,
+        // required: true,
         min: 0
     },
     Continent: {
@@ -40,7 +40,7 @@ const flightsSchema = new mongoose.Schema({
     },
     Date: {
         type: String,
-        required: true,
+        // required: true,
     },
     Category: {
         // type: String,
@@ -50,7 +50,7 @@ const flightsSchema = new mongoose.Schema({
     },
     Rating: {
        type: Number,
-       required:true,
+    //    required:true,
        min: 0
     },
     API:{
