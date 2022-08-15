@@ -1,17 +1,9 @@
-// const express = require('express');
-const bodyParser = require("body-parser");
-// const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const Flights = require("./models/flights");
-const { send } = require("process");
-// const http = require('http');
-const socket = require("socket.io-client")("https://example.com");
 const seed = require("./seed");
 const cors = require('cors');
 
-// const server = http.createServer(app);
-// const io = require('socket.io')(server);
 
 var express = require("express"),
   app = express();
@@ -25,6 +17,10 @@ var express = require("express"),
 
 server.listen(8080, () => {
   console.log("APP IS LISTENING ON PORT 8080!");
+});
+
+app.get("/", (req, res) => {
+  res.sendFile(public);
 });
 
 var public = path.join(__dirname + "/public");
@@ -57,10 +53,6 @@ app.get("/chat", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "chat.html"));
 });
 
-// app.get("/master",(req,res)=>{
-//   res.sendFile(path.join(__dirname, '/public', 'master.html'));
-// });
-
 app.get("/master", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "master.html"));
 });
@@ -80,9 +72,6 @@ app.get("/order", async (req, res) => {
   res.json(flights1);
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(public);
-});
 
 
 app.post("/create", async (req, res) => {
@@ -171,7 +160,3 @@ io.sockets.on("connection", function (socket) {
     );
   });
 });
-
-// server.listen(8080, () => {
-//   console.log("APP IS LISTENING ON PORT 8080!")
-// })

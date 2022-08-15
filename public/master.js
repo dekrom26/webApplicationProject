@@ -70,6 +70,8 @@ function graph_flights_ratings(rating_json){
     svg.append("g").call(yAxis);
     svg.node();
 }
+$(() => {loadRating();
+});
 
 function createFlight(name,URL,duration,departure,arrivle,price,temperature,continent,date,category,API){
     console.log(name);
