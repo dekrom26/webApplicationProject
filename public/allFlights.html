@@ -72,6 +72,10 @@
       <button type="button2" id="myButton2">Search</button>
 
       <button type="button3" id="myButton3">order by price</button>
+
+    </div>
+    <button type="button" class="btn-buy">Buy Now</button>
+</div>
      
 
 
@@ -92,8 +96,12 @@
         <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
         <p><b>Category:</b> ${data[i].Category}</p>
         <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
+        
         `
         );
+        
+        var col = document.getElementById('category');
+           col.innerHTML += '<button class="bag-btn" onclick="AddCart(' + i + ')">Add To Cart</button>';
     document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
       $("#image" + "_" + i).attr("src",data[i].URL);
       $("#image" + "_" + i).attr("width", "40%");
@@ -142,6 +150,8 @@
         <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
         `);
 
+        var col = document.getElementById('category');
+           col.innerHTML += '<button class="bag-btn" onclick="AddCart(' + i + ')">Add To Cart</button>';
     document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
       $("#image" + "_" + i).attr("src",data[i].URL);
       $("#image" + "_" + i).attr("width", "40%");
@@ -191,8 +201,11 @@ function getAllFlights(){
         <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
         <p><b>Category:</b> ${data[i].Category}</p>
         <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a><p>
-        `);
 
+          `);
+
+          var col = document.getElementById('category');
+           col.innerHTML += '<button class="bag-btn" onclick="AddCart(' + i + ')">Add To Cart</button>';
     document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
       $("#image" + "_" + i).attr("src",data[i].URL);
       $("#image" + "_" + i).attr("width", "40%");
@@ -210,6 +223,37 @@ $(() => {
     
 </script>
 
+<script>
+
+
+
+function AddCart(i) {
+    console.log(i);
+    $.get("/allflights", function (data, status) {
+        console.log(i+"blabla");
+        document.getElementById("com").getElementsByClassName("cart-product-title")[0].innerHTML += `<p id="proname"><b><Company:</b></font> ${data[i].company}</p> <p><b>Price:</b>${data[i].price}$</p>`;
+
+        document.getElementById("com").getElementsByClassName("cart-product-title")[0].innerHTML += `<p><img id="img_` + i + `" class="pic1"/></p>`;
+        $("#img" + "_" + i).attr("src", data[i].imageUrl);
+        $("#img" + "_" + i).attr("width", "150px");
+        $("#img" + "_" + i).attr("height", "100px");
+        document.getElementById("com").getElementsByClassName("cart-product-title")[0].innerHTML += `<button id="botton_` + i + `" onclick="Remove(` + i + `)">Remove</button><br><br><br>`;
+    });
+}
+
+function Remove(i) {
+    $("com").empty();
+}
+
+// purchase clicked 
+document.getElementsByClassName('btn-buy')[0].addEventListener('click', purchaseClicked);
+
+// func purchase clicked
+function purchaseClicked() {
+    alert('Thank you for your purchase')
+}
+
+</script>
 
 
 
