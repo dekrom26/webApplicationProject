@@ -129,6 +129,9 @@ function AddMarker(mapArgument, map) {
 function showallFlights() {
   $.get("/allflights", (data) => {
     $("#main").empty();
+    $("#create").empty();
+    $("#update").empty();
+    $("#delete").empty();
     //graph=$("#graphs").detach();
     console.log(data);
     for (var i = 0; i < data.length; i++) {
@@ -227,6 +230,7 @@ function createFlight(name,URL,duration,departure,arrivle,price,temperature,cont
       continent:continent,
       date:date,
       category:category,
+      Rating:0,
       API:API
     }),
     contentType: "application/json",
@@ -236,3 +240,5 @@ function createFlight(name,URL,duration,departure,arrivle,price,temperature,cont
     }
   });
 }
+
+//FLights.findOneAndUpdate({"_id": "sdkaghjsjladhgiodsa"}, {"Name": "Ravid123"})

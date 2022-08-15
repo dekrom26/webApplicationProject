@@ -1,1 +1,25 @@
-<h1>UPDATE</h1>
+<br>
+<br>
+<h1>Please enter the name of the flight you would like to update,which characteristic you would like to change and the new value:</h1>
+<label for="name">Name</label><input type="text" id="name" value="">
+<label for="category">Category</label>
+        <select name="characteristic" id="characteristic">
+            <option value="Name">Name</option>
+            <option value="URL">URL</option>
+            <option value="Duration">Duration</option>
+            <option value="Departure">Departure</option>
+            <option value="Arrivle">Arrivle</option>
+            <option value="Price">Price</option>
+            <option value="Temperature">Temperature</option>
+            <option value="Continent">Continent</option>
+            <option value="Date">Date</option>
+            <option value="Category">Category</option>
+            <option value="Rating">Rating</option>
+            <option value="API">API</option>
+        </select> 
+        <label for="new_val">New Value</label><input type="text" id="new_val" value="">
+      
+<button type="button" onclick="findFlight(document.getElementById('name').value,document.getElementById('characteristic').value,
+document.getElementById('new_val').value)">Submit</button>
+
+    

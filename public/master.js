@@ -93,8 +93,47 @@ function createFlight(name,URL,duration,departure,arrivle,price,temperature,cont
       dataType: "json",
       success: function() {
         console.log("request successfully!");
+        window.alert("Created successfully");
       }
     });
   }
+
+  function findFlight(name,characteristic,new_val){
+    $.get("/allflights",(data)=>{
+        var _id="-1";
+        for (var i = 0; i < data.length; i++){
+         if(data[i].Name==name){
+           _id=data[i]._id; 
+            break;
+         }
+        }
+        if(_id=="-1"){
+         window.alert("There is no flight as requested");
+         return;
+        }
+        
+        var new_val_final;
+        if((characteristic=="Duration")||(characteristic=="Price")||(characteristic=="Temperature")||(characteristic=="Rating"))
+        new_val_final=parseInt(new_val);
+
+        else new_val_final=new_val;
+            $.ajax({
+            url: "http://localhost:8080/update",
+            type: "PUT",
+            data: JSON.stringify({ "_id":_id,
+                "characteristic":characteristic,
+                "value":new_val_final}),
+            contentType: "application/json",
+            dataType: "json",
+            success: function() {
+              console.log("request successfully!");
+              window.alert("successfully updated");
+            }
+          });
+    })
+}
+
+  //})
+
 
 

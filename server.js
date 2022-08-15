@@ -10,6 +10,7 @@ const socket = require("socket.io-client")("https://example.com");
 const seed = require("./seed");
 const cors = require('cors');
 
+
 // const server = http.createServer(app);
 // const io = require('socket.io')(server);
 
@@ -20,8 +21,6 @@ var express = require("express"),
  var http = require("http"),
   server = http.createServer(app),
   io = require("socket.io")(server);
-
-  // app.use(bodyParser);
 
 server.listen(8080, () => {
   console.log("APP IS LISTENING ON PORT 8080!");
@@ -85,6 +84,68 @@ app.get("/", (req, res) => {
 });
 
 
+
+app.put("/update", async (req, res) => {
+  console.log(`${req.body.characteristic}`);
+  console.log(`${req.body._id}`);
+  console.log(`${req.body.value}`);
+  var id=req.body._id;
+  //switchcase
+  switch(req.body.characteristic) {
+    case "Name":
+      await Flights.findByIdAndUpdate(id,{"Name":req.body.value});
+      break;
+      case "URL":
+      await Flights.findByIdAndUpdate(id,{"URL":req.body.value});
+      break;
+      case "Duration":
+      await Flights.findByIdAndUpdate(id,{"Duration":req.body.value});
+      break;
+      case "DepartureL":
+      await Flights.findByIdAndUpdate(id,{"Departure":req.body.value});
+      break;
+      case "Arrivle":
+      await Flights.findByIdAndUpdate(id,{"Arrivle":req.body.value});
+      break;
+      case "Price":
+      await Flights.findByIdAndUpdate(id,{"Price":req.body.value});
+      break;
+      case "Temperature":
+      await Flights.findByIdAndUpdate(id,{"Temperature":req.body.value});
+      break;
+      case "Date":
+      await Flights.findByIdAndUpdate(id,{"Date":req.body.value});
+      break;
+      case "Continent":
+      await Flights.findByIdAndUpdate(id,{"Continent":req.body.value});
+      break;
+      case "Category":
+      await Flights.findByIdAndUpdate(id,{"Category":req.body.value});
+      break;
+      case "Rating":
+      await Flights.findByIdAndUpdate(id,{"Rating":req.body.value});
+      break;
+      case "API":
+      await Flights.findByIdAndUpdate(id,{"API":req.body.value});
+      break;
+      default:
+  }
+
+  // await Flights.findByIdAndUpdate(req.body._id,{characteristic}`:req.body.value});
+  res.json({"status": 200});
+})
+// Name
+// URL
+// Duration
+// Departure
+// Arrivle
+// Price
+// Temperature
+// Continent
+//Date
+// Category
+// Rating
+// API
 app.post("/create", async (req, res) => {
   console.log(`${req.body.name}`);
 
