@@ -58,7 +58,7 @@
 
        <label for="end">End date:</label>
        <input type="date" id="end" name="trip-end"
-        value="2022-06-01"
+        value="2024-12-31"
         min="2022-06-01" max="2024-12-31">
 
         <label for="temperature">Temperature</label>
@@ -67,6 +67,16 @@
             <option value="cold">Less than 15C</option>
             <option value="regular">Between 15C and 24C</option>
             <option value="hot">Over 24C</option>
+        </select>
+
+
+        
+        <label for="duration">Duration</label>
+        <select name="rating" id="rating">
+            <option value="all">all</option>
+            <option value="short">Less than 4 Hours</option>
+            <option value="med">Between 4 Hours and 6 Hours</option>
+            <option value="long">Over 6 Hours</option>
         </select>
 
       <button type="button2" id="myButton2">Search</button>

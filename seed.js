@@ -10,7 +10,7 @@ const seedFlight = [
       Departure:"Israel",
       Arrivle:"Dubai",
       Price:600,
-      Temperature:10,
+      Temperature:40,
       Continent:"northAmerica",
       Date:"2022-09-28",
       Category:"shopping",

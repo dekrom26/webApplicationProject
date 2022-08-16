@@ -43,6 +43,7 @@
         const price=data[i].Price;
         const category=data[i].Category;
         console.log(category);
+       // debugger;
         if((continentUser=="all"||continent==continentUser) &&
          (categoryUser=="all"||category==categoryUser)){
           //priceUser=="all"||price==priceUser
@@ -76,26 +77,38 @@
 
 
 
+        // <option value="cold">Less than 15C</option>
+        // <option value="regular">Between 15C and 24C</option>
+        // <option value="hot">Over 24C</option>
 
 
+    
         var startData = "";
         var endDate = "";
-        var TemperatureUser = "";
+        var temperatureUser = "";
+        var duration = 0;
         document.getElementById("myButton2").onclick= function(){
-          var Temperature=document.getElementById("temperature").value;//the price the user put.
-          var startData=document.getElementById("start").value;//the category the user put.
-          var endDate=document.getElementById("end").value;//the contienet the user put.
+          var startData=document.getElementById("start").value;
+          var endDate=document.getElementById("end").value;
+          var temperatureUser = document.getElementById("temperature").value;
+          var durationUser = document.getElementById("duration").value;
           $.get("/allflights",(data)=>{
           $("#text").empty();
           console.log(data);
           for (var i = 0; i < data.length; i++){
           const Temperature=data[i].Temperature;
           const date=data[i].Date;
-          console.log(category);
-          if((Temperature=="cold"||Temperature==TemperatureUser) &&
-           (Temperature=="regular"||Temperature==TemperatureUser) &&
-           (Temperature=="hot"||Temperature==TemperatureUser)){
-            if(date>startData && data<endDate)
+          const duration = data[i].Duration;
+          console.log(temperatureUser);
+          console.log(Temperature);
+          console.log(date);
+          debugger;
+          if(date>startData && date<endDate){
+            if((temperatureUser=="cold"&& Temperature >=15) || (durationUser=="short" && duration>=4))
+            continue;
+            if((temperatureUser=="regular"&& (Temperature <15 || Temperature>=25)) || (durationUser=="med" && (duration<4 || duration >=6)))
+            continue;
+            if((temperatureUser=="hot"&& Temperature <25) || (durationUser=="long" && duration<6))
             continue;
             let upName = data[i].Name.toUpperCase();
           const name=data[i].Name;
@@ -118,7 +131,7 @@
           }
 
 
-
+// if(date>startData && data<endDate){
 
 
 
