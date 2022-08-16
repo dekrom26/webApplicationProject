@@ -166,11 +166,14 @@ function removeGraph(){
 function showGraphs() {
   $("#main").empty();
   $("#create").empty();
+  $("#update").empty();
+  $("#delete").empty();
+  $("#graphs").empty();
   //$("#graphs").detach();
-  if (!graph) {
-    graph = loadRating();
-  }
-  $("#main").append(graph);
+  // if (!graph) {
+  //   graph = loadRating();
+  // }
+  $("#graphs").append(graph);
 }
 
 function showCreateFlights() {
@@ -178,7 +181,8 @@ function showCreateFlights() {
   $("#create").empty();
   $("#update").empty();
   $("#delete").empty();
-  graph=$("#graphs").detach();
+  $("#graphs").empty();
+  // graph=$("#graphs").detach();
   $("#create").load("creat.html")
 }
 
@@ -187,7 +191,8 @@ function showUpdateFlights() {
   $("#create").empty();
   $("#update").empty();
   $("#delete").empty();
-  graph=$("#graphs").detach();
+  $("#graphs").empty();
+  // graph=$("#graphs").detach();
   $("#update").load("update.html")
 }
 
@@ -196,7 +201,8 @@ function showDeleteFlights() {
   $("#create").empty();
   $("#update").empty();
   $("#delete").empty();
-  graph=$("#graphs").detach();
+  $("#graphs").empty();
+  // graph=$("#graphs").detach();
   $("#delete").load("delete.html")
 }
 
