@@ -28,7 +28,6 @@
 
 
 
-
       var continentUser="";
       var priceUser="";
       var categoryUser="";
@@ -74,6 +73,56 @@
   }
 });
         }
+
+
+
+
+
+        var startData = "";
+        var endDate = "";
+        var TemperatureUser = "";
+        document.getElementById("myButton2").onclick= function(){
+          var Temperature=document.getElementById("temperature").value;//the price the user put.
+          var startData=document.getElementById("start").value;//the category the user put.
+          var endDate=document.getElementById("end").value;//the contienet the user put.
+          $.get("/allflights",(data)=>{
+          $("#text").empty();
+          console.log(data);
+          for (var i = 0; i < data.length; i++){
+          const Temperature=data[i].Temperature;
+          const date=data[i].Date;
+          console.log(category);
+          if((Temperature=="cold"||Temperature==TemperatureUser) &&
+           (Temperature=="regular"||Temperature==TemperatureUser) &&
+           (Temperature=="hot"||Temperature==TemperatureUser)){
+            if(date>startData && data<endDate)
+            continue;
+            let upName = data[i].Name.toUpperCase();
+          const name=data[i].Name;
+        $("#text").append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
+        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
+        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
+        <p><b>Category:</b> ${data[i].Category}</p>
+        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
+        `);
+        var col = document.getElementById('text');
+        col.innerHTML += '<button class="bag-btn" onclick="AddCart(' + i + ')">Add To Cart</button>';
+    document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
+      $("#image" + "_" + i).attr("src",data[i].URL);
+      $("#image" + "_" + i).attr("width", "40%");
+      $("#image" + "_" + i).attr("height", "40%"); 
+    
+     }
+    }
+  });
+          }
+
+
+
+
+
+
+
 
 
 

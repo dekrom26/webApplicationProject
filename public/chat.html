@@ -11,7 +11,39 @@
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
     crossorigin="anonymous"></script>
+    <style>
+.footer-distributed{
+  margin-top: 380px;
+}
+body{
+  background-image: url(Background.jpg);
+}
 
+input[type=text] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 100%;
+}
+#datasend{
+  background: #00000057;
+    border-radius: 21px;
+    color: black;
+    font-size: 14px;
+    font-weight: inherit;
+    border: 2px solid black;
+}
+      </style>
 </head>
 <body>
 
@@ -22,7 +54,7 @@
 </div>
 <div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
   <div id="conversation"></div>
-  <input id="data" style="width:200px;" />
+  <input type="text" id="data" style="width:200px;" />
   <input type="button" id="datasend" value="send" />
 </div>
 <script src="chat.js"></script>
