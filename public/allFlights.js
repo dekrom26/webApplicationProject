@@ -215,7 +215,20 @@ function getAllFlights(){
           document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[3].getElementsByClassName("pin_" + i)[0].innerHTML = value;
       });
   }
+    $.get("/allflights", function (data, status) {
+         for (let i = 0; i < data.length; i++) {
+            if (indexes[i] == 1) {
+                let value = parseInt(document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[3].getElementsByClassName("pin_" + i)[0].innerHTML);
+                localStorage.setItem('testObject', JSON.stringify(value));
+            }
+        }
+    });
 
+  
+  // Retrieve the object from storage
+  var retrievedObject = localStorage.getItem('testObject');
+  
+  console.log('retrievedObject: ', JSON.parse(retrievedObject));
 
 
 //   function BuyNow() {

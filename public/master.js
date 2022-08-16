@@ -1,6 +1,6 @@
 
 const loadRating = () => {
-    fetch('/order')
+    fetch('/allflights')
         .then((res) => {
             return res.json();
         })
