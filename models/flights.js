@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Flight Modal Schema
 const flightsSchema = new mongoose.Schema({
     Name: {
         type: String,
@@ -60,6 +61,22 @@ const flightsSchema = new mongoose.Schema({
 
 })
 
-const Flights = mongoose.model('Flights', flightsSchema);
 
-module.exports = Flights;
+// User Modal Schema
+const UserSchema = new mongoose.Schema({
+    Email: {
+        type: String,
+        // required: true
+    },
+    Password: {
+        type: String,
+        // required: true
+    },
+})
+
+
+
+const Flights = mongoose.model('Flights', flightsSchema);
+const Users = mongoose.model('Users', UserSchema);
+
+module.exports ={Flights,Users} ;

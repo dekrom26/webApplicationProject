@@ -207,17 +207,18 @@ function showDeleteFlights() {
 }
 
 
-function User_Authentication() {
-  var EmailUser = document.getElementById("email").value; //the email the user put.
-  var PasswordUser = document.getElementById("password").value; //the password the user put.
-  if (EmailUser == "admin@gmail.com" && PasswordUser == "flight123") {
+function User_Authentication(email,password) {
+  $.get("/allusers", (data) =>{
+  var EmailAdmin=data[0].Email;
+  var PassAdmin=data[0].Password;
+  if (email == EmailAdmin && password == PassAdmin) {
     $("#Authentication").empty();
     $("#master").load("/master");
   } else {
     alert("Email or password is incorrect !");
     console.log("email fail");
   }
-}
+})}
 /////////cart
 
 function createFlight(name,URL,duration,departure,arrivle,price,temperature,continent,date,category,API){

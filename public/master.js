@@ -135,6 +135,34 @@ function createFlight(name,URL,duration,departure,arrivle,price,temperature,cont
     })
 }
 
+function DeleteFlight(name){
+    $.get("/allflights",(data)=>{
+        var _id="-1";
+        for (var i = 0; i < data.length; i++){
+         if(data[i].Name==name){
+           _id=data[i]._id; 
+            break;
+         }
+        }
+        if(_id=="-1"){
+         window.alert("There is no flight as requested");
+         return;
+        }
+
+            $.ajax({
+            url: "http://localhost:8080/delete",
+            type: "DELETE",
+            data: JSON.stringify({ "_id":_id}),
+            contentType: "application/json",
+            dataType: "json",
+            success: function() {
+              console.log("request successfully!");
+              window.alert("successfully deleted");
+            }
+          });
+    })
+}
+
   //})
 
 
