@@ -73,6 +73,25 @@ app.get("/order", async (req, res) => {
 });
 
 
+app.get("/groupByContinent", async (req, res) => {
+  const groupByContinent = await Flights.aggregate([{
+    $group:{
+      _id:"$Continent",
+      total: {$sum:1}
+    }
+  }])
+  res.json(groupByContinent);
+});
+
+app.get("/groupByCategory", async (req, res) => {
+  const groupByCategory = await Flights.aggregate([{
+    $group:{
+      _id:"$Category",
+      avg: {$avg:"$Price"}
+    }
+  }])
+  res.json(groupByCategory);
+});
 
 
 app.put("/update", async (req, res) => {

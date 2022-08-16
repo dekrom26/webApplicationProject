@@ -118,6 +118,33 @@ function getAllFlights(){
 
   }
 
+  function GroupByContinent() {
+    $("#text").empty();
+    $("#text").append(`<p>The number of flights on each continent:</p><br>`)
+    $.get("/groupByContinent", function (data, status) {
+        for (let i = 0; i < data.length; i++) {
+          $("#text").append(`<p id="name"><b><Continent:</b> ${data[i]._id}:${data[i].total}</p>`);
+        }
+    });
+  }
+
+  function GroupByCategory() {
+    $("#text").empty();
+    $("#text").append(`<p>Average flight ticket by category:</p><br>`)
+    $.get("/groupByCategory", function (data, status) {
+        for (let i = 0; i < data.length; i++) {
+          $("#text").append(`<p id="name"><b><Category:</b> ${data[i]._id}:${data[i].avg}$</p>`);
+        }
+    });
+  }
+
+  
+  ///groupByCategory
+
+  //get("/groupByContinent"
+
+  // $("#text").append(`<p id="proname"><b><Company:</b></font> ${data[i]._id}:${data[i].total}</p>`);
+
 
 
 
