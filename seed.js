@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const { collection } = require('./models/flights');
-const Flights = require('./models/flights');
-
+//const { collection } = require('./models/flights');
+const { Flights, Users} = require('./models/flights');
 
 const seedFlight = [
     {
@@ -155,9 +154,21 @@ const seedFlight = [
     },
 
 ]
+
+const seedUsers = [
+  {
+   Email:"admin@gmail.com",
+   Password:"flight123",
+  }]
+
+
 const seedDB= async ()=>{
     await Flights.deleteMany({});
     await Flights.insertMany(seedFlight);
+
+    await Users.deleteMany({});
+    await Users.insertMany(seedUsers);
+
     await Flights.aggregate( [
   {
     $group: {

@@ -1,6 +1,7 @@
 const path = require("path");
 const mongoose = require("mongoose");
-const Flights = require("./models/flights");
+//const Flights = require("./models/flights");
+const { Flights, Users} = require('./models/flights');
 const seed = require("./seed");
 const cors = require('cors');
 
@@ -32,12 +33,26 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("MONGO CONNECTION OPEN!!!");
+    console.log("MONGO CONNECTION TO FLIGHTS !!!");
   })
   .catch((err) => {
-    console.log("OH NO MONGO CONNECTION ERROR!!!!");
+    console.log("OH NO MONGO FLIGHTS CONNECTION ERROR!!!!");
     console.log(err);
   });
+  
+
+// mongoose
+// .connect("mongodb://localhost:27017/Users", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// })
+//   .then(() => {
+//     console.log("MONGO CONNECTION TO USERS !!!");
+//   })
+//   .catch((err) => {
+//     console.log("OH NO MONGO USERS CONNECTION ERROR!!!!");
+//     console.log(err);
+//   });
 
 seed.seedDB();
 
@@ -67,12 +82,40 @@ app.get("/allflights", async (req, res) => {
   // res.send(flights);
   //
 });
+
+//"/allusers"
+app.get("/allusers", async (req, res) => {
+  const users = await Users.find({});
+  res.json(users);
+  // res.send(flights);
+  //
+});
+
 app.get("/order", async (req, res) => {
   const flights1 = await Flights.find().sort({ Price: 1 });
   res.json(flights1);
 });
 
 
+app.get("/groupByContinent", async (req, res) => {
+  const groupByContinent = await Flights.aggregate([{
+    $group:{
+      _id:"$Continent",
+      total: {$sum:1}
+    }
+  }])
+  res.json(groupByContinent);
+});
+
+app.get("/groupByCategory", async (req, res) => {
+  const groupByCategory = await Flights.aggregate([{
+    $group:{
+      _id:"$Category",
+      avg: {$avg:"$Price"}
+    }
+  }])
+  res.json(groupByCategory);
+});
 
 
 app.put("/update", async (req, res) => {
@@ -124,6 +167,16 @@ app.put("/update", async (req, res) => {
   // await Flights.findByIdAndUpdate(req.body._id,{characteristic}`:req.body.value});
   res.json({"status": 200});
 })
+
+
+app.delete("/delete", async (req, res) => {
+  var id=req.body._id;
+      await Flights.findByIdAndDelete(id,{"Name":req.body.value});
+  res.json({"status": 200});
+})
+
+
+
 // Name
 // URL
 // Duration
