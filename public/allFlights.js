@@ -1,6 +1,5 @@
 
-//                  <p blabla class="weatherwidget-io" href=${data.API} data-label_1="DUBAI" data-label_2="WEATHER" data-mode="Current" ></p>
-        document.getElementById("myButton3").onclick= function(){
+ document.getElementById("myButton3").onclick= function(){
             $.get("/order",(data)=>{
           $("#text").empty();
           console.log(data);
@@ -127,19 +126,19 @@ function getAllFlights(){
 
 
 
-  const indexes = [];
+  var indexes = [];
   function AddCart(i) {
       let index = i;
       console.log(i);
       keepGood = 0;
       $.get("/allflights", function (data, status) {
+        // localStorage.setItem(i)
           console.log(i);
           if (indexes[i] == 1) {
               console.log("Second Time");
               PlusQuantity(i);
           }
           if (indexes[i] == undefined) {
-
               document.getElementById("app").getElementsByClassName("cart-product-title")[0].innerHTML += `<div class="item_` + i + `"><p><b><Company:</b></font> ${data[i].Name}<b></p><p>Price:</b>${data[i].Price}$</p></div>`;
               document.getElementById("app").getElementsByClassName("cart-product-title")[0].innerHTML += `<div class="item_` + i + `"><p><img id="img_` + i + `" class="center"/></p></div>`;
               $("#img" + "_" + i).attr("src", data[i].URL);
@@ -219,28 +218,30 @@ function getAllFlights(){
 
 
 
-  function BuyNow() {
-    document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "";
-    document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = "";
-    let fileduserID = document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("un")[0].value;
-    let filedPrice = document.getElementById("app").getElementsByClassName("cart-total")[0].innerHTML;
-    if (fileduserID == "") {
-        document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "This is Required Filed" + `<br>`;
-    }
-    if (filedPrice == "0") {
-        document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = " Your Cart is Empty";
-    }
-    var user = fileduserID;
-    $.get("/allflights", function (data, status) {
-        for (let i = 0; i < data.length; i++) {
-            if (indexes[i] == 1) {
-                let value = parseInt(document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[3].getElementsByClassName("pin_" + i)[0].innerHTML);
-                $.post("http://localhost:8080/form", { user: user, productId: data[i]._id, price: data[i].price, quantity: value }, function (data) {
-                });
-            }
-        }
-    });
-}
+//   function BuyNow() {
+//     document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "";
+//     document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = "";
+//     let fileduserID = document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("un")[0].value;
+//     let filedPrice = document.getElementById("app").getElementsByClassName("cart-total")[0].innerHTML;
+//     if (fileduserID == "") {
+//         document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "This is Required Filed" + `<br>`;
+//     }
+//     if (filedPrice == "0") {
+//         document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = " Your Cart is Empty";
+//     }
+//     var user = fileduserID;
+//     $.get("/allflights", function (data, status) {
+//         for (let i = 0; i < data.length; i++) {
+//             if (indexes[i] == 1) {
+//                 let value = parseInt(document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[3].getElementsByClassName("pin_" + i)[0].innerHTML);
+//                 $.post("http://localhost:8080/form", { user: user, productId: data[i]._id, price: data[i].price, quantity: value }, function (data) {
+//                 });
+//             }
+//         }
+//     });
+// }
+
+
 
 
 

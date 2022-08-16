@@ -4,12 +4,7 @@ const Flights = require("./models/flights");
 const seed = require("./seed");
 const cors = require('cors');
 
-<<<<<<< HEAD
 
-// const server = http.createServer(app);
-// const io = require('socket.io')(server);
-=======
->>>>>>> c77c79fb6d923e2044497cd5c7de38ed5a024484
 
 var express = require("express"),
   app = express();
@@ -19,11 +14,7 @@ var express = require("express"),
   server = http.createServer(app),
   io = require("socket.io")(server);
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> c77c79fb6d923e2044497cd5c7de38ed5a024484
 server.listen(8080, () => {
   console.log("APP IS LISTENING ON PORT 8080!");
 });

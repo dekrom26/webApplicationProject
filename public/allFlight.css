@@ -255,20 +255,14 @@ divCol{
 }
 
 .btn-buy {
-    display: flex;
-    margin: 1.5rem auto 0 auto;
-    padding: 12px 20px;
-    border: none;
-    background: var(--main-color);
-    color: var(--bg-color);
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
+    background: #fdbb2d;
+    border-radius: 14px;
+    color: black;
+    font-size: 18px;
+    font-weight: inherit;
+    border: 2px solid black;
 }
 
-.btn-buy:hover {
-    background: var(--text-color);
-}
 
 #close-cart {
     font-size: 2rem;
@@ -280,9 +274,12 @@ divCol{
 }
 
 .bag-btn {
-    background: #2a1c1c;
-    color: #ffffff;
-    cursor: pointer;
+    background: #fdbb2d;
+    border-radius: 10px;
+    color: black;
+    font-size: 14px;
+    font-weight: inherit;
+    border: 2px solid black;
 }
 
   
