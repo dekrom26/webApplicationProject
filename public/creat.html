@@ -1,4 +1,4 @@
-<br>
+<!-- <br>
 <br>
 <label for="name">Name</label><input type="text" id="name" value="">
 <label for="URL">URL</label><input type="text" id="URL" value="">
@@ -16,10 +16,113 @@ document.getElementById('duration').value,document.getElementById('departure').v
 document.getElementById('price').value,document.getElementById('temperature').value,document.getElementById('continent').value,
 document.getElementById('date').value,document.getElementById('category').value,document.getElementById('API').value)">Submit</button>
 
+ -->
 
+<link rel="stylesheet" href="creat.css" />
 
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
+<section class="get-in-touch">
+  <h1 class="title">Creat a New Flight</h1>
+  <form class="contact-form row">
+    <div class="form-field col-lg-6">
+      <label for="name">Name</label
+      ><input class="input-text js-input" type="text" id="name" value="" />
+    </div>
+    <div class="form-field col-lg-6">
+      <label for="URL">URL</label
+      ><input class="input-text js-input" type="text" id="URL" value="" />
+    </div>
+    <div class="form-field col-lg-6">
+      <label for="departure">Departure</label
+      ><input
+        class="input-text js-input"
+        type="text"
+        id="departure"
+        value=""
+      /><br />
+    </div>
 
+    <div class="form-field col-lg-6">
+      <label for="duration">Duration</label
+      ><input
+        class="input-text js-input"
+        type="number"
+        id="duration"
+        value="0"
+      />
+    </div>
+    <div class="form-field col-lg-6">
+      <label for="category">Category</label
+      ><input
+        class="input-text js-input"
+        type="text"
+        id="category"
+        value="urban"
+      />
+      <br />
+    </div>
+    <div class="form-field col-lg-6">
+      <label for="arrivle">Arrivle</label
+      ><input class="input-text js-input" type="text" id="arrivle" value="" />
+    </div>
+    <div class="form-field col-lg-6">
+      <label for="price">Price</label
+      ><input class="input-text js-input" type="number" id="price" value="0" />
+    </div>
 
-
-
+    <div class="form-field col-lg-6">
+      <label for="temperature">Temperature</label
+      ><input
+        class="input-text js-input"
+        type="number"
+        id="temperature"
+        value="0"
+      />
+    </div>
+    <div class="form-field col-lg-6">
+      <label for="continent">Continent</label
+      ><input
+        class="input-text js-input"
+        type="text"
+        id="continent"
+        value="asia"
+      /><br />
+    </div>
+    <div class="form-field col-lg-6">
+      <label for="date">Date</label
+      ><input class="input-text js-input" type="text" id="date" value="" />
+    </div>
+    <div class="form-field col-lg-6">
+      <label for="API">API</label
+      ><input class="input-text js-input" type="text" id="API" value="" />
+    </div>
+    <div class="form-field col-lg-12">
+      <input
+        class="submit-btn"
+        type="button"
+        value="Submit"
+        onclick="createFlight(document.getElementById('name').value,document.getElementById('URL').value,
+        document.getElementById('duration').value,document.getElementById('departure').value,document.getElementById('arrivle').value,
+        document.getElementById('price').value,document.getElementById('temperature').value,document.getElementById('continent').value,
+        document.getElementById('date').value,document.getElementById('category').value,document.getElementById('API').value)"
+      />
+    <!-- <button
+      type="button"
+      onclick="createFlight(document.getElementById('name').value,document.getElementById('URL').value,
+      document.getElementById('duration').value,document.getElementById('departure').value,document.getElementById('arrivle').value,
+      document.getElementById('price').value,document.getElementById('temperature').value,document.getElementById('continent').value,
+      document.getElementById('date').value,document.getElementById('category').value,document.getElementById('API').value)"
+    >
+      Submit
+    </button> -->
+    <!-- </div> -->
+  </form>
+</section>
