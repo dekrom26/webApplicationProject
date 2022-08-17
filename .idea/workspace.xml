@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="update after pull">
+    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="graph title">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/master.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/master.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/allFlight.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/allFlight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/allFlights.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/allFlights.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/allFlights.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/allFlights.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +113,7 @@
       <workItem from="1660423172968" duration="1144000" />
       <workItem from="1660455367666" duration="6392000" />
       <workItem from="1660665018867" duration="539000" />
-      <workItem from="1660729807664" duration="2068000" />
+      <workItem from="1660729807664" duration="7547000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -239,7 +241,13 @@
       <option name="presentableId" value="LOCAL‎00021" />
       <updated>1660461923981</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL‎00022" summary="graph title">
+      <created>1660738769824</created>
+      <option name="number" value="LOCAL‎00022" />
+      <option name="presentableId" value="LOCAL‎00022" />
+      <updated>1660738769824</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +296,8 @@
     <MESSAGE value="rating added" />
     <MESSAGE value="master.js" />
     <MESSAGE value="changes in graphs and git ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes in graphs and git ignore" />
+    <MESSAGE value="graph title" />
+    <option name="LAST_COMMIT_MESSAGE" value="graph title" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

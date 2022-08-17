@@ -305,5 +305,13 @@ divCol{
     border: 2px solid black;
 }
 
+.unlike-btn{
+    color: red;
+}
+
+.like-btn{
+    color: green;
+}
+
   
   
