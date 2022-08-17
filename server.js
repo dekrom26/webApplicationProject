@@ -1,7 +1,7 @@
 const path = require("path");
 const mongoose = require("mongoose");
 //const Flights = require("./models/flights");
-const { Flights, Users} = require('./models/flights');
+const { Flights, Users,Cart} = require('./models/flights');
 const seed = require("./seed");
 const cors = require('cors');
 
@@ -91,6 +91,14 @@ app.get("/allusers", async (req, res) => {
   //
 });
 
+app.get("/cart", async (req, res) => {
+  const carts = await Cart.find({});
+  res.json(carts);
+  // res.send(flights);
+  //
+});
+
+
 app.get("/order", async (req, res) => {
   const flights1 = await Flights.find().sort({ Price: 1 });
   res.json(flights1);
@@ -169,6 +177,27 @@ app.put("/update", async (req, res) => {
 })
 
 
+app.post("/buy", async (req, res) => {
+
+   obj=await Cart.findOne({});
+   cart_id=obj._id
+   count=obj.Count
+   var arr=obj.Products
+
+  console.log(req.body.arr);
+  console.log(req.body.count);
+  // console.log(`${req.body.productName}`);
+  // console.log(`${req.body.price}`);
+  // //console.log(`${req.body.quantity}`);
+ 
+     await Cart.findByIdAndUpdate(cart_id,{"Products":req.body.arr});
+     await Cart.findByIdAndUpdate(cart_id,{"Count":req.body.count});
+  // // await Flights.findByIdAndUpdate(req.body._id,{characteristic}`:req.body.value});
+    res.json({"status": 200});
+})
+//{productId: data[i]._id, price: data[i].price, quantity: value 
+
+
 app.delete("/delete", async (req, res) => {
   var id=req.body._id;
       await Flights.findByIdAndDelete(id,{"Name":req.body.value});
@@ -224,14 +253,14 @@ io.on("connection", (socket) => {
 // });
 
 // C:\Users\97252\OneDrive\מסמכים\GitHub\webApplicationProject\public\chat\shoppingCart.html
-app.get("/cart", function (req, res) {
-  res.sendFile(public + "/cart/shoppingCart.html");
-});
+// app.get("/cart", function (req, res) {
+//   res.sendFile(public + "/cart/shoppingCart.html");
+// });
 
-app.get("/allcart", async (req, res) => {
-  const flights = await Flights.find({});
-  res.json(flights);
-});
+// app.get("/allcart", async (req, res) => {
+//   const flights = await Flights.find({});
+//   res.json(flights);
+// });
 
 var usernames = {};
 

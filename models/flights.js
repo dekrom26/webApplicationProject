@@ -75,8 +75,26 @@ const UserSchema = new mongoose.Schema({
 })
 
 
+members: [{ firstName: String, lastName: String }]
+// Cart Modal Schema
+const CartSchema = new mongoose.Schema({
+//     Products: [{
+//     Name:String
+//     }]
+// ,   
+    Products: [{
+    type:String
+    }]
+,  
+    Count:{
+        type:Number
+    },    
+})
+
+
 
 const Flights = mongoose.model('Flights', flightsSchema);
 const Users = mongoose.model('Users', UserSchema);
+const Cart = mongoose.model('Cart', CartSchema);
 
-module.exports ={Flights,Users} ;
+module.exports ={Flights,Users,Cart} ;

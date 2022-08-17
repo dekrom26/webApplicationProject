@@ -319,32 +319,69 @@ function getAllFlights(){
   console.log('retrievedObject: ', JSON.parse(retrievedObject));
 
 
-//   function BuyNow() {
-//     document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "";
-//     document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = "";
-//     let fileduserID = document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("un")[0].value;
-//     let filedPrice = document.getElementById("app").getElementsByClassName("cart-total")[0].innerHTML;
-//     if (fileduserID == "") {
-//         document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "This is Required Filed" + `<br>`;
-//     }
-//     if (filedPrice == "0") {
-//         document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = " Your Cart is Empty";
-//     }
-//     var user = fileduserID;
-//     $.get("/allflights", function (data, status) {
-//         for (let i = 0; i < data.length; i++) {
-//             if (indexes[i] == 1) {
-//                 let value = parseInt(document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[3].getElementsByClassName("pin_" + i)[0].innerHTML);
-//                 $.post("http://localhost:8080/form", { user: user, productId: data[i]._id, price: data[i].price, quantity: value }, function (data) {
-//                 });
-//             }
-//         }
-//     });
-// }
+  function BuyNow() {
+    // document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "";
+    // document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = "";
+    // let fileduserID = document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("un")[0].value;
+    // let filedPrice = document.getElementById("app").getElementsByClassName("cart-total")[0].innerHTML;
+    // if (fileduserID == "") {
+    //     document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "This is Required Filed" + `<br>`;
+    // }
+    // if (filedPrice == "0") {
+    //     document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = " Your Cart is Empty";
+    // }
+    // var user = fileduserID;
+
+    $.get("/allflights", function (data, status) {
+        for (let i = 0; i < data.length; i++) {
+            if (indexes[i] == 1) {
+               // let value = parseInt(document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[3].getElementsByClassName("pin_" + i)[0].innerHTML);
+               $.ajax({
+                url: "http://localhost:8080/buy",
+                type: "POST",
+                data: JSON.stringify({ "productName":data[i].Name,
+                    "price":data[i].Price}),
+                contentType: "application/json",
+                dataType: "json",
+                success: function() {
+                  console.log("request successfully!");
+                  //window.alert("successfully updated");
+                }
+              });
+              //  $.post("http://localhost:8080/buy", {productName: data[i].Name, price: data[i].Price}, function (data) {
+              //   });
+
+            }
+        }
+    });
+}
 
 
+function BuyNow() {
+  var arr = [];
+  var count=0;
+ $.get("/allflights", function (data, status) {
+        for (let i = 0; i < data.length; i++) {
+            if (indexes[i] == 1) {
+              count+=data[i].Price;
+              arr.push(data[i].Name);
+            }
+        }
 
-
+        $.ajax({
+          url: "http://localhost:8080/buy",
+          type: "POST",
+          data: JSON.stringify({ "arr":arr,
+              "count":count}),
+          contentType: "application/json",
+          dataType: "json",
+          success: function() {
+            console.log("request successfully!");
+            //window.alert("successfully updated");
+          }
+        });
+    });
+  }
 
 $(() => {
         getAllFlights();

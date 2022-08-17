@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 //const { collection } = require('./models/flights');
-const { Flights, Users} = require('./models/flights');
+const { Flights, Users,Cart} = require('./models/flights');
 
 const seedFlight = [
     {
@@ -162,12 +162,21 @@ const seedUsers = [
   }]
 
 
+const seedCart = [
+  {
+  Products:[],
+   Count:0,
+  }]
+
 const seedDB= async ()=>{
     await Flights.deleteMany({});
     await Flights.insertMany(seedFlight);
 
     await Users.deleteMany({});
     await Users.insertMany(seedUsers);
+
+    await Cart.deleteMany({});
+    await Cart.insertMany(seedCart);
 
     await Flights.aggregate( [
   {
