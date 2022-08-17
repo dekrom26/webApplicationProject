@@ -11,7 +11,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="master.css" />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <link rel="stylesheet" href="creat.css" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Document</title>
+
     <script
       language="JavaScript"
       type="text/javascript"
@@ -29,21 +38,59 @@
     <title>All Flights</title>
   </head>
   <body>
-    <h1>Hello manager, what would you like to do?</h1>
+    <section class="get-in-touch">
+
+    <h1 class="title2"> Hello manager, what would you like to do?</h1>
+    </section>
+    <div class="container">
+
     <div class="master-control">
-      <button type="button" class="master-button" onclick="showallFlights()">
+      <form class="contact-form row">
+
+      <div class="form-field col-lg-12">
+        <input
+          class="submit-btn"
+          type="button"
+          value="See all Flights"
+          onclick="showallFlights()"
+        />
+
+          <input
+            class="submit-btn"
+            type="button"
+            value="Create new Flight"
+            onclick="showCreateFlights()"
+          />
+      <!-- <button type="button" class="master-button" onclick="showallFlights()">
         See all Flights
-      </button>
-      <button type="button" class="master-button" onclick="showCreateFlights()">
+      </button> -->
+      <!-- <button type="button" class="master-button" onclick="showCreateFlights()">
         Create new Flight
-      </button>
-      <button type="button" class="master-button" onclick="showUpdateFlights()">
+      </button> -->
+        <input
+          class="submit-btn"
+          type="button"
+          value="Flight update"
+          onclick="showUpdateFlights()"
+        />
+      <!-- <button type="button" class="master-button" onclick="showUpdateFlights()">
         Flight update
-      </button>
-      <button type="button" class="master-button" onclick="showDeleteFlights()">
+      </button> -->
+
+        <input
+          class="submit-btn"
+          type="button"
+          value="Delete a Flight"
+          onclick="showDeleteFlights()"
+        />
+      </form >
+      </div>
+      <!-- <button type="button" class="master-button" onclick="showDeleteFlights()">
         Delete a Flight
-      </button>
+      </button> -->
       <!-- <button type="button" class="master-button" onclick="showGraphs()">Show stats</button> -->
+      <br><br><br><br><br>
+
     </div>
     <div id="main"></div>
     <div id="create"></div>
