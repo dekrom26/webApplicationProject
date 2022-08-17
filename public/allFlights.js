@@ -102,7 +102,6 @@
           console.log(temperatureUser);
           console.log(Temperature);
           console.log(date);
-          debugger;
           if(date>startData && date<endDate){
             if((temperatureUser=="cold"&& Temperature >=15) || (durationUser=="short" && duration>=4))
             continue;

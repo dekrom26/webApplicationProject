@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="changes in graphs and git ignore" />
+    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="update after pull">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/master.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/master.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,6 +110,8 @@
       <workItem from="1660394590528" duration="9777000" />
       <workItem from="1660423172968" duration="1144000" />
       <workItem from="1660455367666" duration="6392000" />
+      <workItem from="1660665018867" duration="539000" />
+      <workItem from="1660729807664" duration="2068000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -251,7 +256,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
