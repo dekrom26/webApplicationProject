@@ -18,6 +18,10 @@
         );
         var col = document.getElementById('text');
         col.innerHTML += '<button class="bag-btn" onclick="AddCart(' + i + ')">Add To Cart</button>';
+        var like = document.getElementById('text');
+        like.innerHTML += '<button class="like-btn" onclick="Like()"> <i class="fa fa-thumbs-up"></i></button>';
+        var unlike = document.getElementById('text');
+        unlike.innerHTML += '<button class="unlike-btn" onclick="UnLike()"> <i class="fa fa-thumbs-down"></i></button>';
     document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
       $("#image" + "_" + i).attr("src",data[i].URL);
       $("#image" + "_" + i).attr("width", "40%");
@@ -65,6 +69,10 @@
       `);
       var col = document.getElementById('text');
       col.innerHTML += '<button class="bag-btn" onclick="AddCart(' + i + ')">Add To Cart</button>';
+      var like = document.getElementById('text');
+      like.innerHTML += '<button class="like-btn" onclick="Like()"> <i class="fa fa-thumbs-up"></i></button>';
+      var unlike = document.getElementById('text');
+      unlike.innerHTML += '<button class="unlike-btn" onclick="UnLike()"> <i class="fa fa-thumbs-down"></i></button>';
   document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
     $("#image" + "_" + i).attr("src",data[i].URL);
     $("#image" + "_" + i).attr("width", "40%");
@@ -119,6 +127,10 @@
         `);
         var col = document.getElementById('text');
         col.innerHTML += '<button class="bag-btn" onclick="AddCart(' + i + ')">Add To Cart</button>';
+        var like = document.getElementById('text');
+        like.innerHTML += '<button class="like-btn" onclick="Like()"> <i class="fa fa-thumbs-up"></i></button>';
+        var unlike = document.getElementById('text');
+        unlike.innerHTML += '<button class="unlike-btn" onclick="UnLike()"> <i class="fa fa-thumbs-down"></i></button>';
     document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
       $("#image" + "_" + i).attr("src",data[i].URL);
       $("#image" + "_" + i).attr("width", "40%");
@@ -170,6 +182,10 @@ function getAllFlights(){
           `);
           var col = document.getElementById('text');
           col.innerHTML += '<button class="bag-btn" onclick="AddCart(' + i + ')">Add To Cart</button>';
+        var like = document.getElementById('text');
+        like.innerHTML += '<button class="like-btn" onclick="Like()"> <i class="fa fa-thumbs-up"></i></button>';
+        var unlike = document.getElementById('text');
+        unlike.innerHTML += '<button class="unlike-btn" onclick="UnLike()"> <i class="fa fa-thumbs-down"></i></button>';
     document.getElementById("text").innerHTML+=`<p><img id="image_`+i+`" class="center"/></p></td><hr><br>`;
       $("#image" + "_" + i).attr("src",data[i].URL);
       $("#image" + "_" + i).attr("width", "40%");
@@ -343,7 +359,12 @@ function getAllFlights(){
 // }
 
 
-
+function Like(){
+    console.log("like");
+}
+ function UnLike(){
+     console.log("unlike");
+ }
 
 
 $(() => {
