@@ -54,6 +54,8 @@ function graph_flights_ratings(rating_json){
         .attr("height", d => y(0) - y(d.Rating))
         .attr("width", x.bandwidth());
 
+    svg.append("text").attr("x",(width/2)).attr("y",(margin.top/2)+10).attr("text-anchor","middle").style("font-size","16px").style("text-decoration","underline").text("Flights ratings");
+
     // creating names for the axis
     function yAxis(g) {
         g.attr("transform", `translate(${margin.left}, 0)`)
