@@ -367,7 +367,7 @@ function getAllFlights(){
               //  $.post("http://localhost:8080/buy", {productName: data[i].Name, price: data[i].Price}, function (data) {
               //   });
 
-// <<<<<<< HEAD
+
             }
         }
     });
@@ -414,7 +414,7 @@ function Like(i){
   });
   });
  }
-// >>>>>>> 32553a0df3e97733761fa7f5aed807be0b62edde
+
 
 function BuyNow() {
   var arr = [];
@@ -441,6 +441,86 @@ function BuyNow() {
         });
     });
   }
+
+
+  function showCard1(
+    i,
+    name,
+    date,
+    url,
+    duration,
+    Departure,
+    Arrivle,
+    Price,
+    Temperature,
+    Continent,
+    Category,
+    Rating
+  ) {
+    return `<section class="light">
+  <div class="container py-2">
+    <article class="postcard light red">
+      <a class="postcard__img_link" href="#">
+        <img
+          class="postcard__img"
+          src="${url}"
+          alt="Image Title"
+        />
+      </a>
+      <div class="postcard__text t-dark">
+        <h1 class="postcard__title red"><a href="#">${name}</a></h1>
+  
+        <div class="postcard__subtitle small">
+            <i class="fas fa-calendar-alt mr-2"></i>${date}
+        </div>
+        <div class="postcard__bar"></div>
+     
+        <ul class="postcard__tagbox">
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Duration(Hours): ${duration}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Departure: ${Departure}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Arrivle: ${Arrivle}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Price: ${Price} $</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Temperature: ${Temperature}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Continent: ${Continent}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Category: ${Category}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Rating: ${Rating} </li>
+         
+        <button class="bag-btn" onclick="AddCart(${i})">Add To Cart</button>
+        <button class="like-btn" onclick="Like(${i})"> <i class="fa fa-thumbs-up"></i></button>
+        <button class="unlike-btn" onclick="UnLike(${i})"> <i class="fa fa-thumbs-down"></i></button>
+          </div>
+          </li>
+          </li>
+        </ul>
+      </div>
+   
+  </div>
+  </section>`;
+  }
+  
+  function showCard() {
+    $("#text").empty();
+    $.get("/allflights", function (data, status) {
+      for (var i = 0; i < data.length; i++) {
+        $("#text").append(
+          showCard1(
+            i,
+            data[i].Name,
+            data[i].Date,
+            data[i].URL,
+            data[i].Duration,
+            data[i].Departure,
+            data[i].Arrivle,
+            data[i].Price,
+            data[i].Temperature,
+            data[i].Continent,
+            data[i].Category,
+            data[i].Rating
+          )
+        );
+      }
+    });
+  }  
 
 $(() => {
         getAllFlights();
