@@ -176,6 +176,19 @@ app.put("/update", async (req, res) => {
   res.json({"status": 200});
 })
 
+app.post("/like", async (req, res) => {
+ var new_rating=parseInt(req.body.rating);
+ new_rating+=1;
+ await Flights.findByIdAndUpdate(req.body._id,{"Rating":new_rating});
+   res.json({"status": 200});
+})
+
+app.post("/unlike", async (req, res) => {
+  var new_rating=parseInt(req.body.rating);
+  new_rating-=1;
+  await Flights.findByIdAndUpdate(req.body._id,{"Rating":new_rating});
+    res.json({"status": 200});
+ })
 
 app.post("/buy", async (req, res) => {
 
