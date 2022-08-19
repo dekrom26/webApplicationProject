@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <script
       language="JavaScript"
       type="text/javascript"
@@ -18,122 +18,131 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- //////////// -->
     <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-    crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="allFlight.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="allFlight.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Flights</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Find your favorite vacation</h1>
     <button id="card" onclick="showCard()">click me</button>
-    <br>
-   
-        <label for="price">Price</label>
-        <select name="price" id="price">
-            <option value="all">all</option>
-            <option value="cheap">Less than 100$</option>
-            <option value="regular">Between 100$ and 500$</option>
-            <option value="expensive">Over 500$</option>
-        </select>
-   
-        <label for="category">Category</label>
-        <select name="category" id="category">
-            <option value="all">all</option>
-            <option value="urban">urban</option>
-            <option value="exotic">exotic</option>
-            <option value="nature">nature</option>
-            <option value="shopping">shopping</option>
-            <option value="sunbathing">sunbathing</option>
-        </select> 
-  
-      <label for="continent">Continent</label>
-      <select name="continent" id="continent">
-          <option value="all">all</option>
-          <option value="asia">asia</option>
-          <option value="africa">africa</option>
-          <option value="northAmerica">northAmerica</option>
-          <option value="southAmerica">soutAmerica</option>
-          <option value="europe">europe</option>
-      </select>
+    <br />
 
-      <button type="button1" id="myButton1">Search</button>
-      <br><br><br>
+    <label for="price">Price</label>
+    <select name="price" id="price">
+      <option value="all">all</option>
+      <option value="cheap">Less than 100$</option>
+      <option value="regular">Between 100$ and 500$</option>
+      <option value="expensive">Over 500$</option>
+    </select>
 
-      <label for="start">Start date:</label>
-      <input type="date" id="start" name="trip-start"
-       value="2022-06-01"
-       min="2022-06-01" max="2024-12-31">
+    <label for="category">Category</label>
+    <select name="category" id="category">
+      <option value="all">all</option>
+      <option value="urban">urban</option>
+      <option value="exotic">exotic</option>
+      <option value="nature">nature</option>
+      <option value="shopping">shopping</option>
+      <option value="sunbathing">sunbathing</option>
+    </select>
 
-       <label for="end">End date:</label>
-       <input type="date" id="end" name="trip-end"
-        value="2024-12-31"
-        min="2022-06-01" max="2024-12-31">
+    <label for="continent">Continent</label>
+    <select name="continent" id="continent">
+      <option value="all">all</option>
+      <option value="asia">asia</option>
+      <option value="africa">africa</option>
+      <option value="northAmerica">northAmerica</option>
+      <option value="southAmerica">soutAmerica</option>
+      <option value="europe">europe</option>
+    </select>
 
-        <label for="temperature">Temperature</label>
-        <select name="temperature" id="temperature">
-            <option value="all">all</option>
-            <option value="cold">Less than 15C</option>
-            <option value="regular">Between 15C and 24C</option>
-            <option value="hot">Over 24C</option>
-        </select>
+    <button type="button1" id="myButton1" onclick="Search1()">Search</button>
+    <br /><br /><br />
 
+    <label for="start">Start date:</label>
+    <input
+      type="date"
+      id="start"
+      name="trip-start"
+      value="2022-06-01"
+      min="2022-06-01"
+      max="2024-12-31"
+    />
 
-        
-        <label for="duration">Duration</label>
-        <select name="duration" id="duration">
-            <option value="all">all</option>
-            <option value="short">Less than 4 Hours</option>
-            <option value="med">Between 4 Hours and 6 Hours</option>
-            <option value="long">Over 6 Hours</option>
-        </select>
+    <label for="end">End date:</label>
+    <input
+      type="date"
+      id="end"
+      name="trip-end"
+      value="2024-12-31"
+      min="2022-06-01"
+      max="2024-12-31"
+    />
 
-      <button type="button2" id="myButton2">Search</button>
-      <button type="button3" id="myButton3">order by price</button>
-      <button type="button4" id="myButton4" onclick="GroupByContinent()">Group By Continent</button>
-      <button type="button4" id="myButton4" onclick="GroupByCategory()">Group By Category</button><br><br>
+    <label for="temperature">Temperature</label>
+    <select name="temperature" id="temperature">
+      <option value="all">all</option>
+      <option value="cold">Less than 15C</option>
+      <option value="regular">Between 15C and 24C</option>
+      <option value="hot">Over 24C</option>
+    </select>
 
+    <label for="duration">Duration</label>
+    <select name="duration" id="duration">
+      <option value="all">all</option>
+      <option value="short">Less than 4 Hours</option>
+      <option value="med">Between 4 Hours and 6 Hours</option>
+      <option value="long">Over 6 Hours</option>
+    </select>
 
-<section class="products">
-  <!-- <div class="section-title">
+    <button type="button2" id="myButton2" onclick="Search2()">Search</button
+    ><br />
+    <!-- <button type="button3" id="myButton3">order by price</button> -->
+    <button type="button4" id="myButton4" onclick="GroupByContinent()">
+      Group By Continent
+    </button>
+    <button type="button4" id="myButton4" onclick="GroupByCategory()">
+      Group By Category</button
+    ><br /><br />
+
+    <section class="products">
+      <!-- <div class="section-title">
       <h2>Products</h2>
   </div> -->
-  <div class="products-center"></div>
-</section>
-<div class="cart-overlay">
-  <div class="cart">
-      <span class="close-cart">
-        <i style="font-size:24px" class="fa">&#xf07a;</i>
-        <li class="toggle"><span class="bars"></span></li>
-      </span>
-      <br>
-      <h2>Cart</h2>
-      <div class="cart-content">
+      <div class="products-center"></div>
+    </section>
+    <div class="cart-overlay">
+      <div class="cart">
+        <span class="close-cart">
+          <i style="font-size: 24px" class="fa">&#xf07a;</i>
+          <li class="toggle"><span class="bars"></span></li>
+        </span>
+        <br />
+        <h2>Cart</h2>
+        <div class="cart-content">
           <div class="cart-box">
-              <div class="detail-box">
-                  <div class="cart-product-title"></div>
-                  <div class="cart-price"></div>
-              </div>
+            <div class="detail-box">
+              <div class="cart-product-title"></div>
+              <div class="cart-price"></div>
+            </div>
           </div>
-      </div>
-      <div class="cart-footer">
+        </div>
+        <div class="cart-footer">
           <h3>Total Price: $<span class="cart-total">0</span></h3>
+        </div>
+        <button type="button" onclick="BuyNow()" class="btn-buy">
+          Buy Now
+        </button>
       </div>
-      <button type="button" onclick="BuyNow()" class="btn-buy">Buy Now</button>
-  </div>
-</div>
-<div id="text">
+    </div>
+    <div id="text"></div>
 
-</div>
-
-<script src="allFlights.js"></script>
-
-
-</body>
-<footer>
-
-</footer>
+    <script src="allFlights.js"></script>
+  </body>
+  <footer></footer>
 </html>

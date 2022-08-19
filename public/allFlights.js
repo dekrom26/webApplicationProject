@@ -1,49 +1,4 @@
-document.getElementById("myButton3").onclick = function () {
-  $.get("/order", (data) => {
-    $("#text").empty();
-    console.log(data);
-    for (var i = 0; i < data.length; i++) {
-      const continent = data[i].Continent;
-      const price = data[i].Price;
-      const category = data[i].Category;
-      const name = data[i].Name;
-      let upName = data[i].Name.toUpperCase();
-      $("#text")
-        .append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-        <p><b>Category:</b> ${data[i].Category}</p>
-        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
-        `);
-      var col = document.getElementById("text");
-      col.innerHTML +=
-        '<button class="bag-btn" onclick="AddCart(' +
-        i +
-        ')">Add To Cart</button>';
-      var like = document.getElementById("text");
-      like.innerHTML +=
-        '<button class="like-btn" onclick="Like(' +
-        i +
-        ')"><i class="fa fa-thumbs-up"></i></button>';
-      var unlike = document.getElementById("text");
-      unlike.innerHTML +=
-        '<button class="unlike-btn" onclick="UnLike(' +
-        i +
-        ')"> <i class="fa fa-thumbs-down"></i></button>';
-      document.getElementById("text").innerHTML +=
-        `<p><img id="image_` + i + `" class="center"/></p></td><hr><br>`;
-      $("#image" + "_" + i).attr("src", data[i].URL);
-      $("#image" + "_" + i).attr("width", "40%");
-      $("#image" + "_" + i).attr("height", "40%");
-    }
-  });
-};
-
-var continentUser = "";
-var priceUser = "";
-var categoryUser = "";
-var api = "";
-document.getElementById("myButton1").onclick = function () {
+function Search1() {
   var priceUser = document.getElementById("price").value; //the price the user put.
   var categoryUser = document.getElementById("category").value; //the category the user put.
   var continentUser = document.getElementById("continent").value; //the contienet the user put.
@@ -53,75 +8,88 @@ document.getElementById("myButton1").onclick = function () {
       const continent = data[i].Continent;
       const price = data[i].Price;
       const category = data[i].Category;
-      console.log(category);
-      // debugger;
       if (
         (continentUser == "all" || continent == continentUser) &&
         (categoryUser == "all" || category == categoryUser)
       ) {
-        //priceUser=="all"||price==priceUser
         if (priceUser == "cheap" && price >= 100) continue;
 
         if (priceUser == "regular" && (price < 100 || price >= 500)) continue;
 
         if (priceUser == "expensive" && price < 500) continue;
-        let upName = data[i].Name.toUpperCase();
-        const name = data[i].Name;
-        $("#text")
-          .append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-      <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-      <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-      <p><b>Category:</b> ${data[i].Category}</p>
-      <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
-      `);
-        var col = document.getElementById("text");
-        col.innerHTML +=
-          '<button class="bag-btn" onclick="AddCart(' +
-          i +
-          ')">Add To Cart</button>';
-        var like = document.getElementById("text");
-        like.innerHTML +=
-          '<button class="like-btn" onclick="Like(' +
-          i +
-          ')"> <i class="fa fa-thumbs-up"></i></button>';
-        var unlike = document.getElementById("text");
-        unlike.innerHTML +=
-          '<button class="unlike-btn" onclick="UnLike(' +
-          i +
-          ')"> <i class="fa fa-thumbs-down"></i></button>';
-        document.getElementById("text").innerHTML +=
-          `<p><img id="image_` + i + `" class="center"/></p></td><hr><br>`;
-        $("#image" + "_" + i).attr("src", data[i].URL);
-        $("#image" + "_" + i).attr("width", "40%");
-        $("#image" + "_" + i).attr("height", "40%");
+
+        $("#text").append(
+          showCard1(
+            i,
+            data[i].Name,
+            data[i].Date,
+            data[i].URL,
+            data[i].Duration,
+            data[i].Departure,
+            data[i].Arrivle,
+            data[i].Price,
+            data[i].Temperature,
+            data[i].Continent,
+            data[i].Category
+          )
+        );
       }
     }
   });
-};
+}
 
-// <option value="cold">Less than 15C</option>
-// <option value="regular">Between 15C and 24C</option>
-// <option value="hot">Over 24C</option>
+// document.getElementById("myButton3").onclick = function () {
+//   $.get("/allflights", (data) => {
+//     $("#text").empty();
+//     for (var i = 0; i < data.length; i++) {
+//       const continent = data[i].Continent;
+//       const price = data[i].Price;
+//       const category = data[i].Category;
+//       const name = data[i].Name;
+//       let upName = data[i].Name.toUpperCase();
+//       $("#text")
+//         .append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
+//         <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
+//         <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
+//         <p><b>Category:</b> ${data[i].Category}</p>
+//         <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
+//         `);
+//       var col = document.getElementById("text");
+//       col.innerHTML +=
+//         '<button class="bag-btn" onclick="AddCart(' +
+//         i +
+//         ')">Add To Cart</button>';
+//       var like = document.getElementById("text");
+//       like.innerHTML +=
+//         '<button class="like-btn" onclick="Like(' +
+//         i +
+//         ')"><i class="fa fa-thumbs-up"></i></button>';
+//       var unlike = document.getElementById("text");
+//       unlike.innerHTML +=
+//         '<button class="unlike-btn" onclick="UnLike(' +
+//         i +
+//         ')"> <i class="fa fa-thumbs-down"></i></button>';
+//       document.getElementById("text").innerHTML +=
+//         `<p><img id="image_` + i + `" class="center"/></p></td><hr><br>`;
+//       $("#image" + "_" + i).attr("src", data[i].URL);
+//       $("#image" + "_" + i).attr("width", "40%");
+//       $("#image" + "_" + i).attr("height", "40%");
+//     }
+//   });
+// };
 
-var startData = "";
-var endDate = "";
-var temperatureUser = "";
-var duration = 0;
-document.getElementById("myButton2").onclick = function () {
+function Search2() {
   var startData = document.getElementById("start").value;
   var endDate = document.getElementById("end").value;
   var temperatureUser = document.getElementById("temperature").value;
   var durationUser = document.getElementById("duration").value;
   $.get("/allflights", (data) => {
     $("#text").empty();
-    console.log(data);
     for (var i = 0; i < data.length; i++) {
       const Temperature = data[i].Temperature;
       const date = data[i].Date;
       const duration = data[i].Duration;
-      console.log(temperatureUser);
-      console.log(Temperature);
-      console.log(date);
+
       if (date > startData && date < endDate) {
         if (
           (temperatureUser == "cold" && Temperature >= 15) ||
@@ -139,41 +107,26 @@ document.getElementById("myButton2").onclick = function () {
           (durationUser == "long" && duration < 6)
         )
           continue;
-        let upName = data[i].Name.toUpperCase();
-        const name = data[i].Name;
-        $("#text")
-          .append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-        <p><b>Category:</b> ${data[i].Category}</p>
-        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
-        `);
-        var col = document.getElementById("text");
-        col.innerHTML +=
-          '<button class="bag-btn" onclick="AddCart(' +
-          i +
-          ')">Add To Cart</button>';
-        var like = document.getElementById("text");
-        like.innerHTML +=
-          '<button class="like-btn" onclick="Like(' +
-          i +
-          ')"> <i class="fa fa-thumbs-up"></i></button>';
-        var unlike = document.getElementById("text");
-        unlike.innerHTML +=
-          '<button class="unlike-btn" onclick="UnLike(' +
-          i +
-          ')"> <i class="fa fa-thumbs-down"></i></button>';
-        document.getElementById("text").innerHTML +=
-          `<p><img id="image_` + i + `" class="center"/></p></td><hr><br>`;
-        $("#image" + "_" + i).attr("src", data[i].URL);
-        $("#image" + "_" + i).attr("width", "40%");
-        $("#image" + "_" + i).attr("height", "40%");
+
+        $("#text").append(
+          showCard1(
+            i,
+            data[i].Name,
+            data[i].Date,
+            data[i].URL,
+            data[i].Duration,
+            data[i].Departure,
+            data[i].Arrivle,
+            data[i].Price,
+            data[i].Temperature,
+            data[i].Continent,
+            data[i].Category
+          )
+        );
       }
     }
   });
-};
-
-// if(date>startData && data<endDate){
+}
 
 !(function (d, s, id) {
   var js,
@@ -186,46 +139,9 @@ document.getElementById("myButton2").onclick = function () {
   }
 })(document, "script", "weatherwidget-io-js");
 
-function ClearDiv() {
-  document.getElementById("text").innerHTML = ``;
-}
-function getAllFlights() {
-  $.get("/allflights", (data) => {
-    $("#text").empty();
-    for (var i = 0; i < data.length; i++) {
-      const name = data[i].Name;
-      let upName = data[i].Name.toUpperCase();
-      $("#text")
-        .append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-        <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-        <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-        <p><b>Category:</b> ${data[i].Category}</p>
-        <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a><p>
-
-          `);
-      var col = document.getElementById("text");
-      col.innerHTML +=
-        '<button class="bag-btn" onclick="AddCart(' +
-        i +
-        ')">Add To Cart</button>';
-      var like = document.getElementById("text");
-      like.innerHTML +=
-        '<button class="like-btn" onclick="Like(' +
-        i +
-        ')"> <i class="fa fa-thumbs-up"></i></button>';
-      var unlike = document.getElementById("text");
-      unlike.innerHTML +=
-        '<button class="unlike-btn" onclick="UnLike(' +
-        i +
-        ')"> <i class="fa fa-thumbs-down"></i></button>';
-      document.getElementById("text").innerHTML +=
-        `<p><img id="image_` + i + `" class="center"/></p></td><hr><br>`;
-      $("#image" + "_" + i).attr("src", data[i].URL);
-      $("#image" + "_" + i).attr("width", "40%");
-      $("#image" + "_" + i).attr("height", "40%");
-    }
-  });
-}
+// function ClearDiv() {
+//   document.getElementById("text").innerHTML = ``;
+// }
 
 function GroupByContinent() {
   $("#text").empty();
@@ -587,88 +503,6 @@ function BuyNow() {
   });
 }
 
-function showCard1(
-  i,
-  name,
-  date,
-  url,
-  duration,
-  Departure,
-  Arrivle,
-  Price,
-  Temperature,
-  Continent,
-  Category,
-  Rating
-) {
-  return `<section class="light">
-  <body>
-  <div class="container py-2">
-    <article class="postcard light blue">
-      <a class="postcard__img_link" href="#">
-        <img
-          class="postcard__img"
-          src="${url}"
-          alt="Image Title"
-        />
-      </a>
-      <div class="postcard__text t-light">
-        <h1 class="postcard__title blue"><a href="#">${name}</a></h1>
-  
-        <div class="postcard__subtitle small">
-            <i class="fas fa-calendar-alt mr-2"></i>${date}
-        </div>
-        <div class="postcard__bar"></div>
-     
-        <ul class="postcard__tagbox">
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Duration(Hours): ${duration}</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Departure: ${Departure}</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Arrivle: ${Arrivle}</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Price: ${Price} $</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Temperature: ${Temperature}</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Continent: ${Continent}</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Category: ${Category}</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Rating: ${Rating} </li>
-         
-        <button class="bag-btn" onclick="AddCart(${i})">Add To Cart</button>
-        <button class="like-btn" onclick="Like(${i})"> <i class="fa fa-thumbs-up"></i></button>
-        <button class="unlike-btn" onclick="UnLike(${i})"> <i class="fa fa-thumbs-down"></i></button>
-          </div>
-          </li>
-          </li>
-        </ul>
-      </div>
-   
-  </div>
-  </section>
-  <body>
-  `;
-}
-
-function showCard() {
-  $("#text").empty();
-  $.get("/allflights", function (data, status) {
-    for (var i = 0; i < data.length; i++) {
-      $("#text").append(
-        showCard1(
-          i,
-          data[i].Name,
-          data[i].Date,
-          data[i].URL,
-          data[i].Duration,
-          data[i].Departure,
-          data[i].Arrivle,
-          data[i].Price,
-          data[i].Temperature,
-          data[i].Continent,
-          data[i].Category,
-          data[i].Rating
-        )
-      );
-    }
-  });
-}
-
 $(() => {
-  getAllFlights();
+  showCard();
 });

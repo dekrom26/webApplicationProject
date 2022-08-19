@@ -126,41 +126,12 @@ function AddMarker(mapArgument, map) {
   });
 }
 
-function showallFlights() {
-  $.get("/allflights", (data) => {
-    $("#main").empty();
-    $("#create").empty();
-    $("#update").empty();
-    $("#delete").empty();
-    //graph=$("#graphs").detach();
-    console.log(data);
-    for (var i = 0; i < data.length; i++) {
-      const continent = data[i].Continent;
-      const price = data[i].Price;
-      const category = data[i].Category;
-      const name = data[i].Name;
-      let upName = data[i].Name.toUpperCase();
-      $("#main")
-        .append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-      <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-      <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-      <p><b>Category:</b> ${data[i].Category}</p>
-      `);
-      document.getElementById("main").innerHTML +=
-          `<p><img id="image_` + i + `" class="center"/></p></td><hr><br>`;
-      $("#image" + "_" + i).attr("src", data[i].URL);
-      $("#image" + "_" + i).attr("width", "40%");
-      $("#image" + "_" + i).attr("height", "40%");
-    }
-  });
-}
 let graph;
-function removeGraph(){
-  if (graph){
-    graph=null;
-  }
-  else {
-    graph=$("#graphs").detach();
+function removeGraph() {
+  if (graph) {
+    graph = null;
+  } else {
+    graph = $("#graphs").detach();
   }
 }
 function showGraphs() {
@@ -183,7 +154,7 @@ function showCreateFlights() {
   $("#delete").empty();
   $("#graphs").empty();
   // graph=$("#graphs").detach();
-  $("#create").load("creat.html")
+  $("#create").load("creat.html");
 }
 
 function showUpdateFlights() {
@@ -193,7 +164,7 @@ function showUpdateFlights() {
   $("#delete").empty();
   $("#graphs").empty();
   // graph=$("#graphs").detach();
-  $("#update").load("update.html")
+  $("#update").load("update.html");
 }
 
 function showDeleteFlights() {
@@ -203,47 +174,140 @@ function showDeleteFlights() {
   $("#delete").empty();
   $("#graphs").empty();
   // graph=$("#graphs").detach();
-  $("#delete").load("delete.html")
+  $("#delete").load("delete.html");
 }
 
-
-function User_Authentication(email,password) {
-  $.get("/allusers", (data) =>{
-  var EmailAdmin=data[0].Email;
-  var PassAdmin=data[0].Password;
-  if (email == EmailAdmin && password == PassAdmin) {
-    $("#Authentication").empty();
-    $("#master").load("/master");
-  } else {
-    alert("Email or password is incorrect !");
-    console.log("email fail");
-  }
-})}
+function User_Authentication(email, password) {
+  $.get("/allusers", (data) => {
+    var EmailAdmin = data[0].Email;
+    var PassAdmin = data[0].Password;
+    if (email == EmailAdmin && password == PassAdmin) {
+      $("#Authentication").empty();
+      $("#master").load("/master");
+    } else {
+      alert("Email or password is incorrect !");
+      console.log("email fail");
+    }
+  });
+}
 /////////cart
 
-function createFlight(name,URL,duration,departure,arrivle,price,temperature,continent,date,category,API){
+function createFlight(
+  name,
+  URL,
+  duration,
+  departure,
+  arrivle,
+  price,
+  temperature,
+  continent,
+  date,
+  category,
+  API
+) {
   console.log(name);
   // $.post("/create", obj);
   $.ajax({
     url: "http://localhost:8080/create",
     type: "POST",
-    data: JSON.stringify({ name: name ,
-      URL:URL,
-      duration:duration,
-      departure:departure,
-      arrivle:arrivle,
-      price:price,
-      temperature:temperature,
-      continent:continent,
-      date:date,
-      category:category,
-      Rating:0,
-      API:API
+    data: JSON.stringify({
+      name: name,
+      URL: URL,
+      duration: duration,
+      departure: departure,
+      arrivle: arrivle,
+      price: price,
+      temperature: temperature,
+      continent: continent,
+      date: date,
+      category: category,
+      Rating: 0,
+      API: API,
     }),
     contentType: "application/json",
     dataType: "json",
-    success: function() {
+    success: function () {
       console.log("request successfully!");
+    },
+  });
+}
+
+function showCard1(
+  i,
+  name,
+  date,
+  url,
+  duration,
+  Departure,
+  Arrivle,
+  Price,
+  Temperature,
+  Continent,
+  Category
+) {
+  return `<section class="light">
+  <body>
+  <div class="container py-2">
+    <article class="postcard light blue">
+      <a class="postcard__img_link" href="#">
+        <img
+          class="postcard__img"
+          src="${url}"
+          alt="Image Title"
+        />
+      </a>
+      <div class="postcard__text t-light">
+        <h1 class="postcard__title blue"><a href="#">${name}</a></h1>
+  
+        <div class="postcard__subtitle small">
+            <i class="fas fa-calendar-alt mr-2"></i>${date}
+        </div>
+        <div class="postcard__bar"></div>
+     
+        <ul class="postcard__tagbox">
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Duration(Hours): ${duration}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Departure: ${Departure}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Arrivle: ${Arrivle}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Price: ${Price} $</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Temperature: ${Temperature}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Continent: ${Continent}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Category: ${Category}</li>
+
+         
+        <button class="bag-btn" onclick="AddCart(${i})">Add To Cart</button>
+        <button class="like-btn" onclick="Like(${i})"> <i class="fa fa-thumbs-up"></i></button>
+        <button class="unlike-btn" onclick="UnLike(${i})"> <i class="fa fa-thumbs-down"></i></button>
+          </div>
+          </li>
+          </li>
+        </ul>
+      </div>
+   
+  </div>
+  </section>
+  <body>
+  `;
+}
+
+function showCard() {
+  $("#text").empty();
+  $.get("/allflights", function (data, status) {
+    for (var i = 0; i < data.length; i++) {
+      $("#text").append(
+        showCard1(
+          i,
+          data[i].Name,
+          data[i].Date,
+          data[i].URL,
+          data[i].Duration,
+          data[i].Departure,
+          data[i].Arrivle,
+          data[i].Price,
+          data[i].Temperature,
+          data[i].Continent,
+          data[i].Category
+        )
+      );
     }
   });
 }
