@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="like and dislike without DB">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/master.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/master.js" afterDir="false" />
-    </list>
+    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="graph bug fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +110,7 @@
       <workItem from="1660665018867" duration="539000" />
       <workItem from="1660729807664" duration="8238000" />
       <workItem from="1660750042118" duration="648000" />
-      <workItem from="1660912405997" duration="2934000" />
+      <workItem from="1660912405997" duration="3214000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -253,7 +250,13 @@
       <option name="presentableId" value="LOCAL‎00023" />
       <updated>1660743943071</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL‎00024" summary="graph bug fix">
+      <created>1660917940166</created>
+      <option name="number" value="LOCAL‎00024" />
+      <option name="presentableId" value="LOCAL‎00024" />
+      <updated>1660917940166</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +273,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -304,7 +307,8 @@
     <MESSAGE value="changes in graphs and git ignore" />
     <MESSAGE value="graph title" />
     <MESSAGE value="like and dislike without DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="like and dislike without DB" />
+    <MESSAGE value="graph bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="graph bug fix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -78,7 +78,7 @@ function showCard1(
     `;
 }
 
-const loadRating = () => {
+function loadRating() {
   fetch("/allflights")
     .then((res) => {
       return res.json();
