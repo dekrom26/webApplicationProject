@@ -1,5 +1,5 @@
 
-const loadRating = () => {
+function loadRating() {
     fetch('/allflights')
         .then((res) => {
             return res.json();
@@ -20,7 +20,6 @@ const loadRating = () => {
 }
 
 function graph_flights_ratings(rating_json){
-    //proportion for the graph kavim -> yaani amudot.
     const margin = {top: 10 , right: 10, bottom: 30, left: 10};
     const width = 1200 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
@@ -165,7 +164,7 @@ function DeleteFlight(name){
     })
 }
 
-  //})
+
 
 
 
