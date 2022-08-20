@@ -16,6 +16,7 @@ const seedFlight = [
       Category:"shopping",
       Rating: 40,
       API:"25d2055d27",
+      Sales:0,
     },
 
     {
@@ -31,6 +32,7 @@ const seedFlight = [
       Category:"shopping",
       Rating: 85,
       API:"48d862d35",
+      Sales:0,
     },
     {
       Name:"athens",
@@ -45,6 +47,7 @@ const seedFlight = [
       Category:"shopping",
       Rating: 35,
       API:"33d95n83d36",
+      Sales:0,
     },
     {
       Name:"new-zealand",
@@ -59,6 +62,7 @@ const seedFlight = [
       Category:"shopping",
       Rating: 60,
       API:"n40d90174d89",
+      Sales:0,
     },
 
     {
@@ -74,6 +78,7 @@ const seedFlight = [
       Category:"exotic",
       Rating: 47,
       API:"38d72n9d14",
+      Sales:0,
     },
     
 
@@ -90,6 +95,7 @@ const seedFlight = [
       Category:"shopping",
       Rating: 66,
       API:"40d42n3d70",
+      Sales:0,
     },
 
     {
@@ -105,6 +111,7 @@ const seedFlight = [
       Category:"nature",
       Rating: 71,
       API:"n15d79n47d88",
+      Sales:0,
     },
 
     
@@ -121,6 +128,8 @@ const seedFlight = [
       Category:"sunbathing",
       Rating: 92,
       API:"3d2073d22",
+      Sales:0,
+      
     },
 
     {
@@ -136,6 +145,7 @@ const seedFlight = [
       Category:"urban",
       Rating: 15,
       API:"42d65n73d76",
+      Sales:0,
     },
 
     {
@@ -151,6 +161,7 @@ const seedFlight = [
       Category:"exotic",
       Rating: 84,
       API:"n6d1739d20",
+      Sales:0,
     },
 
 ]

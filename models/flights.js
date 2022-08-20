@@ -56,8 +56,11 @@ const flightsSchema = new mongoose.Schema({
     },
     API:{
         type: String,
-    }
-    
+    },
+    Sales: {
+        type: Number,
+        min: 0
+     }
 
 })
 
