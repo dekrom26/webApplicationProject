@@ -78,17 +78,17 @@ function showCard1(
     `;
 }
 
-function loadRating() {
+function loadRatings() {
   fetch("/allflights")
     .then((res) => {
       return res.json();
     })
     .then((res) => {
-      const arrOfCountries = [];
-      for (let singleCountry of res) {
-        arrOfCountries.push(singleCountry);
+      const arrOfFlights = [];
+      for (let singleFlight of res) {
+        arrOfFlights.push(singleFlight);
       }
-      graph_flights_ratings(arrOfCountries);
+      graph_flights_ratings(arrOfFlights);
     })
     .catch((err) => {
       console.log(err);
@@ -97,8 +97,27 @@ function loadRating() {
       console.log("flights Ratings loaded successfully");
     });
 }
+function loadSales() {
+  fetch("/allflights")
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        const arrOfFlights = [];
+        for (let singleFlight of res) {
+          arrOfFlights.push(singleFlight);
+        }
+        graph_flights_sales(arrOfFlights);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        console.log("flights Ratings loaded successfully");
+      });
+}
 
-function graph_flights_ratings(rating_json) {
+function graph_flights_ratings(flights_json) {
   //proportion for the graph kavim -> yaani amudot.
   const margin = { top: 10, right: 10, bottom: 30, left: 10 };
   const width = 1200 - margin.left - margin.right;
@@ -113,7 +132,7 @@ function graph_flights_ratings(rating_json) {
 
   const x = d3
     .scaleBand()
-    .domain(d3.range(rating_json.length))
+    .domain(d3.range(flights_json.length))
     .range([margin.left, width - margin.right])
     .padding(0.1);
 
@@ -125,10 +144,10 @@ function graph_flights_ratings(rating_json) {
   svg
     .append("g")
     .selectAll("rect")
-    .data(rating_json)
+    .data(flights_json)
     .join("rect")
     .attr("fill", (d) => {
-      return "royalblue";
+      return "green";
     })
     .attr("x", (d, i) => x(i))
     .attr("y", (d) => y(d.Rating))
@@ -149,12 +168,12 @@ function graph_flights_ratings(rating_json) {
   // creating names for the axis
   function yAxis(g) {
     g.attr("transform", `translate(${margin.left}, 0)`)
-      .call(d3.axisLeft(y).ticks(null, rating_json.format))
+      .call(d3.axisLeft(y).ticks(null, flights_json.format))
       .attr("font-size", "15px");
   }
   function xAxis(g) {
     g.attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(d3.axisBottom(x).tickFormat((i) => rating_json[i].Name))
+      .call(d3.axisBottom(x).tickFormat((i) => flights_json[i].Name))
       .attr("font-size", "15px");
   }
 
@@ -162,8 +181,75 @@ function graph_flights_ratings(rating_json) {
   svg.append("g").call(yAxis);
   svg.node();
 }
+
+function graph_flights_sales(flights_json) {
+  //proportion for the graph kavim -> yaani amudot.
+  const margin = { top: 10, right: 10, bottom: 30, left: 10 };
+  const width = 1200 - margin.left - margin.right;
+  const height = 400 - margin.top - margin.bottom;
+
+  const svg = d3
+      .select("#sales_graph")
+      .append("svg")
+      .attr("width", width - margin.left - margin.right)
+      .attr("height", height - margin.top - margin.bottom)
+      .attr("viewBox", [0, 0, width, height]);
+
+  const x = d3
+      .scaleBand()
+      .domain(d3.range(flights_json.length))
+      .range([margin.left, width - margin.right])
+      .padding(0.1);
+
+  const y = d3
+      .scaleLinear()
+      .domain([0, 100])
+      .range([height - margin.bottom, margin.top]);
+
+  svg
+      .append("g")
+      .selectAll("rect")
+      .data(flights_json)
+      .join("rect")
+      .attr("fill", (d) => {
+        return "royalblue";
+      })
+      .attr("x", (d, i) => x(i))
+      .attr("y", (d) => y(d.Sales))
+      .attr("title", (d) => d.Sales)
+      .attr("class", "rect")
+      .attr("height", (d) => y(0) - y(d.Sales))
+      .attr("width", x.bandwidth());
+
+  svg
+      .append("text")
+      .attr("x", width / 2)
+      .attr("y", margin.top / 2 + 10)
+      .attr("text-anchor", "middle")
+      .style("font-size", "16px")
+      .style("text-decoration", "underline")
+      .text("Flights Sales");
+
+  // creating names for the axis
+  function yAxis(g) {
+    g.attr("transform", `translate(${margin.left}, 0)`)
+        .call(d3.axisLeft(y).ticks(null, flights_json.format))
+        .attr("font-size", "15px");
+  }
+  function xAxis(g) {
+    g.attr("transform", `translate(0,${height - margin.bottom})`)
+        .call(d3.axisBottom(x).tickFormat((i) => flights_json[i].Name))
+        .attr("font-size", "15px");
+  }
+
+  svg.append("g").call(xAxis);
+  svg.append("g").call(yAxis);
+  svg.node();
+}
+
 $(() => {
-  loadRating();
+  loadRatings();
+  loadSales();
 });
 
 function createFlight(

@@ -16,7 +16,7 @@ const seedFlight = [
       Category:"shopping",
       Rating: 40,
       API:"25d2055d27",
-      Sales:0,
+      Sales:15,
     },
 
     {
