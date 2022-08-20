@@ -89,6 +89,11 @@ const CartSchema = new mongoose.Schema({
     type:String
     }]
 ,     
+
+Quantities: [{
+    type: Number
+    }]
+,  
 })
 
 

@@ -176,6 +176,7 @@ const seedUsers = [
 const seedCart = [
   {
   Products:[],
+  Quantities:[],
   }]
 
 const seedDB= async ()=>{
