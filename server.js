@@ -244,12 +244,7 @@ app.post("/create", async (req, res) => {
   res.json({ status: 200 });
 });
 
-io.on("connection", (socket) => {
-  console.log("Conection to socket.io");
-  socket.on("message", ({ name, message }) => {
-    io.emit("message", { name, message });
-  });
-});
+
 
 // io.on('connection', (socket) => {
 //   console.log('a user connected');
@@ -268,6 +263,9 @@ io.on("connection", (socket) => {
 //   const flights = await Flights.find({});
 //   res.json(flights);
 // });
+
+
+
 
 var usernames = {};
 

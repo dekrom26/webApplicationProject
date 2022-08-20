@@ -11,6 +11,7 @@
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
     crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <style>
 .footer-distributed{
   margin-top: 900px;
@@ -46,7 +47,9 @@ input[type=text]:focus {
       </style>
 </head>
 <body>
-
+  <aside>
+    blabla
+  </aside>
 
 <div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
   <b>USERS</b>
@@ -54,6 +57,7 @@ input[type=text]:focus {
 </div>
 <div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
   <div id="conversation"></div>
+
   <input type="text" id="data" style="width:200px;" />
   <input type="button" id="datasend" value="send" />
 </div>
