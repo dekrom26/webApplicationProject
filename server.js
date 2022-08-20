@@ -1,20 +1,17 @@
 const path = require("path");
 const mongoose = require("mongoose");
 //const Flights = require("./models/flights");
-const { Flights, Users,Cart} = require('./models/flights');
+const { Flights, Users, Cart } = require("./models/flights");
 const seed = require("./seed");
-const cors = require('cors');
-
-
+const cors = require("cors");
 
 var express = require("express"),
   app = express();
-  app.use(cors());
-  app.use(express.json());
- var http = require("http"),
+app.use(cors());
+app.use(express.json());
+var http = require("http"),
   server = http.createServer(app),
   io = require("socket.io")(server);
-
 
 server.listen(8080, () => {
   console.log("APP IS LISTENING ON PORT 8080!");
@@ -39,7 +36,6 @@ mongoose
     console.log("OH NO MONGO FLIGHTS CONNECTION ERROR!!!!");
     console.log(err);
   });
-  
 
 // mongoose
 // .connect("mongodb://localhost:27017/Users", {
@@ -67,6 +63,9 @@ app.get("/home", (req, res) => {
 app.get("/chat", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "chat.html"));
 });
+app.get("/cart", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public", "cart.html"));
+});
 
 app.get("/master", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "master.html"));
@@ -91,133 +90,128 @@ app.get("/allusers", async (req, res) => {
   //
 });
 
-app.get("/cart", async (req, res) => {
+app.get("/carts", async (req, res) => {
   const carts = await Cart.find({});
   res.json(carts);
-  // res.send(flights);
-  //
 });
-
 
 app.get("/order", async (req, res) => {
   const flights1 = await Flights.find().sort({ Price: 1 });
   res.json(flights1);
 });
 
-
 app.get("/groupByContinent", async (req, res) => {
-  const groupByContinent = await Flights.aggregate([{
-    $group:{
-      _id:"$Continent",
-      total: {$sum:1}
-    }
-  }])
+  const groupByContinent = await Flights.aggregate([
+    {
+      $group: {
+        _id: "$Continent",
+        total: { $sum: 1 },
+      },
+    },
+  ]);
   res.json(groupByContinent);
 });
 
 app.get("/groupByCategory", async (req, res) => {
-  const groupByCategory = await Flights.aggregate([{
-    $group:{
-      _id:"$Category",
-      avg: {$avg:"$Price"}
-    }
-  }])
+  const groupByCategory = await Flights.aggregate([
+    {
+      $group: {
+        _id: "$Category",
+        avg: { $avg: "$Price" },
+      },
+    },
+  ]);
   res.json(groupByCategory);
 });
-
 
 app.put("/update", async (req, res) => {
   console.log(`${req.body.characteristic}`);
   console.log(`${req.body._id}`);
   console.log(`${req.body.value}`);
-  var id=req.body._id;
+  var id = req.body._id;
   //switchcase
-  switch(req.body.characteristic) {
+  switch (req.body.characteristic) {
     case "Name":
-      await Flights.findByIdAndUpdate(id,{"Name":req.body.value});
+      await Flights.findByIdAndUpdate(id, { Name: req.body.value });
       break;
-      case "URL":
-      await Flights.findByIdAndUpdate(id,{"URL":req.body.value});
+    case "URL":
+      await Flights.findByIdAndUpdate(id, { URL: req.body.value });
       break;
-      case "Duration":
-      await Flights.findByIdAndUpdate(id,{"Duration":req.body.value});
+    case "Duration":
+      await Flights.findByIdAndUpdate(id, { Duration: req.body.value });
       break;
-      case "DepartureL":
-      await Flights.findByIdAndUpdate(id,{"Departure":req.body.value});
+    case "DepartureL":
+      await Flights.findByIdAndUpdate(id, { Departure: req.body.value });
       break;
-      case "Arrivle":
-      await Flights.findByIdAndUpdate(id,{"Arrivle":req.body.value});
+    case "Arrivle":
+      await Flights.findByIdAndUpdate(id, { Arrivle: req.body.value });
       break;
-      case "Price":
-      await Flights.findByIdAndUpdate(id,{"Price":req.body.value});
+    case "Price":
+      await Flights.findByIdAndUpdate(id, { Price: req.body.value });
       break;
-      case "Temperature":
-      await Flights.findByIdAndUpdate(id,{"Temperature":req.body.value});
+    case "Temperature":
+      await Flights.findByIdAndUpdate(id, { Temperature: req.body.value });
       break;
-      case "Date":
-      await Flights.findByIdAndUpdate(id,{"Date":req.body.value});
+    case "Date":
+      await Flights.findByIdAndUpdate(id, { Date: req.body.value });
       break;
-      case "Continent":
-      await Flights.findByIdAndUpdate(id,{"Continent":req.body.value});
+    case "Continent":
+      await Flights.findByIdAndUpdate(id, { Continent: req.body.value });
       break;
-      case "Category":
-      await Flights.findByIdAndUpdate(id,{"Category":req.body.value});
+    case "Category":
+      await Flights.findByIdAndUpdate(id, { Category: req.body.value });
       break;
-      case "Rating":
-      await Flights.findByIdAndUpdate(id,{"Rating":req.body.value});
+    case "Rating":
+      await Flights.findByIdAndUpdate(id, { Rating: req.body.value });
       break;
-      case "API":
-      await Flights.findByIdAndUpdate(id,{"API":req.body.value});
+    case "API":
+      await Flights.findByIdAndUpdate(id, { API: req.body.value });
       break;
-      default:
+    default:
   }
 
   // await Flights.findByIdAndUpdate(req.body._id,{characteristic}`:req.body.value});
-  res.json({"status": 200});
-})
+  res.json({ status: 200 });
+});
 
 app.post("/like", async (req, res) => {
- var new_rating=parseInt(req.body.rating);
- new_rating+=1;
- await Flights.findByIdAndUpdate(req.body._id,{"Rating":new_rating});
-   res.json({"status": 200});
-})
+  var new_rating = parseInt(req.body.rating);
+  new_rating += 1;
+  await Flights.findByIdAndUpdate(req.body._id, { Rating: new_rating });
+  res.json({ status: 200 });
+});
 
 app.post("/unlike", async (req, res) => {
-  var new_rating=parseInt(req.body.rating);
-  new_rating-=1;
-  await Flights.findByIdAndUpdate(req.body._id,{"Rating":new_rating});
-    res.json({"status": 200});
- })
+  var new_rating = parseInt(req.body.rating);
+  new_rating -= 1;
+  await Flights.findByIdAndUpdate(req.body._id, { Rating: new_rating });
+  res.json({ status: 200 });
+});
 
 app.post("/buy", async (req, res) => {
-
-   obj=await Cart.findOne({});
-   cart_id=obj._id
-   count=obj.Count
-   var arr=obj.Products
+  obj = await Cart.findOne({});
+  cart_id = obj._id;
+  count = obj.Count;
+  var arr = obj.Products;
 
   console.log(req.body.arr);
   console.log(req.body.count);
   // console.log(`${req.body.productName}`);
   // console.log(`${req.body.price}`);
   // //console.log(`${req.body.quantity}`);
- 
-     await Cart.findByIdAndUpdate(cart_id,{"Products":req.body.arr});
-     await Cart.findByIdAndUpdate(cart_id,{"Count":req.body.count});
-  // // await Flights.findByIdAndUpdate(req.body._id,{characteristic}`:req.body.value});
-    res.json({"status": 200});
-})
-//{productId: data[i]._id, price: data[i].price, quantity: value 
 
+  await Cart.findByIdAndUpdate(cart_id, { Products: req.body.arr });
+  await Cart.findByIdAndUpdate(cart_id, { Count: req.body.count });
+  // // await Flights.findByIdAndUpdate(req.body._id,{characteristic}`:req.body.value});
+  res.json({ status: 200 });
+});
+//{productId: data[i]._id, price: data[i].price, quantity: value
 
 app.delete("/delete", async (req, res) => {
-  var id=req.body._id;
-      await Flights.findByIdAndDelete(id,{"Name":req.body.value});
-  res.json({"status": 200});
-})
-
-
+  var id = req.body._id;
+  await Flights.findByIdAndDelete(id, { Name: req.body.value });
+  res.json({ status: 200 });
+});
 
 // Name
 // URL
@@ -234,21 +228,21 @@ app.delete("/delete", async (req, res) => {
 app.post("/create", async (req, res) => {
   console.log(`${req.body.name}`);
 
-  await Flights.create({ "Name": req.body.name,
-  "URL":req.body.URL,
-  "Duration":req.body.duration,
-  "Departure":req.body.departure,
-  "Arrivle":req.body.arrivle,
-  "Price":req.body.price,
-  "Temperature":req.body.temperature,
-  "Continent":req.body.continent,
-  "Date":req.body.date,
-  "Category":req.body.category,
-  "API":req.body.API,
- });
-  res.json({"status": 200});
-})
-
+  await Flights.create({
+    Name: req.body.name,
+    URL: req.body.URL,
+    Duration: req.body.duration,
+    Departure: req.body.departure,
+    Arrivle: req.body.arrivle,
+    Price: req.body.price,
+    Temperature: req.body.temperature,
+    Continent: req.body.continent,
+    Date: req.body.date,
+    Category: req.body.category,
+    API: req.body.API,
+  });
+  res.json({ status: 200 });
+});
 
 io.on("connection", (socket) => {
   console.log("Conection to socket.io");

@@ -312,4 +312,9 @@ function showCard() {
   });
 }
 
-//FLights.findOneAndUpdate({"_id": "sdkaghjsjladhgiodsa"}, {"Name": "Ravid123"})
+function showCartPage() {
+  $(document).ready(function () {
+    preload();
+    $("#app").load("cart");
+  });
+}
