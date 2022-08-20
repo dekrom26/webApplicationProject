@@ -241,15 +241,14 @@ app.post("/create", async (req, res) => {
 });
 
 
-<<<<<<< HEAD
+
 io.on("connection", (socket) => {
   console.log("Conection to socket.io");
   socket.on("message", ({ name, message }) => {
     io.emit("message", { name, message });
   });
 });
-=======
->>>>>>> 1d548cc1026c2720344aef93d5a8c8cb8c3b3bf0
+
 
 // io.on('connection', (socket) => {
 //   console.log('a user connected');
