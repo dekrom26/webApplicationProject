@@ -96,7 +96,7 @@ function loadRating() {
     .finally(() => {
       console.log("flights Ratings loaded successfully");
     });
-};
+}
 
 function graph_flights_ratings(rating_json) {
   //proportion for the graph kavim -> yaani amudot.

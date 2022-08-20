@@ -22,6 +22,7 @@
       integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="creat.css" />
     <link rel="stylesheet" href="allFlight.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -29,42 +30,65 @@
     <title>All Flights</title>
   </head>
   <body>
-    <h1>Find your favorite vacation</h1>
-    <button id="card" onclick="showCard()">click me</button>
-    <br />
+    <section class="get-in-touch">
+      <h1 class="title2">Find your favorite vacation</h1>
+    </section>
 
-    <label for="price">Price</label>
-    <select name="price" id="price">
-      <option value="all">all</option>
-      <option value="cheap">Less than 100$</option>
-      <option value="regular">Between 100$ and 500$</option>
-      <option value="expensive">Over 500$</option>
-    </select>
 
-    <label for="category">Category</label>
-    <select name="category" id="category">
-      <option value="all">all</option>
-      <option value="urban">urban</option>
-      <option value="exotic">exotic</option>
-      <option value="nature">nature</option>
-      <option value="shopping">shopping</option>
-      <option value="sunbathing">sunbathing</option>
-    </select>
 
-    <label for="continent">Continent</label>
-    <select name="continent" id="continent">
-      <option value="all">all</option>
-      <option value="asia">asia</option>
-      <option value="africa">africa</option>
-      <option value="northAmerica">northAmerica</option>
-      <option value="southAmerica">soutAmerica</option>
-      <option value="europe">europe</option>
-    </select>
+    <section class="get-in-touch">
 
-    <button type="button1" id="myButton1" onclick="Search1()">Search</button>
-    <br /><br /><br />
+        <h1 class="title">Search your vacation by:</h1>
+        <form class="contact-form row">
+          <div class="form-field col-lg-4">
+            <label for="price">Price</label>
+            <select name="price" id="price">
+              <option value="all">all</option>
+              <option value="cheap">Less than 100$</option>
+              <option value="regular">Between 100$ and 500$</option>
+              <option value="expensive">Over 500$</option>
+            </select>
+          </div>
+          <div class="form-field col-lg-4">
+            <label for="category">Category</label>
+            <select name="category" id="category">
+              <option value="all">all</option>
+              <option value="urban">urban</option>
+              <option value="exotic">exotic</option>
+              <option value="nature">nature</option>
+              <option value="shopping">shopping</option>
+              <option value="sunbathing">sunbathing</option>
+            </select>
+          </div>
 
-    <label for="start">Start date:</label>
+          <div class="form-field col-lg-4">
+            <label for="continent">Continent</label>
+             <select name="continent" id="continent">
+            <option value="all">all</option>
+            <option value="asia">asia</option>
+            <option value="africa">africa</option>
+             <option value="northAmerica">northAmerica</option>
+            <option value="southAmerica">soutAmerica</option>
+             <option value="europe">europe</option>
+            </select>
+          </div>
+      
+          <div class="form-field col-lg-16">
+            <input
+              class="submit-btn"
+              type="button"
+              value="Submit"
+              onclick="Search1()"
+            />
+        </div>
+    </form>
+
+
+
+        <h1 class="title">Search your vacation by:</h1>
+        <form class="contact-form row">
+          <div class="form-field col-lg-5">
+            <label for="start">Start date:</label>
     <input
       type="date"
       id="start"
@@ -73,8 +97,9 @@
       min="2022-06-01"
       max="2024-12-31"
     />
-
-    <label for="end">End date:</label>
+          </div>
+          <div class="form-field col-lg-5">
+            <label for="end">End date:</label>
     <input
       type="date"
       id="end"
@@ -83,32 +108,69 @@
       min="2022-06-01"
       max="2024-12-31"
     />
+          </div>
+          <div class="form-field col-lg-5">
+            <label for="temperature">Temperature</label>
+            <select name="temperature" id="temperature">
+              <option value="all">all</option>
+              <option value="cold">Less than 15C</option>
+              <option value="regular">Between 15C and 24C</option>
+              <option value="hot">Over 24C</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field col-lg-5">
+            <label for="duration">Duration</label>
+            <select name="duration" id="duration">
+              <option value="all">all</option>
+              <option value="short">Less than 4 Hours</option>
+              <option value="med">Between 4 Hours and 6 Hours</option>
+              <option value="long">Over 6 Hours</option>
+            </select>
+        </div>
+      
+          <div class="form-field col-lg-16">
+            <input
+              class="submit-btn"
+              type="button"
+              value="Submit"
+              onclick="Search2()"
+            />
+        </div>
+    </form>
 
-    <label for="temperature">Temperature</label>
-    <select name="temperature" id="temperature">
-      <option value="all">all</option>
-      <option value="cold">Less than 15C</option>
-      <option value="regular">Between 15C and 24C</option>
-      <option value="hot">Over 24C</option>
-    </select>
+    <form class="contact-form row">
+        <div class="form-field col-lg-16">
+            <input
+              class="submit-btn2"
+              type="button"
+              value="Group By Continent"
+              onclick="GroupByContinent()"
+            />
+            <input
+            class="submit-btn2"
+            type="button"
+            value="Group By Category"
+            onclick="GroupByCategory()"
+          />
+        </div>
 
-    <label for="duration">Duration</label>
-    <select name="duration" id="duration">
-      <option value="all">all</option>
-      <option value="short">Less than 4 Hours</option>
-      <option value="med">Between 4 Hours and 6 Hours</option>
-      <option value="long">Over 6 Hours</option>
-    </select>
 
-    <button type="button2" id="myButton2" onclick="Search2()">Search</button
-    ><br />
-    <!-- <button type="button3" id="myButton3">order by price</button> -->
-    <button type="button4" id="myButton4" onclick="GroupByContinent()">
-      Group By Continent
-    </button>
-    <button type="button4" id="myButton4" onclick="GroupByCategory()">
-      Group By Category</button
-    ><br /><br />
+
+
+
+
+
+        </form>
+
+    </section>
+
+
+
+
+
+
+   
 
     <section class="products">
       <!-- <div class="section-title">
