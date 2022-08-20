@@ -1,7 +1,29 @@
-<br>
-<br>
-<h1>Please enter the name of the flight you would like delete:</h1>
-<label for="name">Name</label><input type="text" id="name" value="">
-<button type="button" onclick="DeleteFlight(document.getElementById('name').value)">Submit</button>
-
+<link rel="stylesheet" href="creat.css" />
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<section class="get-in-touch">
+  <h1 class="title3">
+    Please enter the name of the flight you would like delete:
+  </h1>
+  <form class="contact-form ">
     
+    <div class="form-field d-flex justify-content-center">
+      <label for="name">Name</label
+      ><input class="input-text js-input" type="text" id="name" value="" />
+    </div>
+
+
+    <div class="form-field col-lg-12">
+        <input
+          class="submit-btn"
+          type="button"
+          value="Submit"
+          onclick="DeleteFlight(document.getElementById('name').value)"
+        />
+  
+</section>

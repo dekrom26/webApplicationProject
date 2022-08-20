@@ -1,25 +1,81 @@
-<br>
-<br>
-<h1>Please enter the name of the flight you would like to update,which characteristic you would like to change and the new value:</h1>
-<label for="name">Name</label><input type="text" id="name" value="">
-<label for="category">Category</label>
-        <select name="characteristic" id="characteristic">
-            <option value="Name">Name</option>
-            <option value="URL">URL</option>
-            <option value="Duration">Duration</option>
-            <option value="Departure">Departure</option>
-            <option value="Arrivle">Arrivle</option>
-            <option value="Price">Price</option>
-            <option value="Temperature">Temperature</option>
-            <option value="Continent">Continent</option>
-            <option value="Date">Date</option>
-            <option value="Category">Category</option>
-            <option value="Rating">Rating</option>
-            <option value="API">API</option>
-        </select> 
-        <label for="new_val">New Value</label><input type="text" id="new_val" value="">
-      
-<button type="button" onclick="findFlight(document.getElementById('name').value,document.getElementById('characteristic').value,
-document.getElementById('new_val').value)">Submit</button>
+<link rel="stylesheet" href="creat.css" />
+<link rel="stylesheet" href="update.css" />
 
-    
+
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<section class="get-in-touch">
+  <h1 class="title3">
+    Please enter the name of the flight you would like to update,which
+    characteristic you would like to change and the new value:
+  </h1>
+  <form class="contact-form row">
+    <div class="form-field col-lg-6">
+      <label for="name">Name</label
+      ><input class="input-text js-input" type="text" id="name" value="" />
+    </div>
+<div class="form-field col-lg-6">
+ <label for="new_val">New Value</label
+     ><input class="input-text js-input" type="text" id="new_val" value="" />
+</div>
+
+
+  <!-- <label for="category">Category</label>
+  <select name="characteristic" id="characteristic">
+    <option value="Name">Name</option>
+    <option value="URL">URL</option>
+    <option value="Duration">Duration</option>
+    <option value="Departure">Departure</option>
+    <option value="Arrivle">Arrivle</option>
+    <option value="Price">Price</option>
+    <option value="Temperature">Temperature</option>
+    <option value="Continent">Continent</option>
+    <option value="Date">Date</option>
+    <option value="Category">Category</option>
+    <option value="Rating">Rating</option>
+    <option value="API">API</option>  
+
+  </select>
+    </div> -->
+    <div class="form-field col-lg-12">
+        <div class="dropdown">
+            <label for="category">Category</label>
+            <select name="characteristic" id="characteristic">
+              <option value="Name">Name</option>
+              <option value="URL">URL</option>
+              <option value="Duration">Duration</option>
+              <option value="Departure">Departure</option>
+              <option value="Arrivle">Arrivle</option>
+              <option value="Price">Price</option>
+              <option value="Temperature">Temperature</option>
+              <option value="Continent">Continent</option>
+              <option value="Date">Date</option>
+              <option value="Category">Category</option>
+              <option value="Rating">Rating</option>
+              <option value="API">API</option>  
+          
+            </select>
+        </div>
+         
+
+        <div class="form-field col-lg-12">
+            <input
+              class="submit-btn"
+              type="button"
+              value="Submit"
+              onclick="findFlight(document.getElementById('name').value,document.getElementById('characteristic').value,
+              document.getElementById('new_val').value)"
+            />
+  <!-- <button
+    type="button"
+    onclick="findFlight(document.getElementById('name').value,document.getElementById('characteristic').value,
+document.getElementById('new_val').value)"
+  >
+    Submit
+  </button> -->
+</section>
