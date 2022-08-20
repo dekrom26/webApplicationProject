@@ -233,7 +233,7 @@ function createFlight(
 }
 
 function showCard1(
-  i,
+   i,
   name,
   date,
   url,
@@ -318,3 +318,23 @@ function showCartPage() {
     $("#app").load("cart");
   });
 }
+
+function AddCart(i){
+  console.log(i);
+  $.get("/allflights", function (data, status) { 
+    var _id=data[i]._id;
+    $.ajax({
+    url: "http://localhost:8080/addToCart",
+    type: "POST",
+    data: JSON.stringify({
+     "_id":_id,
+    }),
+    contentType: "application/json",
+    dataType: "json",
+    success: function () {
+      console.log("request successfully!");
+    },
+  });
+  })}
+ 
+

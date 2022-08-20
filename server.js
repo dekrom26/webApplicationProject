@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const { Flights, Users, Cart } = require("./models/flights");
 const seed = require("./seed");
 const cors = require("cors");
+const { count } = require("console");
 
 var express = require("express"),
   app = express();
@@ -188,21 +189,16 @@ app.post("/unlike", async (req, res) => {
   res.json({ status: 200 });
 });
 
-app.post("/buy", async (req, res) => {
+app.post("/addToCart", async (req, res) => {
   obj = await Cart.findOne({});
   cart_id = obj._id;
-  count = obj.Count;
   var arr = obj.Products;
+  var id_item=req.body._id
+  arr.push(id_item);
+ 
+  await Cart.findByIdAndUpdate(cart_id,{ "Products": arr });
 
-  console.log(req.body.arr);
-  console.log(req.body.count);
-  // console.log(`${req.body.productName}`);
-  // console.log(`${req.body.price}`);
-  // //console.log(`${req.body.quantity}`);
 
-  await Cart.findByIdAndUpdate(cart_id, { Products: req.body.arr });
-  await Cart.findByIdAndUpdate(cart_id, { Count: req.body.count });
-  // // await Flights.findByIdAndUpdate(req.body._id,{characteristic}`:req.body.value});
   res.json({ status: 200 });
 });
 //{productId: data[i]._id, price: data[i].price, quantity: value
@@ -243,6 +239,7 @@ app.post("/create", async (req, res) => {
   });
   res.json({ status: 200 });
 });
+
 
 io.on("connection", (socket) => {
   console.log("Conection to socket.io");

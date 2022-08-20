@@ -32,19 +32,32 @@ function showOneProduct(name, url, departure, date, category, price) {
 }
 
 $(() => {
-  $("#items").empty();
-  $.get("/allflights", function (data, status) {
-    for (var i = 0; i < data.length; i++) {
+  $("#items").empty(); 
+   var arr_id;
+   var arr_flight;
+  $.get("/carts", function (data1, status) {
+   arr_id=data1[0].Products;
+    console.log(arr_id);
+   
+    $.get("/allflights", function (data, status) {
+      arr_flight=data;
+      console.log( arr_flight);
+    for (var j = 0; j < arr_id.length; j++){
+    for (var i = 0; i < arr_flight.length; i++) {
+      if (arr_id[j]!=arr_flight[i]._id)
+      continue;
+
       $("#items").append(
         showOneProduct(
-          data[i].Name,
-          data[i].URL,
-          data[i].Departure,
-          data[i].Date,
-          data[i].Category,
-          data[i].Price
+          arr_flight[i].Name,
+          arr_flight[i].URL,
+          arr_flight[i].Departure,
+          arr_flight[i].Date,
+          arr_flight[i].Category,
+          arr_flight[i].Price
         )
       );
     }
-  });
+  }});
+  })
 });

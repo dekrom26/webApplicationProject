@@ -174,215 +174,216 @@ function GroupByCategory() {
 // $("#text").append(`<p id="proname"><b><Company:</b></font> ${data[i]._id}:${data[i].total}</p>`);
 
 var indexes = [];
-function AddCart(i) {
-  let index = i;
-  console.log(i);
-  keepGood = 0;
-  $.get("/allflights", function (data, status) {
-    // localStorage.setItem(i)
-    console.log(i);
-    if (indexes[i] == 1) {
-      console.log("Second Time");
-      PlusQuantity(i);
-    }
-    if (indexes[i] == undefined) {
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-product-title")[0].innerHTML +=
-        `<div class="item_` +
-        i +
-        `"><p><b><Company:</b></font> ${data[i].Name}<b></p><p>Price:</b>${data[i].Price}$</p></div>`;
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-product-title")[0].innerHTML +=
-        `<div class="item_` +
-        i +
-        `"><p><img id="img_` +
-        i +
-        `" class="center"/></p></div>`;
-      $("#img" + "_" + i).attr("src", data[i].URL);
-      $("#img" + "_" + i).attr("width", "150px");
-      $("#img" + "_" + i).attr("height", "100px");
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-product-title")[0].innerHTML +=
-        `<div class="item_` +
-        i +
-        `"><button id="botton_` +
-        i +
-        `" onclick="Remove(` +
-        i +
-        `)">Remove</button></div><br>`;
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-product-title")[0].innerHTML +=
-        `<div class="item_` +
-        i +
-        `"><button class="btn minus-btn" type="button" onclick="MinusQuantity(` +
-        i +
-        `)">-</button><div class="pin_` +
-        i +
-        `">1</div>
-              <button class="btn plus-btn" type="button" onclick="PlusQuantity(` +
-        i +
-        `)">+</button>`;
-      let sum =
-        parseInt(
-          document.getElementById("app").getElementsByClassName("cart-total")[0]
-            .innerHTML
-        ) + data[i].Price;
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-total")[0].innerHTML = sum;
-      console.log("the sum" + sum);
-      indexes[i] = 1;
-    }
-    if (indexes[i] != undefined && indexes[i] != 1) {
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-product-title")[0]
-        .getElementsByClassName(
-          "item_" + i
-        )[0].innerHTML += `<p><b><Company:</b></font> ${data[i].Name}<b></p><p>Price:</b>${data[i].Price}$</p>`;
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-product-title")[0]
-        .getElementsByClassName("item_" + i)[1].innerHTML +=
-        `<p><img id="img_` + i + `" class="center"/></p>`;
-      $("#img" + "_" + i).attr("src", data[i].URL);
-      $("#img" + "_" + i).attr("width", "150px");
-      $("#img" + "_" + i).attr("height", "100px");
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-product-title")[0]
-        .getElementsByClassName("item_" + i)[2].innerHTML +=
-        `<button id="botton_` +
-        i +
-        `" onclick="Remove(` +
-        i +
-        `)">Remove</button></div>`;
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-product-title")[0]
-        .getElementsByClassName("item_" + i)[3].innerHTML +=
-        `<div class="item_` +
-        i +
-        `"><button class="btn minus-btn" type="button" onclick="MinusQuantity(` +
-        i +
-        `)">-</button> <div class="pin_` +
-        i +
-        `">1</div>
-              <button class="btn plus-btn" type="button" onclick="PlusQuantity(` +
-        i +
-        `)">+</button>`;
-      let sum =
-        parseInt(
-          document.getElementById("app").getElementsByClassName("cart-total")[0]
-            .innerHTML
-        ) + parseInt(data[i].Price);
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-total")[0].innerHTML = sum;
-      console.log("the sum" + sum);
-      indexes[i] = 1;
-    }
-  });
-}
-function Remove(i) {
-  if (indexes[i] == 1) {
-    indexes[i] = 0;
-  }
-  let Quantity = parseInt(
-    document
-      .getElementById("app")
-      .getElementsByClassName("cart-product-title")[0]
-      .getElementsByClassName("item_" + i)[3]
-      .getElementsByClassName("pin_" + i)[0].innerHTML
-  );
-  document
-    .getElementById("app")
-    .getElementsByClassName("cart-product-title")[0]
-    .getElementsByClassName("item_" + i)[0].innerHTML = "";
-  document
-    .getElementById("app")
-    .getElementsByClassName("cart-product-title")[0]
-    .getElementsByClassName("item_" + i)[1].innerHTML = "";
-  document
-    .getElementById("app")
-    .getElementsByClassName("cart-product-title")[0]
-    .getElementsByClassName("item_" + i)[2].innerHTML = "";
-  document
-    .getElementById("app")
-    .getElementsByClassName("cart-product-title")[0]
-    .getElementsByClassName("item_" + i)[3].innerHTML = "";
-  $.get("/allflights", function (data, status) {
-    let sum =
-      parseInt(
-        document.getElementById("app").getElementsByClassName("cart-total")[0]
-          .innerHTML
-      ) -
-      parseInt(data[i].Price) * Quantity;
-    document
-      .getElementById("app")
-      .getElementsByClassName("cart-total")[0].innerHTML = sum;
-    console.log("the sum" + sum);
-  });
-}
-function MinusQuantity(i) {
-  let value = parseInt(
-    document
-      .getElementById("app")
-      .getElementsByClassName("cart-product-title")[0]
-      .getElementsByClassName("item_" + i)[3]
-      .getElementsByClassName("pin_" + i)[0].innerHTML
-  );
-  if (value == 1) Remove(i);
-  else {
-    $.get("/allflights", function (data, status) {
-      let sum =
-        parseInt(
-          document.getElementById("app").getElementsByClassName("cart-total")[0]
-            .innerHTML
-        ) - parseInt(data[i].Price);
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-total")[0].innerHTML = sum;
-      --value;
-      // alert(value);
-      document
-        .getElementById("app")
-        .getElementsByClassName("cart-product-title")[0]
-        .getElementsByClassName("item_" + i)[3]
-        .getElementsByClassName("pin_" + i)[0].innerHTML = value;
-    });
-  }
-}
-function PlusQuantity(i) {
-  let value = parseInt(
-    document
-      .getElementById("app")
-      .getElementsByClassName("cart-product-title")[0]
-      .getElementsByClassName("item_" + i)[3]
-      .getElementsByClassName("pin_" + i)[0].innerHTML
-  );
-  $.get("/allflights", function (data, status) {
-    let sum =
-      parseInt(
-        document.getElementById("app").getElementsByClassName("cart-total")[0]
-          .innerHTML
-      ) + parseInt(data[i].Price);
-    document
-      .getElementById("app")
-      .getElementsByClassName("cart-total")[0].innerHTML = sum;
-    ++value;
-    // alert(value);
-    document
-      .getElementById("app")
-      .getElementsByClassName("cart-product-title")[0]
-      .getElementsByClassName("item_" + i)[3]
-      .getElementsByClassName("pin_" + i)[0].innerHTML = value;
-  });
-}
+// function AddCart(i) {
+//   let index = i;
+//   console.log(i);
+//   keepGood = 0;
+//   $.get("/allflights", function (data, status) {
+//     // localStorage.setItem(i)
+//     console.log(i);
+//     if (indexes[i] == 1) {
+//       console.log("Second Time");
+//       PlusQuantity(i);
+//     }
+//     if (indexes[i] == undefined) {
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-product-title")[0].innerHTML +=
+//         `<div class="item_` +
+//         i +
+//         `"><p><b><Company:</b></font> ${data[i].Name}<b></p><p>Price:</b>${data[i].Price}$</p></div>`;
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-product-title")[0].innerHTML +=
+//         `<div class="item_` +
+//         i +
+//         `"><p><img id="img_` +
+//         i +
+//         `" class="center"/></p></div>`;
+//       $("#img" + "_" + i).attr("src", data[i].URL);
+//       $("#img" + "_" + i).attr("width", "150px");
+//       $("#img" + "_" + i).attr("height", "100px");
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-product-title")[0].innerHTML +=
+//         `<div class="item_` +
+//         i +
+//         `"><button id="botton_` +
+//         i +
+//         `" onclick="Remove(` +
+//         i +
+//         `)">Remove</button></div><br>`;
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-product-title")[0].innerHTML +=
+//         `<div class="item_` +
+//         i +
+//         `"><button class="btn minus-btn" type="button" onclick="MinusQuantity(` +
+//         i +
+//         `)">-</button><div class="pin_` +
+//         i +
+//         `">1</div>
+//               <button class="btn plus-btn" type="button" onclick="PlusQuantity(` +
+//         i +
+//         `)">+</button>`;
+//       let sum =
+//         parseInt(
+//           document.getElementById("app").getElementsByClassName("cart-total")[0]
+//             .innerHTML
+//         ) + data[i].Price;
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-total")[0].innerHTML = sum;
+//       console.log("the sum" + sum);
+//       indexes[i] = 1;
+//     }
+//     if (indexes[i] != undefined && indexes[i] != 1) {
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-product-title")[0]
+//         .getElementsByClassName(
+//           "item_" + i
+//         )[0].innerHTML += `<p><b><Company:</b></font> ${data[i].Name}<b></p><p>Price:</b>${data[i].Price}$</p>`;
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-product-title")[0]
+//         .getElementsByClassName("item_" + i)[1].innerHTML +=
+//         `<p><img id="img_` + i + `" class="center"/></p>`;
+//       $("#img" + "_" + i).attr("src", data[i].URL);
+//       $("#img" + "_" + i).attr("width", "150px");
+//       $("#img" + "_" + i).attr("height", "100px");
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-product-title")[0]
+//         .getElementsByClassName("item_" + i)[2].innerHTML +=
+//         `<button id="botton_` +
+//         i +
+//         `" onclick="Remove(` +
+//         i +
+//         `)">Remove</button></div>`;
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-product-title")[0]
+//         .getElementsByClassName("item_" + i)[3].innerHTML +=
+//         `<div class="item_` +
+//         i +
+//         `"><button class="btn minus-btn" type="button" onclick="MinusQuantity(` +
+//         i +
+//         `)">-</button> <div class="pin_` +
+//         i +
+//         `">1</div>
+//               <button class="btn plus-btn" type="button" onclick="PlusQuantity(` +
+//         i +
+//         `)">+</button>`;
+//       let sum =
+//         parseInt(
+//           document.getElementById("app").getElementsByClassName("cart-total")[0]
+//             .innerHTML
+//         ) + parseInt(data[i].Price);
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-total")[0].innerHTML = sum;
+//       console.log("the sum" + sum);
+//       indexes[i] = 1;
+//     }
+//   });
+// }
+// function Remove(i) {
+//   if (indexes[i] == 1) {
+//     indexes[i] = 0;
+//   }
+//   let Quantity = parseInt(
+//     document
+//       .getElementById("app")
+//       .getElementsByClassName("cart-product-title")[0]
+//       .getElementsByClassName("item_" + i)[3]
+//       .getElementsByClassName("pin_" + i)[0].innerHTML
+//   );
+//   document
+//     .getElementById("app")
+//     .getElementsByClassName("cart-product-title")[0]
+//     .getElementsByClassName("item_" + i)[0].innerHTML = "";
+//   document
+//     .getElementById("app")
+//     .getElementsByClassName("cart-product-title")[0]
+//     .getElementsByClassName("item_" + i)[1].innerHTML = "";
+//   document
+//     .getElementById("app")
+//     .getElementsByClassName("cart-product-title")[0]
+//     .getElementsByClassName("item_" + i)[2].innerHTML = "";
+//   document
+//     .getElementById("app")
+//     .getElementsByClassName("cart-product-title")[0]
+//     .getElementsByClassName("item_" + i)[3].innerHTML = "";
+//   $.get("/allflights", function (data, status) {
+//     let sum =
+//       parseInt(
+//         document.getElementById("app").getElementsByClassName("cart-total")[0]
+//           .innerHTML
+//       ) -
+//       parseInt(data[i].Price) * Quantity;
+//     document
+//       .getElementById("app")
+//       .getElementsByClassName("cart-total")[0].innerHTML = sum;
+//     console.log("the sum" + sum);
+//   });
+// }
+// function MinusQuantity(i) {
+//   let value = parseInt(
+//     document
+//       .getElementById("app")
+//       .getElementsByClassName("cart-product-title")[0]
+//       .getElementsByClassName("item_" + i)[3]
+//       .getElementsByClassName("pin_" + i)[0].innerHTML
+//   );
+//   if (value == 1) Remove(i);
+//   else {
+//     $.get("/allflights", function (data, status) {
+//       let sum =
+//         parseInt(
+//           document.getElementById("app").getElementsByClassName("cart-total")[0]
+//             .innerHTML
+//         ) - parseInt(data[i].Price);
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-total")[0].innerHTML = sum;
+//       --value;
+//       // alert(value);
+//       document
+//         .getElementById("app")
+//         .getElementsByClassName("cart-product-title")[0]
+//         .getElementsByClassName("item_" + i)[3]
+//         .getElementsByClassName("pin_" + i)[0].innerHTML = value;
+//     });
+//   }
+// }
+// function PlusQuantity(i) {
+//   let value = parseInt(
+//     document
+//       .getElementById("app")
+//       .getElementsByClassName("cart-product-title")[0]
+//       .getElementsByClassName("item_" + i)[3]
+//       .getElementsByClassName("pin_" + i)[0].innerHTML
+//   );
+//   $.get("/allflights", function (data, status) {
+//     let sum =
+//       parseInt(
+//         document.getElementById("app").getElementsByClassName("cart-total")[0]
+//           .innerHTML
+//       ) + parseInt(data[i].Price);
+//     document
+//       .getElementById("app")
+//       .getElementsByClassName("cart-total")[0].innerHTML = sum;
+//     ++value;
+//     // alert(value);
+//     document
+//       .getElementById("app")
+//       .getElementsByClassName("cart-product-title")[0]
+//       .getElementsByClassName("item_" + i)[3]
+//       .getElementsByClassName("pin_" + i)[0].innerHTML = value;
+//   });
+// }
+
 $.get("/allflights", function (data, status) {
   for (let i = 0; i < data.length; i++) {
     if (indexes[i] == 1) {

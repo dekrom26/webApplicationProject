@@ -75,7 +75,7 @@ const UserSchema = new mongoose.Schema({
 })
 
 
-members: [{ firstName: String, lastName: String }]
+
 // Cart Modal Schema
 const CartSchema = new mongoose.Schema({
 //     Products: [{
@@ -85,10 +85,7 @@ const CartSchema = new mongoose.Schema({
     Products: [{
     type:String
     }]
-,  
-    Count:{
-        type:Number
-    },    
+,     
 })
 
 
