@@ -442,7 +442,7 @@ function BuyNow() {
   });
 }
 
-// =======
+
 function Like(i) {
   $.get("/allflights", function (data, status) {
     var id_product = data[i]._id;
