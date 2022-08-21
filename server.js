@@ -244,6 +244,23 @@ app.delete("/deleteCart", async (req, res) => {
   res.json({ status: 200 });
 });
 
+app.delete("/deleteItem", async (req, res) => {
+  obj = await Cart.findOne({});
+  cart_id = obj._id;
+  var arr = obj.Products;
+  var id_item = req.body._id;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].flight_id === id_item) {
+      arr.splice(i, 1);
+      await Cart.findByIdAndUpdate(cart_id, { Products: arr });
+    }
+  }
+  res.json({ status: 200 });
+});
+
+//deleteItem
+
 // Name
 // URL
 // Duration

@@ -34,7 +34,7 @@ function showOneProduct(
                     <div class="col-md-3 price">
                         <span>${price * quantity}$</span>
                         <br>
-                        <button type="button" onclick="deleteItem("${id}")" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                        <button type="button" onclick = deleteItem("${id}") class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </div>
                 </div>
             </div>
@@ -86,6 +86,17 @@ function loadCart() {
 
 function deleteItem(_id) {
   console.log(_id);
+  $.ajax({
+    url: "http://localhost:8080/deleteItem",
+    type: "DELETE",
+    data: JSON.stringify({ _id: _id }),
+    contentType: "application/json",
+    dataType: "json",
+    success: function () {
+      console.log("request successfully!");
+    },
+  });
+  loadCart();
 }
 
 $(() => {
