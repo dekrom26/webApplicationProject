@@ -236,6 +236,14 @@ app.delete("/delete", async (req, res) => {
   res.json({ status: 200 });
 });
 
+app.delete("/deleteCart", async (req, res) => {
+  obj = await Cart.findOne({});
+  cart_id = obj._id;
+  await Cart.findByIdAndDelete(cart_id);
+  // await Cart.deleteMany({});
+  res.json({ status: 200 });
+});
+
 // Name
 // URL
 // Duration
