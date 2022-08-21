@@ -6,21 +6,21 @@ window.onload = function () {
   ctx.drawImage(img, 0, 0, 52, 52);
 };
 
-let buttons = document.getElementsByTagName("button");
+// let buttons = document.getElementsByTagName("button");
 
-const cart = [];
+// const cart = [];
 
-for (var i = 0; i < buttons.length; i++) {
-  let button = buttons[i];
-  console.log(button);
-  button.addEventListener("click", function (event) {
-    console.clear();
-    console.log(event.target);
-    console.log(event.target.dataset.productSku);
-    cart.push(event.target.dataset.productSku);
-    console.log(cart);
-  });
-}
+// for (var i = 0; i < buttons.length; i++) {
+//   let button = buttons[i];
+//   console.log(button);
+//   button.addEventListener("click", function (event) {
+//     console.clear();
+//     console.log(event.target);
+//     console.log(event.target.dataset.productSku);
+//     cart.push(event.target.dataset.productSku);
+//     console.log(cart);
+//   });
+// }
 
 // const result = await fetch('')
 
@@ -233,7 +233,7 @@ function createFlight(
 }
 
 function showCard1(
-   i,
+  i,
   name,
   date,
   url,
@@ -319,22 +319,44 @@ function showCartPage() {
   });
 }
 
-function AddCart(i){
+function AddCart(i) {
   console.log(i);
-  $.get("/allflights", function (data, status) { 
-    var _id=data[i]._id;
+  $.get("/allflights", function (data, status) {
+    var _id = data[i]._id;
     $.ajax({
-    url: "http://localhost:8080/addToCart",
+      url: "http://localhost:8080/addToCart",
+      type: "POST",
+      data: JSON.stringify({
+        _id: _id,
+      }),
+      contentType: "application/json",
+      dataType: "json",
+      success: function () {
+        console.log("request successfully!");
+      },
+    });
+  });
+}
+
+function update_price(_id, quantity) {
+  console.log(_id);
+  $.ajax({
+    url: "http://localhost:8080/updatePrice",
     type: "POST",
     data: JSON.stringify({
-     "_id":_id,
+      _id: _id,
+      quantity: quantity,
     }),
     contentType: "application/json",
     dataType: "json",
     success: function () {
       console.log("request successfully!");
+      window.alert("Created successfully");
     },
   });
-  })}
- 
+}
 
+function updateAndRef(_id, quantity) {
+  update_price(_id, quantity);
+  loadCart();
+}

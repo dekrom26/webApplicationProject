@@ -193,14 +193,41 @@ app.post("/addToCart", async (req, res) => {
   obj = await Cart.findOne({});
   cart_id = obj._id;
   var arr = obj.Products;
-  var id_item=req.body._id
-  arr.push(id_item);
- 
-  await Cart.findByIdAndUpdate(cart_id,{ "Products": arr });
+  var id_item = req.body._id;
 
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].flight_id == id_item) {
+      arr[i].Quantities++;
+      await Cart.findByIdAndUpdate(cart_id, { Products: arr });
+      return;
+    }
+  }
+  arr.push({ flight_id: id_item, Quantities: 1 });
+  await Cart.findByIdAndUpdate(cart_id, { Products: arr });
 
   res.json({ status: 200 });
 });
+
+app.post("/updatePrice", async (req, res) => {
+  obj = await Cart.findOne({});
+  cart_id = obj._id;
+  var arr = obj.Products;
+  var id_item = req.body._id;
+  var quantity_item = req.body.quantity;
+
+  //quantity
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].flight_id == id_item) {
+      arr[i].Quantities = quantity_item;
+      await Cart.findByIdAndUpdate(cart_id, { Products: arr });
+      return;
+    }
+  }
+
+  res.json({ status: 200 });
+});
+
 //{productId: data[i]._id, price: data[i].price, quantity: value
 
 app.delete("/delete", async (req, res) => {
@@ -240,15 +267,12 @@ app.post("/create", async (req, res) => {
   res.json({ status: 200 });
 });
 
-
-
 io.on("connection", (socket) => {
   console.log("Conection to socket.io");
   socket.on("message", ({ name, message }) => {
     io.emit("message", { name, message });
   });
 });
-
 
 // io.on('connection', (socket) => {
 //   console.log('a user connected');
@@ -267,9 +291,6 @@ io.on("connection", (socket) => {
 //   const flights = await Flights.find({});
 //   res.json(flights);
 // });
-
-
-
 
 var usernames = {};
 
