@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="another graph">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/master.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/master.js" afterDir="false" />
+    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="popular filghts and comment erase in master.js">
+      <change beforePath="$PROJECT_DIR$/public/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/chat.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +114,7 @@
       <workItem from="1660750042118" duration="648000" />
       <workItem from="1660912405997" duration="3214000" />
       <workItem from="1661020329170" duration="1981000" />
-      <workItem from="1661059632385" duration="4565000" />
+      <workItem from="1661059632385" duration="4932000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -268,7 +266,13 @@
       <option name="presentableId" value="LOCAL‎00025" />
       <updated>1661022459378</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL‎00026" summary="popular filghts and comment erase in master.js">
+      <created>1661065807083</created>
+      <option name="number" value="LOCAL‎00026" />
+      <option name="presentableId" value="LOCAL‎00026" />
+      <updated>1661065807083</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +325,8 @@
     <MESSAGE value="like and dislike without DB" />
     <MESSAGE value="graph bug fix" />
     <MESSAGE value="another graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="another graph" />
+    <MESSAGE value="popular filghts and comment erase in master.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="popular filghts and comment erase in master.js" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
