@@ -28,8 +28,8 @@ function showOneProduct(
                     </div>
                     <div class="col-md-4 quantity">
                         <label for="quantity">Quantity:</label>
-                        <input class="form-control " type="number" id="quantity" value="${quantity}" />
-                        <button type="button" onclick=updateAndRef("${id}",document.getElementById('quantity').value) class="btn btn-primary btn-lg btn-block">Checkout</button>
+                        <input class="form-control " type="number" id="quantity+${name}" value="${quantity}" />
+                        <button type="button" onclick=updateAndRef("${id}",document.getElementById('quantity+${name}').value) class="btn btn-primary btn-lg btn-block">Checkout</button>
                         </div>
                     <div class="col-md-3 price">
                         <span>${price * quantity}$</span>
@@ -56,10 +56,12 @@ function loadCart() {
     $.get("/allflights", function (data, status) {
       arr_flight = data;
       console.log(arr_flight);
+      var total = 0;
       for (var j = 0; j < arr_id.length; j++) {
         for (var i = 0; i < arr_flight.length; i++) {
           if (arr_id[j].flight_id != arr_flight[i]._id) continue;
 
+          total += arr_id[j].Quantities * arr_flight[i].Price;
           $("#items").append(
             showOneProduct(
               arr_flight[i]._id,
@@ -74,6 +76,8 @@ function loadCart() {
           );
         }
       }
+      $("#total").empty();
+      $("#total").append(total + "$");
     });
   });
 }

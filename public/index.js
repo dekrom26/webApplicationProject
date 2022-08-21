@@ -339,7 +339,7 @@ function AddCart(i) {
 }
 
 function update_price(_id, quantity) {
-  console.log(_id);
+  console.log(quantity);
   $.ajax({
     url: "http://localhost:8080/updatePrice",
     type: "POST",
@@ -351,7 +351,6 @@ function update_price(_id, quantity) {
     dataType: "json",
     success: function () {
       console.log("request successfully!");
-      window.alert("Created successfully");
     },
   });
 }
@@ -359,4 +358,9 @@ function update_price(_id, quantity) {
 function updateAndRef(_id, quantity) {
   update_price(_id, quantity);
   loadCart();
+}
+
+function showOrderPage() {
+  $("#maincart").empty();
+  $("#maincart").load("order.html");
 }
