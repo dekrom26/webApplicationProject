@@ -363,5 +363,20 @@ function updateAndRef(_id, quantity) {
 
 function showOrderPage() {
   $("#maincart").empty();
-  $("#maincart").load("order.html");
+  $.get("/carts", function (data, status) {
+    var arr = data[0].Products;
+    $.ajax({
+      url: "http://localhost:8080/updateSales",
+      type: "POST",
+      data: JSON.stringify({
+        arr: arr,
+      }),
+      contentType: "application/json",
+      dataType: "json",
+      success: function () {
+        console.log("request successfully!");
+      },
+    });
+    $("#maincart").load("order.html");
+  });
 }

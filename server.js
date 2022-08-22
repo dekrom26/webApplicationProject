@@ -215,8 +215,6 @@ app.post("/updatePrice", async (req, res) => {
   var id_item = req.body._id;
   var quantity_item = req.body.quantity;
 
-  //quantity
-
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].flight_id == id_item) {
       arr[i].Quantities = quantity_item;
@@ -228,7 +226,23 @@ app.post("/updatePrice", async (req, res) => {
   res.json({ status: 200 });
 });
 
-//{productId: data[i]._id, price: data[i].price, quantity: value
+app.post("/updateSales", async (req, res) => {
+  var arr = req.body.arr;
+  console.log(arr);
+  var id;
+  var q;
+  var flight;
+  var sales;
+  for (let i = 0; i < arr.length; i++) {
+    id = arr[i].flight_id;
+    q = arr[i].Quantities;
+    flight = await Flights.findById(id);
+    sales = flight.Sales;
+    sales += q;
+    await Flights.findByIdAndUpdate(id, { Sales: sales });
+  }
+  res.json({ status: 200 });
+});
 
 app.delete("/delete", async (req, res) => {
   var id = req.body._id;
