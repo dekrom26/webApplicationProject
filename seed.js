@@ -164,8 +164,11 @@ const seedFlight = [
 
 const seedUsers = [
   {
+    FirstName: "Admin",
+    LastName: "Admin",
     Email: "admin@gmail.com",
     Password: "flight123",
+    Cart_id: 0,
   },
 ];
 

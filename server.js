@@ -57,6 +57,10 @@ app.get("/flights", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "allFlights.html"));
 });
 
+app.get("/registration", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public", "registration.html"));
+});
+
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "home.html"));
 });
@@ -302,6 +306,26 @@ app.post("/create", async (req, res) => {
     Date: req.body.date,
     Category: req.body.category,
     API: req.body.API,
+  });
+  res.json({ status: 200 });
+});
+
+io.on("connection", (socket) => {
+  console.log("Conection to socket.io");
+  socket.on("message", ({ name, message }) => {
+    io.emit("message", { name, message });
+  });
+});
+
+app.post("/createuser", async (req, res) => {
+  var cart = await Cart.create({ Products: [] });
+  var id_cart = cart._id;
+  await Users.create({
+    FirstName: req.body.first,
+    LastName: req.body.last,
+    Email: req.body.email,
+    Password: req.body.pass,
+    Cart_id: id_cart,
   });
   res.json({ status: 200 });
 });

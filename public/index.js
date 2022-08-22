@@ -30,6 +30,13 @@ function preload() {
   });
 }
 
+function showRegPage() {
+  $(document).ready(function () {
+    preload();
+    $("#app").load("registration");
+  });
+}
+
 function showMasterPage() {
   $(document).ready(function () {
     preload();
@@ -126,14 +133,14 @@ function AddMarker(mapArgument, map) {
   });
 }
 
-let graph;
-function removeGraph() {
-  if (graph) {
-    graph = null;
-  } else {
-    graph = $("#graphs").detach();
-  }
-}
+// let graph;
+// function removeGraph() {
+//   if (graph) {
+//     graph = null;
+//   } else {
+//     graph = $("#graphs").detach();
+//   }
+// }
 function showGraphs() {
   $("#search").empty();
   $("#main").empty();

@@ -65,6 +65,14 @@ const flightsSchema = new mongoose.Schema({
 
 // User Modal Schema
 const UserSchema = new mongoose.Schema({
+  FirstName: {
+    type: String,
+    // required: true
+  },
+  LastName: {
+    type: String,
+    // required: true
+  },
   Email: {
     type: String,
     // required: true
@@ -72,6 +80,9 @@ const UserSchema = new mongoose.Schema({
   Password: {
     type: String,
     // required: true
+  },
+  Cart_id: {
+    type: String,
   },
 });
 
