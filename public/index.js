@@ -135,6 +135,7 @@ function removeGraph() {
   }
 }
 function showGraphs() {
+  $("#search").empty();
   $("#main").empty();
   $("#create").empty();
   $("#update").empty();
@@ -148,6 +149,7 @@ function showGraphs() {
 }
 
 function showCreateFlights() {
+  $("#search").empty();
   $("#main").empty();
   $("#create").empty();
   $("#update").empty();
@@ -158,6 +160,7 @@ function showCreateFlights() {
 }
 
 function showUpdateFlights() {
+  $("#search").empty();
   $("#main").empty();
   $("#create").empty();
   $("#update").empty();
@@ -168,6 +171,7 @@ function showUpdateFlights() {
 }
 
 function showDeleteFlights() {
+  $("#search").empty();
   $("#main").empty();
   $("#create").empty();
   $("#update").empty();

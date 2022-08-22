@@ -1,9 +1,11 @@
 function showallFlights() {
+  $("#search").empty();
   $("#main").empty();
   $("#create").empty();
   $("#update").empty();
   $("#delete").empty();
   $("#graphs").empty();
+  $("#search").append(showSearch());
   $.get("/allflights", function (data, status) {
     for (var i = 0; i < data.length; i++) {
       $("#main").append(
@@ -21,6 +23,44 @@ function showallFlights() {
           data[i].Category
         )
       );
+    }
+  });
+}
+
+function showSearch() {
+  return `<div class="input-group">
+  <div class="form-outline">
+    <input type="search" id="form1" class="form-control" />
+    <label class="form-label" for="form1">Search</label>
+  </div>
+  <button type="button" onclick=search(document.getElementById("form1").value) class="btn btn-primary">
+    <i class="fa fa-search"></i>
+  </button>
+</div>`;
+}
+
+function search(name) {
+  console.log(name);
+  $("#main").empty();
+  $.get("/allflights", function (data, status) {
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].Name == name) {
+        $("#main").append(
+          showCardMater(
+            i,
+            data[i].Name,
+            data[i].Date,
+            data[i].URL,
+            data[i].Duration,
+            data[i].Departure,
+            data[i].Arrivle,
+            data[i].Price,
+            data[i].Temperature,
+            data[i].Continent,
+            data[i].Category
+          )
+        );
+      }
     }
   });
 }
