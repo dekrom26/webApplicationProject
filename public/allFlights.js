@@ -19,7 +19,7 @@ function Search1() {
         if (priceUser == "expensive" && price < 500) continue;
 
         $("#text").append(
-          showCard1(
+          showCardAllFlight(
             i,
             data[i].Name,
             data[i].Date,
@@ -69,7 +69,7 @@ function Search2() {
           continue;
 
         $("#text").append(
-          showCard1(
+          showCardAllFlight(
             i,
             data[i].Name,
             data[i].Date,

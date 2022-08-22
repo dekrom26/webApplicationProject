@@ -243,85 +243,84 @@ function createFlight(
   });
 }
 
-function showCardAllFlight(
-  i,
-  name,
-  date,
-  url,
-  duration,
-  Departure,
-  Arrivle,
-  Price,
-  Temperature,
-  Continent,
-  Category
-) {
-  return `<section class="light">
-  <body>
-  <div class="container py-2">
-    <article class="postcard light blue">
-      <a class="postcard__img_link" href="#">
-        <img
-          class="postcard__img"
-          src="${url}"
-          alt="Image Title"
-        />
-      </a>
-      <div class="postcard__text t-light">
-        <h1 class="postcard__title blue"><a href="#">${name}</a></h1>
-  
-        <div class="postcard__subtitle small">
-            <i class="fas fa-calendar-alt mr-2"></i>${date}
-        </div>
-        <div class="postcard__bar"></div>
-     
-        <ul class="postcard__tagbox">
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Duration(Hours): ${duration}</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Departure: ${Departure}</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Arrivle: ${Arrivle}</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Price: ${Price} $</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Temperature: ${Temperature}</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Continent: ${Continent}</li>
-          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Category: ${Category}</li>
+// function showCardAllFlight(
+//   i,
+//   name,
+//   date,
+//   url,
+//   duration,
+//   Departure,
+//   Arrivle,
+//   Price,
+//   Temperature,
+//   Continent,
+//   Category
+// ) {
+//   return `<section class="light">
+//   <body>
+//   <div class="container py-2">
+//     <article class="postcard light blue">
+//       <a class="postcard__img_link" href="#">
+//         <img
+//           class="postcard__img"
+//           src="${url}"
+//           alt="Image Title"
+//         />
+//       </a>
+//       <div class="postcard__text t-light">
+//         <h1 class="postcard__title blue"><a href="#">${name}</a></h1>
 
-         
-        <button class="bag-btn" onclick="AddCart("${i}","fadar")">Add To Cart</button>
-        <button class="like-btn" onclick="Like(${i})"> <i class="fa fa-thumbs-up"></i></button>
-        <button class="unlike-btn" onclick="UnLike(${i})"> <i class="fa fa-thumbs-down"></i></button>
-          </div>
-          </li>
-          </li>
-        </ul>
-      </div>
-   
-  </div>
-  </section>
-  <body>
-  `;
-}
+//         <div class="postcard__subtitle small">
+//             <i class="fas fa-calendar-alt mr-2"></i>${date}
+//         </div>
+//         <div class="postcard__bar"></div>
 
-function showCard() {
-  $("#text").empty();
-  $.get("/allflights", function (data, status) {
-    for (var i = 0; i < data.length; i++) {
-      $("#text").append(
-        showCardAllFlight(
-          i,
-          data[i].Name,
-          data[i].Date,
-          data[i].URL,
-          data[i].Duration,
-          data[i].Departure,
-          data[i].Arrivle,
-          data[i].Price,
-          data[i].Temperature,
-          data[i].Continent,
-          data[i].Category
-        )
-      );
-    }
-  });
-}
+//         <ul class="postcard__tagbox">
+//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Duration(Hours): ${duration}</li>
+//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Departure: ${Departure}</li>
+//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Arrivle: ${Arrivle}</li>
+//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Price: ${Price} $</li>
+//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Temperature: ${Temperature}</li>
+//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Continent: ${Continent}</li>
+//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Category: ${Category}</li>
+
+//         <button class="bag-btn" onclick="AddCart("${i}","fadar")">Add To Cart</button>
+//         <button class="like-btn" onclick="Like(${i})"> <i class="fa fa-thumbs-up"></i></button>
+//         <button class="unlike-btn" onclick="UnLike(${i})"> <i class="fa fa-thumbs-down"></i></button>
+//           </div>
+//           </li>
+//           </li>
+//         </ul>
+//       </div>
+
+//   </div>
+//   </section>
+//   <body>
+//   `;
+// }
+
+// function showCard() {
+//   $("#text").empty();
+//   $.get("/allflights", function (data, status) {
+//     for (var i = 0; i < data.length; i++) {
+//       $("#text").append(
+//         showCardAllFlight(
+//           i,
+//           data[i].Name,
+//           data[i].Date,
+//           data[i].URL,
+//           data[i].Duration,
+//           data[i].Departure,
+//           data[i].Arrivle,
+//           data[i].Price,
+//           data[i].Temperature,
+//           data[i].Continent,
+//           data[i].Category
+//         )
+//       );
+//     }
+//   });
+// }
 
 function showCartPage() {
   $(document).ready(function () {
@@ -330,29 +329,29 @@ function showCartPage() {
   });
 }
 
-function AddCart(i, cart_id) {
-  // console.log(i);
-  // console.log("cart_id:" + cart_id);
-  $.get("/allflights", function (data, status) {
-    var _id = data[i]._id;
-    $.ajax({
-      url: "http://localhost:8080/addToCart",
-      type: "POST",
-      data: JSON.stringify({
-        _id: _id,
-        cart_id: cart_id,
-      }),
-      contentType: "application/json",
-      dataType: "json",
-      success: function () {
-        console.log("request successfully!");
-        window.alert("Product added successfully");
-      },
-    });
-  });
-}
+// function AddCart(i, cart_id) {
+//   // console.log(i);
+//   // console.log("cart_id:" + cart_id);
+//   $.get("/allflights", function (data, status) {
+//     var _id = data[i]._id;
+//     $.ajax({
+//       url: "http://localhost:8080/addToCart",
+//       type: "POST",
+//       data: JSON.stringify({
+//         _id: _id,
+//         cart_id: cart_id,
+//       }),
+//       contentType: "application/json",
+//       dataType: "json",
+//       success: function () {
+//         console.log("request successfully!");
+//         window.alert("Product added successfully");
+//       },
+//     });
+//   });
+// }
 
-function update_price(_id, quantity) {
+function update_price(_id, quantity, cart_id) {
   console.log(quantity);
   $.ajax({
     url: "http://localhost:8080/updatePrice",
@@ -360,6 +359,7 @@ function update_price(_id, quantity) {
     data: JSON.stringify({
       _id: _id,
       quantity: quantity,
+      cart_id: cart_id,
     }),
     contentType: "application/json",
     dataType: "json",
@@ -369,15 +369,22 @@ function update_price(_id, quantity) {
   });
 }
 
-function updateAndRef(_id, quantity) {
-  update_price(_id, quantity);
-  loadCart();
+function updateAndRef(_id, quantity, cart_id) {
+  update_price(_id, quantity, cart_id);
+  loadCartById(cart_id);
+  //loadCart();
 }
 
-function showOrderPage() {
+function showOrderPage(cart_id) {
+  console.log(cart_id);
   $("#maincart").empty();
+  var arr;
   $.get("/carts", function (data, status) {
-    var arr = data[0].Products;
+    for (var l = 0; l < data.length; l++) {
+      if (data[l]._id == cart_id) {
+        arr = data[l].Products;
+      }
+    }
     $.ajax({
       url: "http://localhost:8080/updateSales",
       type: "POST",
@@ -390,6 +397,50 @@ function showOrderPage() {
         console.log("request successfully!");
       },
     });
-    $("#maincart").load("order.html");
+  });
+  loadOrder(cart_id);
+  //$("#maincart").load("order.html");
+}
+
+function loadOrder(cart_id) {
+  $("#maincart").load("order.html");
+  $("#itemOrder").empty();
+  var arr_id;
+  var arr_flight;
+  var first;
+  var last;
+  $.get("/carts", function (data1, status) {
+    for (var l = 0; l < data1.length; l++) {
+      if (data1[l]._id == cart_id) {
+        arr_id = data1[l].Products;
+        first = data1[l].FirstName;
+        last = data1[l].LastName;
+      }
+    }
+
+    $.get("/allflights", function (data, status) {
+      arr_flight = data;
+      console.log(arr_flight);
+      var total = 0;
+      for (var j = 0; j < arr_id.length; j++) {
+        for (var i = 0; i < arr_flight.length; i++) {
+          if (arr_id[j].flight_id != arr_flight[i]._id) continue;
+
+          total += arr_id[j].Quantities * arr_flight[i].Price;
+          $("#itemOrder").append(
+            showitem(
+              arr_flight[i].Name,
+              arr_id[j].Quantities,
+              arr_flight[i].Price
+            )
+          );
+        }
+      }
+      $("#name_client").empty;
+      $("#name_client").append(first + " " + last);
+      $("#totalorder").empty();
+      $("#totalorder").append(total + "$");
+      DeleteCart(cart_id);
+    });
   });
 }

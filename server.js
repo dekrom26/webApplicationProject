@@ -194,8 +194,8 @@ app.post("/unlike", async (req, res) => {
 });
 
 app.post("/addToCart", async (req, res) => {
-  obj = await Cart.findOne({});
-  cart_id = obj._id;
+  var cart_id = req.body.cart_id;
+  obj = await Cart.findById(cart_id);
   var arr = obj.Products;
   var id_item = req.body._id;
 
@@ -213,8 +213,8 @@ app.post("/addToCart", async (req, res) => {
 });
 
 app.post("/updatePrice", async (req, res) => {
-  obj = await Cart.findOne({});
-  cart_id = obj._id;
+  cart_id = req.body.cart_id;
+  obj = await Cart.findById(cart_id);
   var arr = obj.Products;
   var id_item = req.body._id;
   var quantity_item = req.body.quantity;
@@ -255,16 +255,18 @@ app.delete("/delete", async (req, res) => {
 });
 
 app.delete("/deleteCart", async (req, res) => {
-  obj = await Cart.findOne({});
-  cart_id = obj._id;
-  await Cart.findByIdAndDelete(cart_id);
+  cart_id = req.body.cart_id;
+  var arr = [];
+  await Cart.findByIdAndUpdate(cart_id, { Products: arr });
+  // obj = await Cart.findById(cart_id)
+  // await Cart.findByIdAndDelete(cart_id);
   // await Cart.deleteMany({});
   res.json({ status: 200 });
 });
 
 app.delete("/deleteItem", async (req, res) => {
-  obj = await Cart.findOne({});
-  cart_id = obj._id;
+  cart_id = req.body.cart_id;
+  obj = await Cart.findById(cart_id);
   var arr = obj.Products;
   var id_item = req.body._id;
 
