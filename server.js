@@ -318,7 +318,11 @@ io.on("connection", (socket) => {
 });
 
 app.post("/createuser", async (req, res) => {
-  var cart = await Cart.create({ Products: [] });
+  var cart = await Cart.create({
+    Products: [],
+    FirstName: req.body.first,
+    LastName: req.body.last,
+  });
   var id_cart = cart._id;
   await Users.create({
     FirstName: req.body.first,

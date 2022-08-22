@@ -26,5 +26,22 @@ function createUser(first, last, email, pass) {
       //   window.alert("You have successfully registered!");
     },
   });
+  getCardId(first, last);
+}
+
+function getCardId(first, last) {
+  $.get("/allusers", function (data, status) {
+    for (var j = 0; j < data.length; j++) {
+      if (data[j].FirstName == first && data[j].LastName == last) {
+        var CartId = data[j].Cart_id;
+        window.alert(
+          "You have successfully registered! your CartId is:  " +
+            CartId +
+            " " +
+            "  (please save it to continue)   "
+        );
+      }
+    }
+  });
   showFlightPage();
 }

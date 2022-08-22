@@ -175,6 +175,8 @@ const seedUsers = [
 const seedCart = [
   {
     Products: [],
+    FirstName: "Admin",
+    LastName: "Admin",
   },
 ];
 

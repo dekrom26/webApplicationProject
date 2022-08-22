@@ -285,7 +285,7 @@ function showCardAllFlight(
           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Category: ${Category}</li>
 
          
-        <button class="bag-btn" onclick="AddCart(${i})">Add To Cart</button>
+        <button class="bag-btn" onclick="AddCart("${i}","fadar")">Add To Cart</button>
         <button class="like-btn" onclick="Like(${i})"> <i class="fa fa-thumbs-up"></i></button>
         <button class="unlike-btn" onclick="UnLike(${i})"> <i class="fa fa-thumbs-down"></i></button>
           </div>
@@ -330,8 +330,9 @@ function showCartPage() {
   });
 }
 
-function AddCart(i) {
-  console.log(i);
+function AddCart(i, cart_id) {
+  // console.log(i);
+  // console.log("cart_id:" + cart_id);
   $.get("/allflights", function (data, status) {
     var _id = data[i]._id;
     $.ajax({
@@ -339,6 +340,7 @@ function AddCart(i) {
       type: "POST",
       data: JSON.stringify({
         _id: _id,
+        cart_id: cart_id,
       }),
       contentType: "application/json",
       dataType: "json",

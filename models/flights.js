@@ -98,6 +98,15 @@ const CartSchema = new mongoose.Schema({
       Quantities: Number,
     },
   ],
+
+  FirstName: {
+    type: String,
+    // required: true
+  },
+  LastName: {
+    type: String,
+    // required: true
+  },
   //experience: [{ body: String, date: Date }],
 });
 
