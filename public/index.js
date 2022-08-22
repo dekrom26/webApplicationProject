@@ -232,7 +232,7 @@ function createFlight(
   });
 }
 
-function showCard1(
+function showCardAllFlight(
   i,
   name,
   date,
@@ -294,7 +294,7 @@ function showCard() {
   $.get("/allflights", function (data, status) {
     for (var i = 0; i < data.length; i++) {
       $("#text").append(
-        showCard1(
+        showCardAllFlight(
           i,
           data[i].Name,
           data[i].Date,

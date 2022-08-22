@@ -7,7 +7,7 @@ function showallFlights() {
   $.get("/allflights", function (data, status) {
     for (var i = 0; i < data.length; i++) {
       $("#main").append(
-        showCard1(
+        showCardMater(
           i,
           data[i].Name,
           data[i].Date,
@@ -25,7 +25,7 @@ function showallFlights() {
   });
 }
 
-function showCard1(
+function showCardMater(
   i,
   name,
   date,
@@ -64,12 +64,7 @@ function showCard1(
             <li class="tag__item"><i class="fas fa-clock mr-2"></i>Price: ${Price} $</li>
             <li class="tag__item"><i class="fas fa-clock mr-2"></i>Temperature: ${Temperature}</li>
             <li class="tag__item"><i class="fas fa-clock mr-2"></i>Continent: ${Continent}</li>
-            <li class="tag__item"><i class="fas fa-clock mr-2"></i>Category: ${Category}</li>
-            <button class="bag-btn" onclick="AddCart(${i})">Add To Cart</button>
-          <button class="like-btn" onclick="Like(${i})"> <i class="fa fa-thumbs-up"></i></button>
-          <button class="unlike-btn" onclick="UnLike(${i})"> <i class="fa fa-thumbs-down"></i></button>
-           
-          
+            <li class="tag__item"><i class="fas fa-clock mr-2"></i>Category: ${Category}</li>          
             </div>
             </li>
             </li>
