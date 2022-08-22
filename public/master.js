@@ -63,9 +63,7 @@ function showCard1(
             <li class="tag__item"><i class="fas fa-clock mr-2"></i>Category: ${Category}</li>
   
            
-          <button class="bag-btn" onclick="AddCart(${i})">Add To Cart</button>
-          <button class="like-btn" onclick="Like(${i})"> <i class="fa fa-thumbs-up"></i></button>
-          <button class="unlike-btn" onclick="UnLike(${i})"> <i class="fa fa-thumbs-down"></i></button>
+          
             </div>
             </li>
             </li>
