@@ -29,11 +29,13 @@ function showOneProduct(
                     <div class="col-md-4 quantity">
                         <label for="quantity">Quantity:</label>
                         <input class="form-control " type="number" id="quantity+${name}" value="${quantity}" />
-                        <button type="button" onclick=updateAndRef("${id}",document.getElementById('quantity+${name}').value) class="btn btn-primary btn-lg btn-block">Checkout</button>
+                        <button type="button" onclick=updateAndRef("${id}",document.getElementById('quantity+${name}').value) class="btn btn-primary btn-lg btn-block">update</button>
                         </div>
                     <div class="col-md-3 price">
                         <span>${price * quantity}$</span>
-                    </div>
+                        <br>
+                        <button type="button" onclick = deleteItem("${id}") class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                        </div>
                 </div>
             </div>
         </div>
@@ -80,6 +82,21 @@ function loadCart() {
       $("#total").append(total + "$");
     });
   });
+}
+
+function deleteItem(_id) {
+  console.log(_id);
+  $.ajax({
+    url: "http://localhost:8080/deleteItem",
+    type: "DELETE",
+    data: JSON.stringify({ _id: _id }),
+    contentType: "application/json",
+    dataType: "json",
+    success: function () {
+      console.log("request successfully!");
+    },
+  });
+  loadCart();
 }
 
 $(() => {

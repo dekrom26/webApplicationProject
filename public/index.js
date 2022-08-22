@@ -333,6 +333,7 @@ function AddCart(i) {
       dataType: "json",
       success: function () {
         console.log("request successfully!");
+        window.alert("Product added successfully");
       },
     });
   });
