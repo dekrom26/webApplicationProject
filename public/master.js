@@ -246,10 +246,10 @@ function graph_flights_sales(flights_json) {
   svg.node();
 }
 
-$(() => {
+/*$(() => {
   loadRatings();
   loadSales();
-});
+});*/
 
 function createFlight(
   name,
@@ -358,6 +358,16 @@ function DeleteFlight(name) {
       },
     });
   });
+}
+
+function loadGraphs(){
+  $("#main").empty();
+  $("#create").empty();
+  $("#update").empty();
+  $("#delete").empty();
+  $("#graphs").empty();
+  // graph=$("#graphs").detach();
+  $("#graphs").load("graph.html");
 }
 
 

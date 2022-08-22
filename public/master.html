@@ -92,6 +92,12 @@
           value="Delete a Flight"
           onclick="showDeleteFlights()"
         />
+        <input
+                class="submit-btn"
+                type="button"
+                value="Flights statistics"
+                onclick="loadGraphs()"
+        />
       </form >
       </div>
       <!-- <button type="button" class="master-button" onclick="showDeleteFlights()">
@@ -105,21 +111,12 @@
     <div id="create"></div>
     <div id="update"></div>
     <div id="delete"></div>
-    <div id="graphs"></div>
-    <script>
-      function col() {
-        $.get("/allflights", (data) => {
-          $("#text").empty();
-          console.log(data);
-        });
-      }
-      col();
-    </script>
     <div id="graphs">
-      <script src="master.js"></script>
-      <div id="rating_garph"></div>
-      <div id="sales_graph"></div>
+
+
     </div>
   </body>
-  <footer></footer>
+  <footer>
+    <script src="master.js"></script>
+  </footer>
 </html>
