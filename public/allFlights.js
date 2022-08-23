@@ -19,7 +19,7 @@ function Search1() {
         if (priceUser == "expensive" && price < 500) continue;
 
         $("#text").append(
-          showCard1(
+          showCardAllFlight(
             i,
             data[i].Name,
             data[i].Date,
@@ -69,7 +69,7 @@ function Search2() {
           continue;
 
         $("#text").append(
-          showCard1(
+          showCardAllFlight(
             i,
             data[i].Name,
             data[i].Date,
@@ -289,6 +289,37 @@ function AddCart(i, cart_id) {
     });
   });
 }
+
+
+function search_allFlight(name){
+    console.log(name);
+    $("#text").empty();
+    $.get("/allflights", function (data, status) {
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].Name == name) {
+          $("#text").append(
+            showCardAllFlight(
+              i,
+              data[i].Name,
+              data[i].Date,
+              data[i].URL,
+              data[i].Duration,
+              data[i].Departure,
+              data[i].Arrivle,
+              data[i].Price,
+              data[i].Temperature,
+              data[i].Continent,
+              data[i].Category
+            )
+          );
+        }
+      }
+    });
+  }
+
+
+
+
 
 $(() => {
   showCard();

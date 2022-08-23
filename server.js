@@ -196,8 +196,8 @@ app.post("/unlike", async (req, res) => {
 });
 
 app.post("/addToCart", async (req, res) => {
-  obj = await Cart.findOne({});
-  cart_id = obj._id;
+  var cart_id = req.body.cart_id;
+  obj = await Cart.findById(cart_id);
   var arr = obj.Products;
   var id_item = req.body._id;
 
@@ -215,8 +215,8 @@ app.post("/addToCart", async (req, res) => {
 });
 
 app.post("/updatePrice", async (req, res) => {
-  obj = await Cart.findOne({});
-  cart_id = obj._id;
+  cart_id = req.body.cart_id;
+  obj = await Cart.findById(cart_id);
   var arr = obj.Products;
   var id_item = req.body._id;
   var quantity_item = req.body.quantity;
@@ -250,23 +250,54 @@ app.post("/updateSales", async (req, res) => {
   res.json({ status: 200 });
 });
 
+app.post("/updateUser", async (req, res) => {
+ 
+  console.log(req.body.first)
+  var id=req.body._id;
+  var User = await Users.findById(id);
+  var FirstName=User.FirstName;
+  var LastName=User.LastName;
+  var Email=User.Email;
+  if(req.body.first!="")
+  FirstName=req.body.first;
+  if(req.body.last!="")
+  LastName=req.body.last;
+  if(req.body.email!="")
+  Email=req.body.email;
+  
+  await Users.findByIdAndUpdate(id, { FirstName: FirstName,
+  LastName:LastName,
+  Email:Email ,});
+  
+  res.json({ status: 200 });
+});
+
 app.delete("/delete", async (req, res) => {
   var id = req.body._id;
   await Flights.findByIdAndDelete(id, { Name: req.body.value });
   res.json({ status: 200 });
 });
 
+app.delete("/deleteUser", async (req, res) => {
+  console.log(req.body._id)
+  var _id = req.body._id;
+  await Users.findByIdAndDelete(_id);
+  res.json({ status: 200 });
+});
+
 app.delete("/deleteCart", async (req, res) => {
-  obj = await Cart.findOne({});
-  cart_id = obj._id;
-  await Cart.findByIdAndDelete(cart_id);
+  cart_id = req.body.cart_id;
+  var arr = [];
+  await Cart.findByIdAndUpdate(cart_id, { Products: arr });
+  // obj = await Cart.findById(cart_id)
+  // await Cart.findByIdAndDelete(cart_id);
   // await Cart.deleteMany({});
   res.json({ status: 200 });
 });
 
 app.delete("/deleteItem", async (req, res) => {
-  obj = await Cart.findOne({});
-  cart_id = obj._id;
+  cart_id = req.body.cart_id;
+  obj = await Cart.findById(cart_id);
   var arr = obj.Products;
   var id_item = req.body._id;
 

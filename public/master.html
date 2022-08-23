@@ -42,6 +42,7 @@
     ></script>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="allFlight.css" />
+    <link rel="stylesheet" href="userTable.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -99,6 +100,12 @@
                 value="Flights statistics"
                 onclick="loadGraphs()"
         />
+        <input
+        class="submit-btn"
+        type="button"
+        value="Users"
+        onclick="showUsers()"
+/>
       </form >
       </div>
       <!-- <button type="button" class="master-button" onclick="showDeleteFlights()">
@@ -115,6 +122,7 @@
     <div id="delete"></div>
     <div id="graphs">
     </div>
+    <div id="users"></div>
   </body>
   <footer>
     <script src="master.js"></script>

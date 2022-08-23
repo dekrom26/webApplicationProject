@@ -1,12 +1,20 @@
 function register(first, last, email, pass, conpass) {
+
+  var x=ifExists(email)
+  console.log(x);
+
   if (first == "" || last == "" || pass == "" || conpass == "") {
     window.alert("Not all fields are filled, try again");
     return;
   }
-  if (pass != conpass) {
+  if ((pass != conpass) ) {
+    
     window.alert("The password does not match, try again");
     return;
-  } else createUser(first, last, email, pass);
+  } 
+
+  
+  else createUser(first, last, email, pass);
 }
 
 function createUser(first, last, email, pass) {
@@ -27,6 +35,28 @@ function createUser(first, last, email, pass) {
     },
   });
   getCardId(first, last);
+}
+
+function ifExists(email){
+  var x=5;
+  var arr;
+  $.get("/allusers", function (data, status) {
+   arr=data;
+   return arr ;
+   
+
+  });
+
+  // for (var j = 0; j < arr.length; j++) {
+  //   if ( arr[j].Email==email){
+  //     console.log(arr[j].Email + "if")
+  //     x=1;
+  //    break;
+  //   } 
+  //   if ( j==(arr.length-1)){
+  //     x=0;
+  //    }
+  // }
 }
 
 function getCardId(first, last) {
