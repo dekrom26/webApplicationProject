@@ -248,6 +248,28 @@ app.post("/updateSales", async (req, res) => {
   res.json({ status: 200 });
 });
 
+app.post("/updateUser", async (req, res) => {
+ 
+  console.log(req.body.first)
+  var id=req.body._id;
+  var User = await Users.findById(id);
+  var FirstName=User.FirstName;
+  var LastName=User.LastName;
+  var Email=User.Email;
+  if(req.body.first!="")
+  FirstName=req.body.first;
+  if(req.body.last!="")
+  LastName=req.body.last;
+  if(req.body.email!="")
+  Email=req.body.email;
+  
+  await Users.findByIdAndUpdate(id, { FirstName: FirstName,
+  LastName:LastName,
+  Email:Email ,});
+  
+  res.json({ status: 200 });
+});
+
 app.delete("/delete", async (req, res) => {
   var id = req.body._id;
   await Flights.findByIdAndDelete(id, { Name: req.body.value });

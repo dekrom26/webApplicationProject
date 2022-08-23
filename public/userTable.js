@@ -14,7 +14,7 @@ function ShowOneUser(i,First,Last,Email){
     <td style="width: 20%">
    
     <span class="fa-stack">
-    <button type="b utton" onclick=edituser(${i}) class="table-link text-info">
+    <button type="b utton" onclick=edituser("${i}",document.getElementById('FirstUserName${i}').value,document.getElementById('LastUserName${i}').value,document.getElementById('UserMail${i}').value) class="table-link text-info">
     <i class="fa fa-square fa-stack-2x"></i>
     <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
     </button>
@@ -27,16 +27,42 @@ function ShowOneUser(i,First,Last,Email){
     </button>
     </span>
     </td>
+
+    <td><div class="form-field col-lg-6">
+    <label for="FirstUserName${i}">First Name</label
+    ><input
+      class="input-text js-input"
+      type="text"
+      id="FirstUserName${i}"
+      value=""
+    />
+    <br />
+  </div>
+  <div class="form-field col-lg-6">
+    <label for="LastUserName${i}">Last Name</label
+    ><input class="input-text js-input" type="text" id="LastUserName${i}" value="" />
+  </div>
+  <div class="form-field col-lg-6">
+    <label for="UserMail${i}">User Mail</label
+    ><input class="input-text js-input" type="email" id="UserMail${i}" value="" />
+  </div>
+    </td>
   </tr>`
     }
 
-function edituser(i){
+function edituser(i,first,last,email){
     $.get("/allusers", (data) => {
-        var _id = data[i]._id;
+         _id = data[i]._id;
+  
+
+
     $.ajax({
-      url: "http://localhost:8080/deleteUser",
+      url: "http://localhost:8080/updateUser",
       type: "POST",
-      data: JSON.stringify({ _id: _id }),
+      data: JSON.stringify({ _id: _id,
+      first:first,
+      last:last,
+      email:email,}),
       contentType: "application/json",
       dataType: "json",
       success: function () {
