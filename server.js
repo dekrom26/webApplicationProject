@@ -14,6 +14,8 @@ var http = require("http"),
   server = http.createServer(app),
   io = require("socket.io")(server);
 
+
+
 server.listen(8080, () => {
   console.log("APP IS LISTENING ON PORT 8080!");
 });
@@ -401,3 +403,21 @@ io.sockets.on("connection", function (socket) {
     );
   });
 });
+
+let usersConnected = 0;
+
+io.on('connection', (socket) => {
+  console.log("user connected");
+  usersConnected += 1;
+  io.emit("users", `${usersConnected}`);
+
+  socket.on('disconnect', () => {
+    console.log("user disconnect")
+    usersConnected -= 1;
+    io.emit("users", `${usersConnected}`);
+  });
+
+  socket.on('message', (message) => {
+    console.log(message);
+  })
+})

@@ -393,3 +393,18 @@ function showOrderPage() {
     $("#maincart").load("order.html");
   });
 }
+
+// This function will open socket to each connected user for real-time data transfer
+const openSocket = () => {
+  const socket = io();
+
+  socket.on("users", (arg) => {
+    document.getElementById("users").innerText = `${arg}`;
+  })
+};
+
+const main= ()=>{
+  openSocket();
+};
+
+main();
