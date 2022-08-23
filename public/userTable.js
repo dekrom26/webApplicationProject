@@ -1,0 +1,108 @@
+function ShowOneUser(i,First,Last,Email){
+    return `     <tr>
+    <td>
+      <img
+        src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png"
+        alt=""
+      />
+      <a href="#" class="user-link">${First} ${Last}</a>
+      <span class="user-subhead">User</span>
+    </td>
+    <td>
+      <a href="#">${Email}</a>
+    </td>
+    <td style="width: 20%">
+   
+    <span class="fa-stack">
+    <button type="b utton" onclick=edituser(${i}) class="table-link text-info">
+    <i class="fa fa-square fa-stack-2x"></i>
+    <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+    </button>
+    </span>
+   
+    <span class="fa-stack">
+    <button type="button" onclick=deleteuser(${i}) class="table-link danger">
+    <i class="fa fa-square fa-stack-2x"></i>
+    <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+    </button>
+    </span>
+    </td>
+  </tr>`
+    }
+
+function edituser(i){
+    $.get("/allusers", (data) => {
+        var _id = data[i]._id;
+    $.ajax({
+      url: "http://localhost:8080/deleteUser",
+      type: "POST",
+      data: JSON.stringify({ _id: _id }),
+      contentType: "application/json",
+      dataType: "json",
+      success: function () {
+        console.log("request successfully!");
+      },
+    });
+    showAllUsers(); 
+});
+}
+
+function deleteuser(i){
+    $.get("/allusers", (data) => {
+            var _id = data[i]._id;
+        $.ajax({
+          url: "http://localhost:8080/deleteUser",
+          type: "DELETE",
+          data: JSON.stringify({ _id: _id }),
+          contentType: "application/json",
+          dataType: "json",
+          success: function () {
+            console.log("request successfully!");
+          },
+        });
+        showAllUsers(); 
+    });
+    }
+
+
+    function Adminload(){
+        return `<tr>
+        <td>
+          <img
+            src="https://icons.veryicon.com/png/o/miscellaneous/yuanql/icon-admin.png"
+            alt=""
+          />
+          <a href="#" class="user-link">Hadar Basson</a>
+          <span class="user-subhead">Admin</span>
+        </td>
+        <td>
+          <a href="#">admin@gmail.com</a>
+        </td>
+      </tr> `
+    }
+
+    function showAllUsers(){
+        $("#members").empty();
+        $("#members").append(Adminload());
+     $.get("/allusers", function (data, status) {
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].FirstName !="Admin" && data[i].LastName !="Admin" ) {
+        $("#members").append(
+            ShowOneUser(
+            i,
+            data[i].FirstName,
+            data[i].LastName,
+            data[i].Email,
+          )
+        );
+      }
+    }
+  });
+    }
+
+
+    $(() => {
+        showAllUsers();
+      });
+      
+

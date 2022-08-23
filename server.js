@@ -254,6 +254,13 @@ app.delete("/delete", async (req, res) => {
   res.json({ status: 200 });
 });
 
+app.delete("/deleteUser", async (req, res) => {
+  console.log(req.body._id)
+  var _id = req.body._id;
+  await Users.findByIdAndDelete(_id);
+  res.json({ status: 200 });
+});
+
 app.delete("/deleteCart", async (req, res) => {
   cart_id = req.body.cart_id;
   var arr = [];

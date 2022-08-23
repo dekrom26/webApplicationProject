@@ -170,6 +170,13 @@ const seedUsers = [
     Password: "flight123",
     Cart_id: 0,
   },
+  {
+    FirstName: "Noam",
+    LastName: "Lushi",
+    Email: "noamlushi@gmail.com",
+    Password: "111",
+    Cart_id: 0,
+  },
 ];
 
 const seedCart = [
