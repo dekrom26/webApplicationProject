@@ -164,6 +164,15 @@
     <section class="get-in-touch">
 
       <form class="contact-form row">
+        <div class="input-group">
+            <div class="form-outline">
+              <input type="search" id="search_flight" class="form-control" />
+              <label class="form-label" for="search_flight"></label>
+            </div>
+            <button type="button" onclick="search_allFlight(document.getElementById('search_flight').value)" class="btn btn-primary">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
         <div class="form-field col-lg-6">
           <label for="cart_id">enter your cart id</label
           ><input class="input-text js-input" type="text" id="cart_id" value="" />
@@ -171,8 +180,6 @@
       </form>
 
       </section>
-
-
     <div id="text"></div>
 
   

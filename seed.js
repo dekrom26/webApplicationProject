@@ -174,7 +174,7 @@ const seedUsers = [
     FirstName: "Noam",
     LastName: "Lushi",
     Email: "noamlushi@gmail.com",
-    Password: "111",
+    Password: "flight123",
     Cart_id: 0,
   },
 ];
