@@ -73,6 +73,26 @@ function edituser(i,first,last,email){
 });
 }
 
+
+function search_user(fullname){
+    $("#members").empty();
+    $.get("/allusers", (data) => {
+        for (var i = 0; i < data.length; i++) {
+         var Full= data[i].FirstName+" "+data[i].LastName
+         if(Full.toUpperCase()==fullname.toUpperCase()){
+            $("#members").append(
+                ShowOneUser(
+                i,
+                data[i].FirstName,
+                data[i].LastName,
+                data[i].Email,
+              )
+            );
+         }
+        }
+    })
+}
+
 function deleteuser(i){
     $.get("/allusers", (data) => {
             var _id = data[i]._id;
