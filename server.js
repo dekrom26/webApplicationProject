@@ -57,6 +57,10 @@ app.get("/flights", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "allFlights.html"));
 });
 
+app.get("/registration", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public", "registration.html"));
+});
+
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "home.html"));
 });
@@ -190,8 +194,8 @@ app.post("/unlike", async (req, res) => {
 });
 
 app.post("/addToCart", async (req, res) => {
-  obj = await Cart.findOne({});
-  cart_id = obj._id;
+  var cart_id = req.body.cart_id;
+  obj = await Cart.findById(cart_id);
   var arr = obj.Products;
   var id_item = req.body._id;
 
@@ -209,13 +213,11 @@ app.post("/addToCart", async (req, res) => {
 });
 
 app.post("/updatePrice", async (req, res) => {
-  obj = await Cart.findOne({});
-  cart_id = obj._id;
+  cart_id = req.body.cart_id;
+  obj = await Cart.findById(cart_id);
   var arr = obj.Products;
   var id_item = req.body._id;
   var quantity_item = req.body.quantity;
-
-  //quantity
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].flight_id == id_item) {
@@ -228,13 +230,56 @@ app.post("/updatePrice", async (req, res) => {
   res.json({ status: 200 });
 });
 
-//{productId: data[i]._id, price: data[i].price, quantity: value
+app.post("/updateSales", async (req, res) => {
+  var arr = req.body.arr;
+  console.log(arr);
+  var id;
+  var q;
+  var flight;
+  var sales;
+  for (let i = 0; i < arr.length; i++) {
+    id = arr[i].flight_id;
+    q = arr[i].Quantities;
+    flight = await Flights.findById(id);
+    sales = flight.Sales;
+    sales += q;
+    await Flights.findByIdAndUpdate(id, { Sales: sales });
+  }
+  res.json({ status: 200 });
+});
 
 app.delete("/delete", async (req, res) => {
   var id = req.body._id;
   await Flights.findByIdAndDelete(id, { Name: req.body.value });
   res.json({ status: 200 });
 });
+
+app.delete("/deleteCart", async (req, res) => {
+  cart_id = req.body.cart_id;
+  var arr = [];
+  await Cart.findByIdAndUpdate(cart_id, { Products: arr });
+  // obj = await Cart.findById(cart_id)
+  // await Cart.findByIdAndDelete(cart_id);
+  // await Cart.deleteMany({});
+  res.json({ status: 200 });
+});
+
+app.delete("/deleteItem", async (req, res) => {
+  cart_id = req.body.cart_id;
+  obj = await Cart.findById(cart_id);
+  var arr = obj.Products;
+  var id_item = req.body._id;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].flight_id === id_item) {
+      arr.splice(i, 1);
+      await Cart.findByIdAndUpdate(cart_id, { Products: arr });
+    }
+  }
+  res.json({ status: 200 });
+});
+
+//deleteItem
 
 // Name
 // URL
@@ -268,6 +313,30 @@ app.post("/create", async (req, res) => {
 });
 
 
+
+app.post("/createuser", async (req, res) => {
+  var cart = await Cart.create({
+    Products: [],
+    FirstName: req.body.first,
+    LastName: req.body.last,
+  });
+  var id_cart = cart._id;
+  await Users.create({
+    FirstName: req.body.first,
+    LastName: req.body.last,
+    Email: req.body.email,
+    Password: req.body.pass,
+    Cart_id: id_cart,
+  });
+  res.json({ status: 200 });
+});
+
+io.on("connection", (socket) => {
+  console.log("Conection to socket.io");
+  socket.on("message", ({ name, message }) => {
+    io.emit("message", { name, message });
+  });
+});
 
 // io.on('connection', (socket) => {
 //   console.log('a user connected');

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="registration.css" />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script src="registration.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="h-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img
+                src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                alt="Sample photo"
+                class="img-fluid"
+                style="
+                  border-top-left-radius: 0.25rem;
+                  border-bottom-left-radius: 0.25rem;
+                "
+              />
+            </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">registration</h3>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input
+                        type="text"
+                        id="First"
+                        class="form-control form-control-lg"
+                      />
+                      <label class="form-label" for="form3Example1m"
+                        >First name</label
+                      >
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input
+                        type="text"
+                        id="Last"
+                        class="form-control form-control-lg"
+                      />
+                      <label class="form-label" for="form3Example1n"
+                        >Last name</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="email"
+                    id="Email"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label" for="form3Example97">Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="password"
+                    id="Pass"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label" for="form3Example97"
+                    >Password</label
+                  >
+                </div>
+                <div class="form-outline mb-4">
+                  <input
+                    type="password"
+                    id="ConPass"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label" for="form3Example97"
+                    >Confirm Password</label
+                  >
+                </div>
+
+                <div class="pt-1 mb-4">
+                  <button
+                    class="btn btn-info btn-lg btn-block"
+                    type="button"
+                    onclick="register(document.getElementById('First').value,document.getElementById('Last').value,
+                    document.getElementById('Email').value,document.getElementById('Pass').value,
+                    document.getElementById('ConPass').value)"
+                  >
+                    register
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+ </div>
+</section>
+
+  </body>
+</html>
+

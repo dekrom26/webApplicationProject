@@ -19,7 +19,7 @@ function Search1() {
         if (priceUser == "expensive" && price < 500) continue;
 
         $("#text").append(
-          showCard1(
+          showCardAllFlight(
             i,
             data[i].Name,
             data[i].Date,
@@ -37,46 +37,6 @@ function Search1() {
     }
   });
 }
-
-// document.getElementById("myButton3").onclick = function () {
-//   $.get("/allflights", (data) => {
-//     $("#text").empty();
-//     for (var i = 0; i < data.length; i++) {
-//       const continent = data[i].Continent;
-//       const price = data[i].Price;
-//       const category = data[i].Category;
-//       const name = data[i].Name;
-//       let upName = data[i].Name.toUpperCase();
-//       $("#text")
-//         .append(`<td><p><b>Name:</b> ${name}</p> <p><b>Price:</b> ${data[i].Price}$</p>
-//         <p><b>Duration:</b> ${data[i].Duration} hours</p><p><b>Departure:</b> ${data[i].Departure}</p>
-//         <p><b>Temperature:</b> ${data[i].Temperature} C</p><p><b>Date:</b> ${data[i].Date}</p>
-//         <p><b>Category:</b> ${data[i].Category}</p>
-//         <p><a class="weatherwidget-io" href="https://forecast7.com/en/${data[i].API}/${data[i].Name}/" data-label_1="${upName}" data-label_2="WEATHER" data-mode="Current" >WEATHER</a></p>
-//         `);
-//       var col = document.getElementById("text");
-//       col.innerHTML +=
-//         '<button class="bag-btn" onclick="AddCart(' +
-//         i +
-//         ')">Add To Cart</button>';
-//       var like = document.getElementById("text");
-//       like.innerHTML +=
-//         '<button class="like-btn" onclick="Like(' +
-//         i +
-//         ')"><i class="fa fa-thumbs-up"></i></button>';
-//       var unlike = document.getElementById("text");
-//       unlike.innerHTML +=
-//         '<button class="unlike-btn" onclick="UnLike(' +
-//         i +
-//         ')"> <i class="fa fa-thumbs-down"></i></button>';
-//       document.getElementById("text").innerHTML +=
-//         `<p><img id="image_` + i + `" class="center"/></p></td><hr><br>`;
-//       $("#image" + "_" + i).attr("src", data[i].URL);
-//       $("#image" + "_" + i).attr("width", "40%");
-//       $("#image" + "_" + i).attr("height", "40%");
-//     }
-//   });
-// };
 
 function Search2() {
   var startData = document.getElementById("start").value;
@@ -109,7 +69,7 @@ function Search2() {
           continue;
 
         $("#text").append(
-          showCard1(
+          showCardAllFlight(
             i,
             data[i].Name,
             data[i].Date,
@@ -139,10 +99,6 @@ function Search2() {
   }
 })(document, "script", "weatherwidget-io-js");
 
-// function ClearDiv() {
-//   document.getElementById("text").innerHTML = ``;
-// }
-
 function GroupByContinent() {
   $("#text").empty();
   $("#text").append(`<p>The number of flights on each continent:</p><br>`);
@@ -166,282 +122,6 @@ function GroupByCategory() {
     }
   });
 }
-
-///groupByCategory
-
-//get("/groupByContinent"
-
-// $("#text").append(`<p id="proname"><b><Company:</b></font> ${data[i]._id}:${data[i].total}</p>`);
-
-var indexes = [];
-// function AddCart(i) {
-//   let index = i;
-//   console.log(i);
-//   keepGood = 0;
-//   $.get("/allflights", function (data, status) {
-//     // localStorage.setItem(i)
-//     console.log(i);
-//     if (indexes[i] == 1) {
-//       console.log("Second Time");
-//       PlusQuantity(i);
-//     }
-//     if (indexes[i] == undefined) {
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-product-title")[0].innerHTML +=
-//         `<div class="item_` +
-//         i +
-//         `"><p><b><Company:</b></font> ${data[i].Name}<b></p><p>Price:</b>${data[i].Price}$</p></div>`;
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-product-title")[0].innerHTML +=
-//         `<div class="item_` +
-//         i +
-//         `"><p><img id="img_` +
-//         i +
-//         `" class="center"/></p></div>`;
-//       $("#img" + "_" + i).attr("src", data[i].URL);
-//       $("#img" + "_" + i).attr("width", "150px");
-//       $("#img" + "_" + i).attr("height", "100px");
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-product-title")[0].innerHTML +=
-//         `<div class="item_` +
-//         i +
-//         `"><button id="botton_` +
-//         i +
-//         `" onclick="Remove(` +
-//         i +
-//         `)">Remove</button></div><br>`;
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-product-title")[0].innerHTML +=
-//         `<div class="item_` +
-//         i +
-//         `"><button class="btn minus-btn" type="button" onclick="MinusQuantity(` +
-//         i +
-//         `)">-</button><div class="pin_` +
-//         i +
-//         `">1</div>
-//               <button class="btn plus-btn" type="button" onclick="PlusQuantity(` +
-//         i +
-//         `)">+</button>`;
-//       let sum =
-//         parseInt(
-//           document.getElementById("app").getElementsByClassName("cart-total")[0]
-//             .innerHTML
-//         ) + data[i].Price;
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-total")[0].innerHTML = sum;
-//       console.log("the sum" + sum);
-//       indexes[i] = 1;
-//     }
-//     if (indexes[i] != undefined && indexes[i] != 1) {
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-product-title")[0]
-//         .getElementsByClassName(
-//           "item_" + i
-//         )[0].innerHTML += `<p><b><Company:</b></font> ${data[i].Name}<b></p><p>Price:</b>${data[i].Price}$</p>`;
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-product-title")[0]
-//         .getElementsByClassName("item_" + i)[1].innerHTML +=
-//         `<p><img id="img_` + i + `" class="center"/></p>`;
-//       $("#img" + "_" + i).attr("src", data[i].URL);
-//       $("#img" + "_" + i).attr("width", "150px");
-//       $("#img" + "_" + i).attr("height", "100px");
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-product-title")[0]
-//         .getElementsByClassName("item_" + i)[2].innerHTML +=
-//         `<button id="botton_` +
-//         i +
-//         `" onclick="Remove(` +
-//         i +
-//         `)">Remove</button></div>`;
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-product-title")[0]
-//         .getElementsByClassName("item_" + i)[3].innerHTML +=
-//         `<div class="item_` +
-//         i +
-//         `"><button class="btn minus-btn" type="button" onclick="MinusQuantity(` +
-//         i +
-//         `)">-</button> <div class="pin_` +
-//         i +
-//         `">1</div>
-//               <button class="btn plus-btn" type="button" onclick="PlusQuantity(` +
-//         i +
-//         `)">+</button>`;
-//       let sum =
-//         parseInt(
-//           document.getElementById("app").getElementsByClassName("cart-total")[0]
-//             .innerHTML
-//         ) + parseInt(data[i].Price);
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-total")[0].innerHTML = sum;
-//       console.log("the sum" + sum);
-//       indexes[i] = 1;
-//     }
-//   });
-// }
-// function Remove(i) {
-//   if (indexes[i] == 1) {
-//     indexes[i] = 0;
-//   }
-//   let Quantity = parseInt(
-//     document
-//       .getElementById("app")
-//       .getElementsByClassName("cart-product-title")[0]
-//       .getElementsByClassName("item_" + i)[3]
-//       .getElementsByClassName("pin_" + i)[0].innerHTML
-//   );
-//   document
-//     .getElementById("app")
-//     .getElementsByClassName("cart-product-title")[0]
-//     .getElementsByClassName("item_" + i)[0].innerHTML = "";
-//   document
-//     .getElementById("app")
-//     .getElementsByClassName("cart-product-title")[0]
-//     .getElementsByClassName("item_" + i)[1].innerHTML = "";
-//   document
-//     .getElementById("app")
-//     .getElementsByClassName("cart-product-title")[0]
-//     .getElementsByClassName("item_" + i)[2].innerHTML = "";
-//   document
-//     .getElementById("app")
-//     .getElementsByClassName("cart-product-title")[0]
-//     .getElementsByClassName("item_" + i)[3].innerHTML = "";
-//   $.get("/allflights", function (data, status) {
-//     let sum =
-//       parseInt(
-//         document.getElementById("app").getElementsByClassName("cart-total")[0]
-//           .innerHTML
-//       ) -
-//       parseInt(data[i].Price) * Quantity;
-//     document
-//       .getElementById("app")
-//       .getElementsByClassName("cart-total")[0].innerHTML = sum;
-//     console.log("the sum" + sum);
-//   });
-// }
-// function MinusQuantity(i) {
-//   let value = parseInt(
-//     document
-//       .getElementById("app")
-//       .getElementsByClassName("cart-product-title")[0]
-//       .getElementsByClassName("item_" + i)[3]
-//       .getElementsByClassName("pin_" + i)[0].innerHTML
-//   );
-//   if (value == 1) Remove(i);
-//   else {
-//     $.get("/allflights", function (data, status) {
-//       let sum =
-//         parseInt(
-//           document.getElementById("app").getElementsByClassName("cart-total")[0]
-//             .innerHTML
-//         ) - parseInt(data[i].Price);
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-total")[0].innerHTML = sum;
-//       --value;
-//       // alert(value);
-//       document
-//         .getElementById("app")
-//         .getElementsByClassName("cart-product-title")[0]
-//         .getElementsByClassName("item_" + i)[3]
-//         .getElementsByClassName("pin_" + i)[0].innerHTML = value;
-//     });
-//   }
-// }
-// function PlusQuantity(i) {
-//   let value = parseInt(
-//     document
-//       .getElementById("app")
-//       .getElementsByClassName("cart-product-title")[0]
-//       .getElementsByClassName("item_" + i)[3]
-//       .getElementsByClassName("pin_" + i)[0].innerHTML
-//   );
-//   $.get("/allflights", function (data, status) {
-//     let sum =
-//       parseInt(
-//         document.getElementById("app").getElementsByClassName("cart-total")[0]
-//           .innerHTML
-//       ) + parseInt(data[i].Price);
-//     document
-//       .getElementById("app")
-//       .getElementsByClassName("cart-total")[0].innerHTML = sum;
-//     ++value;
-//     // alert(value);
-//     document
-//       .getElementById("app")
-//       .getElementsByClassName("cart-product-title")[0]
-//       .getElementsByClassName("item_" + i)[3]
-//       .getElementsByClassName("pin_" + i)[0].innerHTML = value;
-//   });
-// }
-
-$.get("/allflights", function (data, status) {
-  for (let i = 0; i < data.length; i++) {
-    if (indexes[i] == 1) {
-      let value = parseInt(
-        document
-          .getElementById("app")
-          .getElementsByClassName("cart-product-title")[0]
-          .getElementsByClassName("item_" + i)[3]
-          .getElementsByClassName("pin_" + i)[0].innerHTML
-      );
-      localStorage.setItem("testObject", JSON.stringify(value));
-    }
-  }
-});
-
-// Retrieve the object from storage
-var retrievedObject = localStorage.getItem("testObject");
-
-console.log("retrievedObject: ", JSON.parse(retrievedObject));
-
-function BuyNow() {
-  // document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "";
-  // document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = "";
-  // let fileduserID = document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("un")[0].value;
-  // let filedPrice = document.getElementById("app").getElementsByClassName("cart-total")[0].innerHTML;
-  // if (fileduserID == "") {
-  //     document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert")[0].innerHTML = "This is Required Filed" + `<br>`;
-  // }
-  // if (filedPrice == "0") {
-  //     document.getElementById("app").getElementsByClassName("cart")[0].getElementsByClassName("userAlert2")[0].innerHTML = " Your Cart is Empty";
-  // }
-  // var user = fileduserID;
-
-  $.get("/allflights", function (data, status) {
-    for (let i = 0; i < data.length; i++) {
-      if (indexes[i] == 1) {
-        // let value = parseInt(document.getElementById("app").getElementsByClassName("cart-product-title")[0].getElementsByClassName("item_" + i)[3].getElementsByClassName("pin_" + i)[0].innerHTML);
-        $.ajax({
-          url: "http://localhost:8080/buy",
-          type: "POST",
-          data: JSON.stringify({
-            productName: data[i].Name,
-            price: data[i].Price,
-          }),
-          contentType: "application/json",
-          dataType: "json",
-          success: function () {
-            console.log("request successfully!");
-            //window.alert("successfully updated");
-          },
-        });
-        //  $.post("http://localhost:8080/buy", {productName: data[i].Name, price: data[i].Price}, function (data) {
-        //   });
-      }
-    }
-  });
-}
-
 
 function Like(i) {
   $.get("/allflights", function (data, status) {
@@ -499,6 +179,112 @@ function BuyNow() {
       success: function () {
         console.log("request successfully!");
         //window.alert("successfully updated");
+      },
+    });
+  });
+}
+
+function showCardAllFlight(
+  i,
+  name,
+  date,
+  url,
+  duration,
+  Departure,
+  Arrivle,
+  Price,
+  Temperature,
+  Continent,
+  Category
+) {
+  return `<section class="light">
+  <body>
+  <div class="container py-2">
+    <article class="postcard light blue">
+      <a class="postcard__img_link" href="#">
+        <img
+          class="postcard__img"
+          src="${url}"
+          alt="Image Title"
+        />
+      </a>
+      <div class="postcard__text t-light">
+        <h1 class="postcard__title blue"><a href="#">${name}</a></h1>
+  
+        <div class="postcard__subtitle small">
+            <i class="fas fa-calendar-alt mr-2"></i>${date}
+        </div>
+        <div class="postcard__bar"></div>
+     
+        <ul class="postcard__tagbox">
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Duration(Hours): ${duration}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Departure: ${Departure}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Arrivle: ${Arrivle}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Price: ${Price} $</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Temperature: ${Temperature}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Continent: ${Continent}</li>
+          <li class="tag__item"><i class="fas fa-clock mr-2"></i>Category: ${Category}</li>
+
+         
+        <button class="bag-btn" onclick=AddCart(${i},document.getElementById('cart_id').value)>Add To Cart</button>
+        <button class="like-btn" onclick="Like(${i})"> <i class="fa fa-thumbs-up"></i></button>
+        <button class="unlike-btn" onclick="UnLike(${i})"> <i class="fa fa-thumbs-down"></i></button>
+          </div>
+          </li>
+          </li>
+        </ul>
+      </div>
+   
+  </div>
+  </section>
+  <body>
+  `;
+}
+
+function showCard() {
+  $("#text").empty();
+  $.get("/allflights", function (data, status) {
+    for (var i = 0; i < data.length; i++) {
+      $("#text").append(
+        showCardAllFlight(
+          i,
+          data[i].Name,
+          data[i].Date,
+          data[i].URL,
+          data[i].Duration,
+          data[i].Departure,
+          data[i].Arrivle,
+          data[i].Price,
+          data[i].Temperature,
+          data[i].Continent,
+          data[i].Category
+        )
+      );
+    }
+  });
+}
+
+function AddCart(i, cart_id) {
+  console.log(i);
+  console.log("cart_id:" + cart_id);
+  if (cart_id == "") {
+    window.alert("Please enter your cart id before you add an item to cart");
+    return;
+  }
+  $.get("/allflights", function (data, status) {
+    var _id = data[i]._id;
+    $.ajax({
+      url: "http://localhost:8080/addToCart",
+      type: "POST",
+      data: JSON.stringify({
+        _id: _id,
+        cart_id: cart_id,
+      }),
+      contentType: "application/json",
+      dataType: "json",
+      success: function () {
+        console.log("request successfully!");
+        window.alert("Product added successfully");
       },
     });
   });

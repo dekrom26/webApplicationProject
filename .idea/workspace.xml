@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="popular filghts and comment erase in master.js">
-      <change beforePath="$PROJECT_DIR$/public/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/chat.html" afterDir="false" />
+    <list default="true" id="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" name="Changes" comment="test">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/master.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/master.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -35,6 +37,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -115,6 +118,8 @@
       <workItem from="1660912405997" duration="3214000" />
       <workItem from="1661020329170" duration="1981000" />
       <workItem from="1661059632385" duration="4932000" />
+      <workItem from="1661147359432" duration="286000" />
+      <workItem from="1661156437654" duration="1434000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -272,7 +277,19 @@
       <option name="presentableId" value="LOCAL‎00026" />
       <updated>1661065807083</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL‎00027" summary="popular in index.html, weather in footer, logic categories in DB">
+      <created>1661147555727</created>
+      <option name="number" value="LOCAL‎00027" />
+      <option name="presentableId" value="LOCAL‎00027" />
+      <updated>1661147555727</updated>
+    </task>
+    <task id="LOCAL‎00028" summary="button for graphs">
+      <created>1661157739754</created>
+      <option name="number" value="LOCAL‎00028" />
+      <option name="presentableId" value="LOCAL‎00028" />
+      <updated>1661157739754</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +319,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first push" />
     <MESSAGE value="test push" />
     <MESSAGE value="working project 16/6 21:47" />
     <MESSAGE value="reset part 2 17/06" />
@@ -326,7 +342,9 @@
     <MESSAGE value="graph bug fix" />
     <MESSAGE value="another graph" />
     <MESSAGE value="popular filghts and comment erase in master.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="popular filghts and comment erase in master.js" />
+    <MESSAGE value="popular in index.html, weather in footer, logic categories in DB" />
+    <MESSAGE value="button for graphs" />
+    <option name="LAST_COMMIT_MESSAGE" value="button for graphs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

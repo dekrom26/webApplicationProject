@@ -4,12 +4,20 @@
     <title>Shopping Cart</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
     <link rel="stylesheet" href="cart.css" />
   </head>
   <body>
@@ -23,7 +31,19 @@
                 “The world is a book and those who do not travel read only one
                 page.” - Saint Augustine .
               </p>
+              <p>
+				<div class="input-group">
+					<div class="form-outline">
+					  <input type="text" id="cart_id_2" class="form-control" />
+					  <label class="form-label" for="cart_id_2">Enter your CartId</label>
+					</div>
+					<button type="button" onclick="loadCartById(document.getElementById('cart_id_2').value)" class="btn btn-primary">
+					 click!
+					</button>
+				  </div>
+              </p>
             </div>
+
             <div class="content">
               <div class="row">
                 <div class="col-md-12 col-lg-8">
@@ -39,10 +59,10 @@
                     </div>
                     <button
                       type="button"
-                      onclick="showOrderPage()"
+                      onclick="showOrderPage(document.getElementById('cart_id_2').value)"
                       class="btn btn-primary btn-lg btn-block"
                     >
-                      Checkout
+                      Buy now!
                     </button>
                   </div>
                 </div>

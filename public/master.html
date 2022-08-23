@@ -40,6 +40,7 @@
       integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
       crossorigin="anonymous"
     ></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="allFlight.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -92,6 +93,18 @@
           value="Delete a Flight"
           onclick="showDeleteFlights()"
         />
+        <input
+                class="submit-btn"
+                type="button"
+                value="Flights statistics"
+                onclick="loadGraphs()"
+        />
+        <input
+        class="submit-btn"
+        type="button"
+        value="Admin Users"
+        onclick=""
+/>
       </form >
       </div>
       <!-- <button type="button" class="master-button" onclick="showDeleteFlights()">
@@ -101,25 +114,15 @@
       <br><br><br><br><br>
 
     </div>
+    <div id="search"></div>
     <div id="main"></div>
     <div id="create"></div>
     <div id="update"></div>
     <div id="delete"></div>
-    <div id="graphs"></div>
-    <script>
-      function col() {
-        $.get("/allflights", (data) => {
-          $("#text").empty();
-          console.log(data);
-        });
-      }
-      col();
-    </script>
     <div id="graphs">
-      <script src="master.js"></script>
-      <div id="rating_garph"></div>
-      <div id="sales_graph"></div>
     </div>
   </body>
-  <footer></footer>
+  <footer>
+    <script src="master.js"></script>
+  </footer>
 </html>
