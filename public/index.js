@@ -125,6 +125,26 @@ function initMap() {
     },
     map
   );
+  fetch("/allflights")
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        const arrOfFlights = [];
+        for (let singleFlight of res) {
+          arrOfFlights.push(singleFlight);
+        }
+        console.log(arrOfFlights);
+        for (let flight in arrOfFlights) {
+          AddMarker({coords: {lat:flight.Coords.lat(),lng:flight.Coords.lng()},map:map,},map);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        console.log("locations was loaded");
+      });
 }
 function AddMarker(mapArgument, map) {
   let marker = new google.maps.Marker({
