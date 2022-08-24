@@ -1,9 +1,16 @@
 function register(first, last, email, pass, conpass) {
 
-  var x=ifExists(email)
-  console.log(x);
-
-  if (first == "" || last == "" || pass == "" || conpass == "") {
+  var x;
+  $.get("/allusers", (data) => {
+    for (var i = 0; i < data.length; i++) {
+       if(data[i].Email==email){
+          window.alert("The email exists in the system, try again");
+          return;
+       }
+       
+    }
+  
+   if (first == "" || last == "" || pass == "" || conpass == "") {
     window.alert("Not all fields are filled, try again");
     return;
   }
@@ -13,8 +20,11 @@ function register(first, last, email, pass, conpass) {
     return;
   } 
 
-  
   else createUser(first, last, email, pass);
+  
+  });
+
+ 
 }
 
 function createUser(first, last, email, pass) {
@@ -37,27 +47,7 @@ function createUser(first, last, email, pass) {
   getCardId(first, last);
 }
 
-function ifExists(email){
-  var x=5;
-  var arr;
-  $.get("/allusers", function (data, status) {
-   arr=data;
-   return arr ;
-   
 
-  });
-
-  // for (var j = 0; j < arr.length; j++) {
-  //   if ( arr[j].Email==email){
-  //     console.log(arr[j].Email + "if")
-  //     x=1;
-  //    break;
-  //   } 
-  //   if ( j==(arr.length-1)){
-  //     x=0;
-  //    }
-  // }
-}
 
 function getCardId(first, last) {
   $.get("/allusers", function (data, status) {
