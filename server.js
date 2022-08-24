@@ -16,7 +16,7 @@ var http = require("http"),
 
 
 
-server.listen(8080, () => {
+server.listen(7000, () => {
   console.log("APP IS LISTENING ON PORT 8080!");
 });
 
@@ -62,6 +62,7 @@ app.get("/flights", (req, res) => {
 app.get("/registration", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "view/reg/registration.html"));
 });
+console.log(__dirname);
 
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "view/home/home.html"));
@@ -340,12 +341,7 @@ app.post("/create", async (req, res) => {
   res.json({ status: 200 });
 });
 
-io.on("connection", (socket) => {
-  console.log("Conection to socket.io");
-  socket.on("message", ({ name, message }) => {
-    io.emit("message", { name, message });
-  });
-});
+
 
 app.post("/createuser", async (req, res) => {
   var cart = await Cart.create({
@@ -387,6 +383,13 @@ io.on("connection", (socket) => {
 // app.get("/allcart", async (req, res) => {
 //   const flights = await Flights.find({});
 //   res.json(flights);
+// });
+
+// io.on("connection", (socket) => {
+//   console.log("Conection to socket.io");
+//   socket.on("message", ({ name, message }) => {
+//     io.emit("message", { name, message });
+//   });
 // });
 
 var usernames = {};
