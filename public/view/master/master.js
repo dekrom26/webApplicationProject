@@ -403,6 +403,7 @@ function loadGraphs() {
   $("#create").empty();
   $("#update").empty();
   $("#delete").empty();
+  $("#users").empty();
   $("#graphs").empty();
   // graph=$("#graphs").detach();
   $("#graphs").load("view/master/graph.html");
