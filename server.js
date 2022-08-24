@@ -16,7 +16,7 @@ var http = require("http"),
 
 
 
-server.listen(8000, () => {
+server.listen(7000, () => {
   console.log("APP IS LISTENING ON PORT 8080!");
 });
 
@@ -62,6 +62,7 @@ app.get("/flights", (req, res) => {
 app.get("/registration", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "registration.html"));
 });
+console.log(__dirname);
 
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "home.html"));
