@@ -61,6 +61,10 @@ const flightsSchema = new mongoose.Schema({
     type: Number,
     min: 0,
   },
+  Coords: {
+    lat: Number,
+    lng: Number,
+  },
 });
 
 // User Modal Schema

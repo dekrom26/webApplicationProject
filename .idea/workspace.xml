@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" name="Changes" comment="new socket io">
+    <list default="true" id="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" name="Changes" comment="new aside in allFlights.html">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/allFlight.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/allFlight.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/allFlights.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/allFlights.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/flights.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/flights.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/seed.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +123,7 @@
       <workItem from="1661156437654" duration="1434000" />
       <workItem from="1661192638010" duration="2721000" />
       <workItem from="1661272400139" duration="661000" />
-      <workItem from="1661324978992" duration="1909000" />
+      <workItem from="1661324978992" duration="2914000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -299,7 +299,13 @@
       <option name="presentableId" value="LOCAL‎00029" />
       <updated>1661162693215</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL‎00030" summary="new aside in allFlights.html">
+      <created>1661327132716</created>
+      <option name="number" value="LOCAL‎00030" />
+      <option name="presentableId" value="LOCAL‎00030" />
+      <updated>1661327132716</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +335,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working project 16/6 21:47" />
     <MESSAGE value="reset part 2 17/06" />
     <MESSAGE value="test commit 17/06" />
     <MESSAGE value="google map api" />
@@ -354,7 +359,8 @@
     <MESSAGE value="popular in index.html, weather in footer, logic categories in DB" />
     <MESSAGE value="button for graphs" />
     <MESSAGE value="added back add to cart and un\like" />
-    <option name="LAST_COMMIT_MESSAGE" value="added back add to cart and un\like" />
+    <MESSAGE value="new aside in allFlights.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="new aside in allFlights.html" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

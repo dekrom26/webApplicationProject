@@ -17,6 +17,7 @@ const seedFlight = [
     Rating: 40,
     API: "25d2055d27",
     Sales: 15,
+    Coords: {lat: 25.204849, lng: 55.270782},
   },
 
   {
@@ -33,6 +34,7 @@ const seedFlight = [
     Rating: 85,
     API: "48d862d35",
     Sales: 0,
+    Coords: {lat: 48.856613, lng: 2.352222},
   },
   {
     Name: "athens",
@@ -48,6 +50,7 @@ const seedFlight = [
     Rating: 35,
     API: "33d95n83d36",
     Sales: 0,
+    Coords: {lat: 37.983810, lng: 23.727539},
   },
   {
     Name: "new-zealand",
@@ -63,6 +66,7 @@ const seedFlight = [
     Rating: 60,
     API: "n40d90174d89",
     Sales: 0,
+    Coords: {lat: -41.286461, lng: 174.776230},
   },
 
   {
@@ -79,6 +83,7 @@ const seedFlight = [
     Rating: 47,
     API: "38d72n9d14",
     Sales: 0,
+    Coords: {lat: 38.722252, lng: -9.139337},
   },
 
   {
@@ -95,6 +100,7 @@ const seedFlight = [
     Rating: 66,
     API: "40d42n3d70",
     Sales: 0,
+    Coords: {lat: 40.416775, lng: -3.703790},
   },
 
   {
@@ -111,6 +117,7 @@ const seedFlight = [
     Rating: 71,
     API: "n15d79n47d88",
     Sales: 0,
+    Coords: {lat: -15.793889, lng: -47.882778},
   },
 
   {
@@ -127,6 +134,7 @@ const seedFlight = [
     Rating: 92,
     API: "3d2073d22",
     Sales: 0,
+    Coords: {lat: 1.924992, lng: 73.399658},
   },
 
   {
@@ -143,6 +151,7 @@ const seedFlight = [
     Rating: 15,
     API: "42d65n73d76",
     Sales: 0,
+    Coords: {lat: 42.652580, lng: -73.756233},
   },
 
   {
@@ -159,6 +168,7 @@ const seedFlight = [
     Rating: 84,
     API: "n6d1739d20",
     Sales: 0,
+    Coords: {lat: -6.1590, lng: 39.1926},
   },
 ];
 
