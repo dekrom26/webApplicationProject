@@ -14,6 +14,8 @@ var http = require("http"),
   server = http.createServer(app),
   io = require("socket.io")(server);
 
+
+
 server.listen(8080, () => {
   console.log("APP IS LISTENING ON PORT 8080!");
 });
@@ -248,9 +250,38 @@ app.post("/updateSales", async (req, res) => {
   res.json({ status: 200 });
 });
 
+app.post("/updateUser", async (req, res) => {
+ 
+  console.log(req.body.first)
+  var id=req.body._id;
+  var User = await Users.findById(id);
+  var FirstName=User.FirstName;
+  var LastName=User.LastName;
+  var Email=User.Email;
+  if(req.body.first!="")
+  FirstName=req.body.first;
+  if(req.body.last!="")
+  LastName=req.body.last;
+  if(req.body.email!="")
+  Email=req.body.email;
+  
+  await Users.findByIdAndUpdate(id, { FirstName: FirstName,
+  LastName:LastName,
+  Email:Email ,});
+  
+  res.json({ status: 200 });
+});
+
 app.delete("/delete", async (req, res) => {
   var id = req.body._id;
   await Flights.findByIdAndDelete(id, { Name: req.body.value });
+  res.json({ status: 200 });
+});
+
+app.delete("/deleteUser", async (req, res) => {
+  console.log(req.body._id)
+  var _id = req.body._id;
+  await Users.findByIdAndDelete(_id);
   res.json({ status: 200 });
 });
 
@@ -405,3 +436,21 @@ io.sockets.on("connection", function (socket) {
     );
   });
 });
+
+let usersConnected = 0;
+
+io.on('connection', (socket) => {
+  console.log("user connected");
+  usersConnected += 1;
+  io.emit("users", `${usersConnected}`);
+
+  socket.on('disconnect', () => {
+    console.log("user disconnect")
+    usersConnected -= 1;
+    io.emit("users", `${usersConnected}`);
+  });
+
+  socket.on('message', (message) => {
+    console.log(message);
+  })
+})

@@ -23,6 +23,9 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+    integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+    crossorigin="anonymous"></script>
 
 
 </head>
@@ -77,7 +80,7 @@
     <div id="app">
     <div class="img"></div>
 
-  <h1 id="mss">יעדים פופולריים</h1>
+  <h1 id="mss">Popular Vacations</h1>
 
   <header class="page-header">
     <div class="container flow"> </div>
@@ -127,7 +130,7 @@
     <br>
     <div class="travel">
       <div>
-        <h1 id="video-text">גלו את היעד לחופשה הבאה</h1>
+        <h1 id="video-text">For Your Next Vacation</h1>
       <video width="60%" height="70%" controls>
         <source src="video.mp4" type="video/mp4">
       </video>
@@ -137,9 +140,9 @@
      
     </div>
    
+    <!-- <br>
     <br>
-    <br>
-    <br>
+    <br> -->
     
     </div>
 
@@ -213,7 +216,11 @@
               !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
           </script>
 
+          <p class="copyright">Current Clients Open: <span id="users">0</span></p>‏
+
+
       </footer>
       <script src="index.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
 </body>
 </html>

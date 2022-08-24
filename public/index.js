@@ -30,10 +30,17 @@ function preload() {
   });
 }
 
+// function showRegPage() {
+//   $(document).ready(function () {
+//     preload();
+//     $("#app").load("registration");
+//   });
+// }
+
 function showRegPage() {
   $(document).ready(function () {
     preload();
-    $("#app").load("registration");
+    $("#app").load("loginclient.html");
   });
 }
 
@@ -118,6 +125,26 @@ function initMap() {
     },
     map
   );
+  fetch("/allflights")
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        const arrOfFlights = [];
+        for (let singleFlight of res) {
+          arrOfFlights.push(singleFlight);
+        }
+        console.log(arrOfFlights);
+        for (let flight in arrOfFlights) {
+          AddMarker({coords: {lat:flight.Coords.lat(),lng:flight.Coords.lng()},map:map,},map);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        console.log("locations was loaded");
+      });
 }
 function AddMarker(mapArgument, map) {
   let marker = new google.maps.Marker({
@@ -148,6 +175,7 @@ function showGraphs() {
   $("#update").empty();
   $("#delete").empty();
   $("#graphs").empty();
+  $("#users").empty();
   //$("#graphs").detach();
   // if (!graph) {
   //   graph = loadRating();
@@ -162,6 +190,7 @@ function showCreateFlights() {
   $("#update").empty();
   $("#delete").empty();
   $("#graphs").empty();
+  $("#users").empty();
   // graph=$("#graphs").detach();
   $("#create").load("creat.html");
 }
@@ -173,6 +202,7 @@ function showUpdateFlights() {
   $("#update").empty();
   $("#delete").empty();
   $("#graphs").empty();
+  $("#users").empty();
   // graph=$("#graphs").detach();
   $("#update").load("update.html");
 }
@@ -184,11 +214,24 @@ function showDeleteFlights() {
   $("#update").empty();
   $("#delete").empty();
   $("#graphs").empty();
+  $("#users").empty();
   // graph=$("#graphs").detach();
   $("#delete").load("delete.html");
 }
 
-function User_Authentication(email, password) {
+function showUsers() {
+  $("#search").empty();
+  $("#main").empty();
+  $("#create").empty();
+  $("#update").empty();
+  $("#delete").empty();
+  $("#graphs").empty();
+  $("#users").empty();
+  // graph=$("#graphs").detach();
+  $("#users").load("userTable.html");
+}
+
+function Master_Authentication(email, password) {
   $.get("/allusers", (data) => {
     var EmailAdmin = data[0].Email;
     var PassAdmin = data[0].Password;
@@ -201,6 +244,43 @@ function User_Authentication(email, password) {
     }
   });
 }
+
+
+function User_Authentication(email, password) {
+  if (email == "" || password == "") {
+    window.alert("Not all fields are filled, try again");
+    return;
+  }
+  $.get("/allusers", (data) => {
+    for(var i=0;i<data.length;i++){
+      if(data[i].Email==email && data[i].Password==password){
+        var cart_id=data[i].Cart_id;
+        window.alert(
+          "You have successfully login! your CartId is:  " +
+           cart_id +
+            " " +
+            "  (please save it to continue)   "
+        );
+        showFlightPage();
+        return;
+      }
+      if(i==(data.length-1)){
+        window.alert("The user does not exist");
+        return;
+      }
+    }
+  });
+}
+
+
+function showReg(){
+  $("#LoginClient").empty();
+  $("#reg").load("/registration");
+}
+
+
+
+
 /////////cart
 
 function createFlight(
@@ -444,3 +524,18 @@ function loadOrder(cart_id) {
     });
   });
 }
+
+// This function will open socket to each connected user for real-time data transfer
+const openSocket = () => {
+  const socket = io();
+
+  socket.on("users", (arg) => {
+    document.getElementById("users").innerText = `${arg}`;
+  })
+};
+
+const main= ()=>{
+  openSocket();
+};
+
+main();

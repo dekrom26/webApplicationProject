@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" name="Changes" comment="test">
+    <list default="true" id="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" name="Changes" comment="coords in DB">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/master.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/master.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5d319e26-3d5a-4d06-98c2-4f8236ee34a7" name="Changes" comment="" />
+      <changelist id="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" name="Changes" comment="added back add to cart and un\like" />
       <created>1655190044214</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -120,6 +120,9 @@
       <workItem from="1661059632385" duration="4932000" />
       <workItem from="1661147359432" duration="286000" />
       <workItem from="1661156437654" duration="1434000" />
+      <workItem from="1661192638010" duration="2721000" />
+      <workItem from="1661272400139" duration="661000" />
+      <workItem from="1661324978992" duration="3907000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -289,7 +292,25 @@
       <option name="presentableId" value="LOCAL‎00028" />
       <updated>1661157739754</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL‎00029" summary="added back add to cart and un\like">
+      <created>1661162693215</created>
+      <option name="number" value="LOCAL‎00029" />
+      <option name="presentableId" value="LOCAL‎00029" />
+      <updated>1661162693215</updated>
+    </task>
+    <task id="LOCAL‎00030" summary="new aside in allFlights.html">
+      <created>1661327132716</created>
+      <option name="number" value="LOCAL‎00030" />
+      <option name="presentableId" value="LOCAL‎00030" />
+      <updated>1661327132716</updated>
+    </task>
+    <task id="LOCAL‎00031" summary="coords in DB">
+      <created>1661328292651</created>
+      <option name="number" value="LOCAL‎00031" />
+      <option name="presentableId" value="LOCAL‎00031" />
+      <updated>1661328292651</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,9 +340,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test push" />
-    <MESSAGE value="working project 16/6 21:47" />
-    <MESSAGE value="reset part 2 17/06" />
     <MESSAGE value="test commit 17/06" />
     <MESSAGE value="google map api" />
     <MESSAGE value="facebook log in - not working yet" />
@@ -344,7 +362,10 @@
     <MESSAGE value="popular filghts and comment erase in master.js" />
     <MESSAGE value="popular in index.html, weather in footer, logic categories in DB" />
     <MESSAGE value="button for graphs" />
-    <option name="LAST_COMMIT_MESSAGE" value="button for graphs" />
+    <MESSAGE value="added back add to cart and un\like" />
+    <MESSAGE value="new aside in allFlights.html" />
+    <MESSAGE value="coords in DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="coords in DB" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

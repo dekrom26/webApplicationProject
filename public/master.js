@@ -407,3 +407,8 @@ function loadGraphs() {
   // graph=$("#graphs").detach();
   $("#graphs").load("graph.html");
 }
+
+
+
+
+
