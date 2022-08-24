@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 //const { collection } = require('./models/flights');
-const { Flights, Users, Cart } = require("./models/flights");
+const { Flights, Users, Cart } = require("./flights");
 
 const seedFlight = [
   {

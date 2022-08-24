@@ -405,7 +405,7 @@ function loadGraphs() {
   $("#delete").empty();
   $("#graphs").empty();
   // graph=$("#graphs").detach();
-  $("#graphs").load("graph.html");
+  $("#graphs").load("view/master/graph.html");
 }
 
 
