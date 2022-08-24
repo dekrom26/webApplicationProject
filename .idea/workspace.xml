@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" name="Changes" comment="coords in DB">
+    <list default="true" id="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" name="Changes" comment="first try in adding locantion to map from DB">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/allFlight.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/allFlights/allFlight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/allFlights.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/allFlights/allFlights.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/allFlights.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/allFlights/allFlights.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/cart/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/cart/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/cart/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/creat.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/crud/creat.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/creat.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/crud/creat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/crud/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/graph.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/graph.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/home/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/login/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/loginclient.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/login/loginclient.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/master.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/master.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/master.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/master.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/order.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/order/order.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/order/order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/order/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/reg/registration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/reg/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/reg/registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/update.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/crud/update.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/crud/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userTable.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/user/userTable.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userTable.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/user/userTable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/user/userTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/seed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,11 +82,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\models" />
-      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\public" />
-      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\public\style" />
-      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\public\imgs" />
-      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject" />
+      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\public\view\allFlights" />
+      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\public\view\home" />
+      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\public\view\master\user" />
+      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\public\view\master" />
+      <recent name="C:\Users\dekel\WebstormProjects\webApplicationProject\public\view\master\crud" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.server.js">
@@ -122,7 +154,7 @@
       <workItem from="1661156437654" duration="1434000" />
       <workItem from="1661192638010" duration="2721000" />
       <workItem from="1661272400139" duration="661000" />
-      <workItem from="1661324978992" duration="3907000" />
+      <workItem from="1661324978992" duration="9830000" />
     </task>
     <task id="LOCAL‎00001" summary="first push">
       <created>1655402969804</created>
@@ -310,7 +342,13 @@
       <option name="presentableId" value="LOCAL‎00031" />
       <updated>1661328292651</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL‎00032" summary="first try in adding locantion to map from DB">
+      <created>1661329273778</created>
+      <option name="number" value="LOCAL‎00032" />
+      <option name="presentableId" value="LOCAL‎00032" />
+      <updated>1661329273778</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +378,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test commit 17/06" />
     <MESSAGE value="google map api" />
     <MESSAGE value="facebook log in - not working yet" />
     <MESSAGE value="facebook post - not working yet" />
@@ -365,7 +402,8 @@
     <MESSAGE value="added back add to cart and un\like" />
     <MESSAGE value="new aside in allFlights.html" />
     <MESSAGE value="coords in DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="coords in DB" />
+    <MESSAGE value="first try in adding locantion to map from DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="first try in adding locantion to map from DB" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
