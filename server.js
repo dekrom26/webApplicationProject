@@ -1,11 +1,8 @@
 const path = require("path");
 const mongoose = require("mongoose");
-//const Flights = require("./models/flights");
 const { Flights, Users, Cart } = require("./models/flights");
 const seed = require("./seed");
 const cors = require("cors");
-const { count } = require("console");
-
 var express = require("express"),
   app = express();
 app.use(cors());
@@ -13,20 +10,14 @@ app.use(express.json());
 var http = require("http"),
   server = http.createServer(app),
   io = require("socket.io")(server);
-
-
-
-server.listen(7000, () => {
+server.listen(8080, () => {
   console.log("APP IS LISTENING ON PORT 8080!");
 });
-
 app.get("/", (req, res) => {
   res.sendFile(public);
 });
-
 var public = path.join(__dirname + "/public");
 app.use("/", express.static(public));
-
 mongoose
   .connect("mongodb://localhost:27017/Flights", {
     useNewUrlParser: true,
@@ -39,20 +30,6 @@ mongoose
     console.log("OH NO MONGO FLIGHTS CONNECTION ERROR!!!!");
     console.log(err);
   });
-
-// mongoose
-// .connect("mongodb://localhost:27017/Users", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// })
-//   .then(() => {
-//     console.log("MONGO CONNECTION TO USERS !!!");
-//   })
-//   .catch((err) => {
-//     console.log("OH NO MONGO USERS CONNECTION ERROR!!!!");
-//     console.log(err);
-//   });
-
 seed.seedDB();
 
 app.get("/flights", (req, res) => {
@@ -66,10 +43,6 @@ console.log(__dirname);
 
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "home.html"));
-});
-
-app.get("/chat", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public", "chat.html"));
 });
 app.get("/cart", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "cart.html"));
@@ -178,7 +151,6 @@ app.put("/update", async (req, res) => {
     default:
   }
 
-  // await Flights.findByIdAndUpdate(req.body._id,{characteristic}`:req.body.value});
   res.json({ status: 200 });
 });
 
@@ -311,20 +283,6 @@ app.delete("/deleteItem", async (req, res) => {
   res.json({ status: 200 });
 });
 
-//deleteItem
-
-// Name
-// URL
-// Duration
-// Departure
-// Arrivle
-// Price
-// Temperature
-// Continent
-//Date
-// Category
-// Rating
-// API
 app.post("/create", async (req, res) => {
   console.log(`${req.body.name}`);
 
@@ -369,31 +327,6 @@ io.on("connection", (socket) => {
     io.emit("message", { name, message });
   });
 });
-
-// io.on('connection', (socket) => {
-//   console.log('a user connected');
-// });
-
-// app.get('/chat', function (req, res) {
-//   res.sendFile(public + '/html/index.html');
-// });
-
-// C:\Users\97252\OneDrive\מסמכים\GitHub\webApplicationProject\public\chat\shoppingCart.html
-// app.get("/cart", function (req, res) {
-//   res.sendFile(public + "/cart/shoppingCart.html");
-// });
-
-// app.get("/allcart", async (req, res) => {
-//   const flights = await Flights.find({});
-//   res.json(flights);
-// });
-
-// io.on("connection", (socket) => {
-//   console.log("Conection to socket.io");
-//   socket.on("message", ({ name, message }) => {
-//     io.emit("message", { name, message });
-//   });
-// });
 
 var usernames = {};
 
