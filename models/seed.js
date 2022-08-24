@@ -187,6 +187,21 @@ const seedUsers = [
     Password: "flight123",
     Cart_id: 0,
   },
+  {
+    FirstName: "Ben",
+    LastName: "Nizri",
+    Email: "@gmail.com",
+    Password: "flight123",
+    Cart_id: 0,
+  },
+  {
+    FirstName: "Dekel",
+    LastName: "Romani",
+    Email: "dekelromani@gmail.com",
+    Password: "flight123",
+    Cart_id: 0,
+  }
+  
 ];
 
 const seedCart = [
