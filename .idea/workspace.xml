@@ -1,41 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" name="Changes" comment="first try in adding locantion to map from DB">
+    <list default="true" id="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" name="Changes" comment="change to gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/allFlight.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/allFlights/allFlight.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/allFlights.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/allFlights/allFlights.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/allFlights.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/allFlights/allFlights.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/cart/cart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/cart/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/cart/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/creat.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/crud/creat.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/creat.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/crud/creat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/crud/delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/graph.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/graph.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/home/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/home/home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/login/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/login/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/loginclient.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/login/loginclient.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/master.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/master.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/master.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/master.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/order.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/order/order.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/order/order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/order/order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/reg/registration.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/reg/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/reg/registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/update.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/crud/update.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/crud/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userTable.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/user/userTable.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userTable.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/user/userTable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/user/userTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/seed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/master/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/master.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/master/master.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/master/master.js" afterDir="false" />
+    </list>
+    <list id="80810557-d205-42ee-b475-cf8cebba9067" name="Changes by pariente" comment="">
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +33,31 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/public/index.html">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="4" changelist="80810557-d205-42ee-b475-cf8cebba9067" />
+        <range start1="19" end1="25" start2="20" end2="25" changelist="80810557-d205-42ee-b475-cf8cebba9067" />
+        <range start1="26" end1="28" start2="26" end2="30" changelist="80810557-d205-42ee-b475-cf8cebba9067" />
+        <range start1="160" end1="160" start2="162" end2="165" changelist="80810557-d205-42ee-b475-cf8cebba9067" />
+        <range start1="161" end1="162" start2="166" end2="167" changelist="80810557-d205-42ee-b475-cf8cebba9067" />
+        <range start1="187" end1="188" start2="192" end2="193" changelist="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" />
+        <range start1="201" end1="202" start2="206" end2="207" changelist="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" />
+        <range start1="205" end1="207" start2="210" end2="212" changelist="80810557-d205-42ee-b475-cf8cebba9067" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/public/index.js">
+      <ranges>
+        <range start1="82" end1="85" start2="82" end2="86" changelist="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" />
+        <range start1="102" end1="103" start2="103" end2="104" changelist="d51a5e60-4b23-4366-bfa4-20a1f0c22e56" />
+        <range start1="107" end1="108" start2="108" end2="109" changelist="80810557-d205-42ee-b475-cf8cebba9067" />
+        <range start1="137" end1="139" start2="138" end2="140" changelist="80810557-d205-42ee-b475-cf8cebba9067" />
+        <range start1="160" end1="160" start2="161" end2="174" changelist="80810557-d205-42ee-b475-cf8cebba9067" />
+        <range start1="536" end1="537" start2="550" end2="551" changelist="80810557-d205-42ee-b475-cf8cebba9067" />
+        <range start1="538" end1="538" start2="552" end2="553" changelist="80810557-d205-42ee-b475-cf8cebba9067" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
