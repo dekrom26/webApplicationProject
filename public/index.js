@@ -106,7 +106,7 @@ function share() {
 //curl -i -X POST \
 //  "https://graph.facebook.com/v14.0/104839158945939/feed?message=test1&access_token=EAAPjYG6LzYMBAAtA55ZAXCbjMZCPGq1FXDZBtZB5aCaUKK2ZA8pCQnkdiyBVQgwphGe0ZA7qUSYWjlB13UhnltocSFUHmzdG28HAnZAEEEWKXSoRJl6tnwmuqJCpBH6byuZCRjNpJPC98CnRnsR16bR16ZB3R1mBGueOvHFfuJXLAsCwIpUwyPq4T"
 
-function initMap() {
+function dekelMelech() {
   // map options.
   let options = {
     zoom: 13,
@@ -136,8 +136,8 @@ function initMap() {
           arrOfFlights.push(singleFlight);
         }
         console.log(arrOfFlights);
-        for (let flight in arrOfFlights) {
-          AddMarker({coords: {lat:flight.Coords.lat(),lng:flight.Coords.lng()},map:map,},map);
+        for (let flight of arrOfFlights) {
+          AddMarker1(flight,map);
         }
       })
       .catch((err) => {
@@ -155,6 +155,19 @@ function AddMarker(mapArgument, map) {
   });
   let infoWindow = new google.maps.InfoWindow({
     content: mapArgument.text[0] + mapArgument.text[1],
+  });
+  marker.addListener("click", function () {
+    infoWindow.open(map, marker);
+  });
+}
+
+function AddMarker1(mapArgument, map) {
+  let marker = new google.maps.Marker({
+    position: mapArgument.Coords,
+    map: map,
+  });
+  let infoWindow = new google.maps.InfoWindow({
+    content: mapArgument.Name,
   });
   marker.addListener("click", function () {
     infoWindow.open(map, marker);
@@ -535,8 +548,9 @@ const openSocket = () => {
   })
 };
 
-const main= ()=>{
+const main = () => {
   openSocket();
+  dekelMelech();
 };
 
 main();
