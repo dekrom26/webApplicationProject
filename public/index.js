@@ -6,36 +6,11 @@ window.onload = function () {
   ctx.drawImage(img, 0, 0, 52, 52);
 };
 
-// let buttons = document.getElementsByTagName("button");
-
-// const cart = [];
-
-// for (var i = 0; i < buttons.length; i++) {
-//   let button = buttons[i];
-//   console.log(button);
-//   button.addEventListener("click", function (event) {
-//     console.clear();
-//     console.log(event.target);
-//     console.log(event.target.dataset.productSku);
-//     cart.push(event.target.dataset.productSku);
-//     console.log(cart);
-//   });
-// }
-
-// const result = await fetch('')
-
 function preload() {
   $(document).ready(function () {
     $("#app").empty();
   });
 }
-
-// function showRegPage() {
-//   $(document).ready(function () {
-//     preload();
-//     $("#app").load("registration");
-//   });
-// }
 
 function showRegPage() {
   $(document).ready(function () {
@@ -78,33 +53,23 @@ function showCartPage() {
     $("#app").load("cart");
   });
 }
-//C:\Users\97252\OneDrive\מסמכים\GitHub\webApplicationProject\public\cart\shoppingCart.html
 
-// document
-//   .getElementById("fb-share-button")
-//   .addEventListener("click",
 function share() {
-    let xhr = new XMLHttpRequest();
-    // <<<<<<< HEAD
-    //var message = "hello1";
-    // =======
-    var message = window.prompt("תנו לנו ביקורת:");
-    // console.log(message);
-    // >>>>>>> 81f850a04fe8fb875112bbb792c81eda6f9183d6
-    var accessToken =
-      "EAAPjYG6LzYMBAPTUSwlCALb1cFQPewOLX44jGz8ltTdBSZCvX6C0R6i7Cf4ZA8ywtkQEMhPdX3gXR6r6xV0JdbJni2xHgm4CKKEM2l5spqZAZAtFe8M6LR2NxSU70XtQFJlthqkju5GBbIXysQuZCLyljId27DThP9ClGZBKgpOjPaSOUMCfxW";
-    var createPostRequest =
-      "https://graph.facebook.com/v14.0/104839158945939/feed?message=" +
-      encodeURIComponent(message) +
-      "&access_token=" +
-      accessToken;
-    xhr.open("POST", createPostRequest);
-    xhr.onload = () => console.log(xhr.responseText);
-    xhr.send();
-  }
+  let xhr = new XMLHttpRequest();
 
-//curl -i -X POST \
-//  "https://graph.facebook.com/v14.0/104839158945939/feed?message=test1&access_token=EAAPjYG6LzYMBAAtA55ZAXCbjMZCPGq1FXDZBtZB5aCaUKK2ZA8pCQnkdiyBVQgwphGe0ZA7qUSYWjlB13UhnltocSFUHmzdG28HAnZAEEEWKXSoRJl6tnwmuqJCpBH6byuZCRjNpJPC98CnRnsR16bR16ZB3R1mBGueOvHFfuJXLAsCwIpUwyPq4T"
+  var message = window.prompt("תנו לנו ביקורת:");
+
+  var accessToken =
+    "EAAPjYG6LzYMBAPTUSwlCALb1cFQPewOLX44jGz8ltTdBSZCvX6C0R6i7Cf4ZA8ywtkQEMhPdX3gXR6r6xV0JdbJni2xHgm4CKKEM2l5spqZAZAtFe8M6LR2NxSU70XtQFJlthqkju5GBbIXysQuZCLyljId27DThP9ClGZBKgpOjPaSOUMCfxW";
+  var createPostRequest =
+    "https://graph.facebook.com/v14.0/104839158945939/feed?message=" +
+    encodeURIComponent(message) +
+    "&access_token=" +
+    accessToken;
+  xhr.open("POST", createPostRequest);
+  xhr.onload = () => console.log(xhr.responseText);
+  xhr.send();
+}
 
 function dekelMelech() {
   // map options.
@@ -127,25 +92,25 @@ function dekelMelech() {
     map
   );
   fetch("/allflights")
-      .then((res) => {
-        return res.json();
-      })
-      .then((res) => {
-        const arrOfFlights = [];
-        for (let singleFlight of res) {
-          arrOfFlights.push(singleFlight);
-        }
-        console.log(arrOfFlights);
-        for (let flight of arrOfFlights) {
-          AddMarker1(flight,map);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        console.log("locations was loaded");
-      });
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      const arrOfFlights = [];
+      for (let singleFlight of res) {
+        arrOfFlights.push(singleFlight);
+      }
+      console.log(arrOfFlights);
+      for (let flight of arrOfFlights) {
+        AddMarker1(flight, map);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      console.log("locations was loaded");
+    });
 }
 function AddMarker(mapArgument, map) {
   let marker = new google.maps.Marker({
@@ -174,14 +139,6 @@ function AddMarker1(mapArgument, map) {
   });
 }
 
-// let graph;
-// function removeGraph() {
-//   if (graph) {
-//     graph = null;
-//   } else {
-//     graph = $("#graphs").detach();
-//   }
-// }
 function showGraphs() {
   $("#search").empty();
   $("#main").empty();
@@ -190,10 +147,7 @@ function showGraphs() {
   $("#delete").empty();
   $("#graphs").empty();
   $("#users").empty();
-  //$("#graphs").detach();
-  // if (!graph) {
-  //   graph = loadRating();
-  // }
+
   $("#graphs").append(graph);
 }
 
@@ -205,7 +159,6 @@ function showCreateFlights() {
   $("#delete").empty();
   $("#graphs").empty();
   $("#users").empty();
-  // graph=$("#graphs").detach();
   $("#create").load("view/master/crud/creat.html");
 }
 
@@ -217,7 +170,6 @@ function showUpdateFlights() {
   $("#delete").empty();
   $("#graphs").empty();
   $("#users").empty();
-  // graph=$("#graphs").detach();
   $("#update").load("view/master/crud/update.html");
 }
 
@@ -229,7 +181,6 @@ function showDeleteFlights() {
   $("#delete").empty();
   $("#graphs").empty();
   $("#users").empty();
-  // graph=$("#graphs").detach();
   $("#delete").load("view/master/crud/delete.html");
 }
 
@@ -241,7 +192,6 @@ function showUsers() {
   $("#delete").empty();
   $("#graphs").empty();
   $("#users").empty();
-  // graph=$("#graphs").detach();
   $("#users").load("view/master/user/userTable.html");
 }
 
@@ -259,26 +209,25 @@ function Master_Authentication(email, password) {
   });
 }
 
-
 function User_Authentication(email, password) {
   if (email == "" || password == "") {
     window.alert("Not all fields are filled, try again");
     return;
   }
   $.get("/allusers", (data) => {
-    for(var i=0;i<data.length;i++){
-      if(data[i].Email==email && data[i].Password==password){
-        var cart_id=data[i].Cart_id;
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].Email == email && data[i].Password == password) {
+        var cart_id = data[i].Cart_id;
         window.alert(
           "You have successfully login! your CartId is:  " +
-           cart_id +
+            cart_id +
             " " +
             "  (please save it to continue)   "
         );
         showFlightPage();
         return;
       }
-      if(i==(data.length-1)){
+      if (i == data.length - 1) {
         window.alert("The user does not exist");
         return;
       }
@@ -286,16 +235,10 @@ function User_Authentication(email, password) {
   });
 }
 
-
-function showReg(){
+function showReg() {
   $("#LoginClient").empty();
   $("#reg").load("/registration");
 }
-
-
-
-
-/////////cart
 
 function createFlight(
   name,
@@ -311,7 +254,6 @@ function createFlight(
   API
 ) {
   console.log(name);
-  // $.post("/create", obj);
   $.ajax({
     url: "http://localhost:8080/create",
     type: "POST",
@@ -337,113 +279,12 @@ function createFlight(
   });
 }
 
-// function showCardAllFlight(
-//   i,
-//   name,
-//   date,
-//   url,
-//   duration,
-//   Departure,
-//   Arrivle,
-//   Price,
-//   Temperature,
-//   Continent,
-//   Category
-// ) {
-//   return `<section class="light">
-//   <body>
-//   <div class="container py-2">
-//     <article class="postcard light blue">
-//       <a class="postcard__img_link" href="#">
-//         <img
-//           class="postcard__img"
-//           src="${url}"
-//           alt="Image Title"
-//         />
-//       </a>
-//       <div class="postcard__text t-light">
-//         <h1 class="postcard__title blue"><a href="#">${name}</a></h1>
-
-//         <div class="postcard__subtitle small">
-//             <i class="fas fa-calendar-alt mr-2"></i>${date}
-//         </div>
-//         <div class="postcard__bar"></div>
-
-//         <ul class="postcard__tagbox">
-//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Duration(Hours): ${duration}</li>
-//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Departure: ${Departure}</li>
-//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Arrivle: ${Arrivle}</li>
-//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Price: ${Price} $</li>
-//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Temperature: ${Temperature}</li>
-//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Continent: ${Continent}</li>
-//           <li class="tag__item"><i class="fas fa-clock mr-2"></i>Category: ${Category}</li>
-
-//         <button class="bag-btn" onclick="AddCart("${i}","fadar")">Add To Cart</button>
-//         <button class="like-btn" onclick="Like(${i})"> <i class="fa fa-thumbs-up"></i></button>
-//         <button class="unlike-btn" onclick="UnLike(${i})"> <i class="fa fa-thumbs-down"></i></button>
-//           </div>
-//           </li>
-//           </li>
-//         </ul>
-//       </div>
-
-//   </div>
-//   </section>
-//   <body>
-//   `;
-// }
-
-// function showCard() {
-//   $("#text").empty();
-//   $.get("/allflights", function (data, status) {
-//     for (var i = 0; i < data.length; i++) {
-//       $("#text").append(
-//         showCardAllFlight(
-//           i,
-//           data[i].Name,
-//           data[i].Date,
-//           data[i].URL,
-//           data[i].Duration,
-//           data[i].Departure,
-//           data[i].Arrivle,
-//           data[i].Price,
-//           data[i].Temperature,
-//           data[i].Continent,
-//           data[i].Category
-//         )
-//       );
-//     }
-//   });
-// }
-
 function showCartPage() {
   $(document).ready(function () {
     preload();
     $("#app").load("cart");
   });
 }
-
-// function AddCart(i, cart_id) {
-//   // console.log(i);
-//   // console.log("cart_id:" + cart_id);
-//   $.get("/allflights", function (data, status) {
-//     var _id = data[i]._id;
-//     $.ajax({
-//       url: "http://localhost:8080/addToCart",
-//       type: "POST",
-//       data: JSON.stringify({
-//         _id: _id,
-//         cart_id: cart_id,
-//       }),
-//       contentType: "application/json",
-//       dataType: "json",
-//       success: function () {
-//         console.log("request successfully!");
-//         window.alert("Product added successfully");
-//       },
-//     });
-//   });
-// }
 
 function update_price(_id, quantity, cart_id) {
   console.log(quantity);
@@ -466,7 +307,6 @@ function update_price(_id, quantity, cart_id) {
 function updateAndRef(_id, quantity, cart_id) {
   update_price(_id, quantity, cart_id);
   loadCartById(cart_id);
-  //loadCart();
 }
 
 function showOrderPage(cart_id) {
@@ -493,7 +333,6 @@ function showOrderPage(cart_id) {
     });
   });
   loadOrder(cart_id);
-  //$("#maincart").load("order.html");
 }
 
 function loadOrder(cart_id) {
@@ -545,7 +384,7 @@ const openSocket = () => {
 
   socket.on("users", (arg) => {
     document.getElementById("users").innerText = `${arg}`;
-  })
+  });
 };
 
 const main = () => {
