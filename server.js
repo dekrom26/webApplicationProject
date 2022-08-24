@@ -1,7 +1,7 @@
 const path = require("path");
 const mongoose = require("mongoose");
 const { Flights, Users, Cart } = require("./models/flights");
-const seed = require("./seed");
+const seed = require("./models/seed");
 const cors = require("cors");
 var express = require("express"),
   app = express();
@@ -33,27 +33,27 @@ mongoose
 seed.seedDB();
 
 app.get("/flights", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public", "allFlights.html"));
+  res.sendFile(path.join(__dirname, "/public", "view/allFlights/allFlights.html"));
 });
 
 app.get("/registration", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public", "registration.html"));
+  res.sendFile(path.join(__dirname, "/public", "view/reg/registration.html"));
 });
 console.log(__dirname);
 
 app.get("/home", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public", "home.html"));
+  res.sendFile(path.join(__dirname, "/public", "view/home/home.html"));
 });
 app.get("/cart", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public", "cart.html"));
+  res.sendFile(path.join(__dirname, "/public", "view/cart/cart.html"));
 });
 
 app.get("/master", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public", "master.html"));
+  res.sendFile(path.join(__dirname, "/public", "view/master/master.html"));
 });
 
 app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public", "login.html"));
+  res.sendFile(path.join(__dirname, "/public", "view/login/login.html"));
 });
 
 app.get("/allflights", async (req, res) => {

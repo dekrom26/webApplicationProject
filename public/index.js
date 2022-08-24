@@ -40,7 +40,7 @@ function preload() {
 function showRegPage() {
   $(document).ready(function () {
     preload();
-    $("#app").load("loginclient.html");
+    $("#app").load("view/login/loginclient.html");
   });
 }
 
@@ -192,7 +192,7 @@ function showCreateFlights() {
   $("#graphs").empty();
   $("#users").empty();
   // graph=$("#graphs").detach();
-  $("#create").load("creat.html");
+  $("#create").load("view/master/crud/creat.html");
 }
 
 function showUpdateFlights() {
@@ -204,7 +204,7 @@ function showUpdateFlights() {
   $("#graphs").empty();
   $("#users").empty();
   // graph=$("#graphs").detach();
-  $("#update").load("update.html");
+  $("#update").load("view/master/crud/update.html");
 }
 
 function showDeleteFlights() {
@@ -216,7 +216,7 @@ function showDeleteFlights() {
   $("#graphs").empty();
   $("#users").empty();
   // graph=$("#graphs").detach();
-  $("#delete").load("delete.html");
+  $("#delete").load("view/master/crud/delete.html");
 }
 
 function showUsers() {
@@ -228,7 +228,7 @@ function showUsers() {
   $("#graphs").empty();
   $("#users").empty();
   // graph=$("#graphs").detach();
-  $("#users").load("userTable.html");
+  $("#users").load("view/master/user/userTable.html");
 }
 
 function Master_Authentication(email, password) {
@@ -483,7 +483,7 @@ function showOrderPage(cart_id) {
 }
 
 function loadOrder(cart_id) {
-  $("#maincart").load("order.html");
+  $("#maincart").load("view/order/order.html");
   $("#itemOrder").empty();
   var arr_id;
   var arr_flight;
