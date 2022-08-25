@@ -5,6 +5,7 @@ function showallFlights() {
   $("#update").empty();
   $("#delete").empty();
   $("#graphs").empty();
+  $("#users").empty();
   $("#search").append(showSearch());
   $.get("/allflights", function (data, status) {
     for (var i = 0; i < data.length; i++) {
