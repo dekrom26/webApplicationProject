@@ -33,7 +33,9 @@ mongoose
 seed.seedDB();
 
 app.get("/flights", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public", "view/allFlights/allFlights.html"));
+  res.sendFile(
+    path.join(__dirname, "/public", "view/allFlights/allFlights.html")
+  );
 });
 
 app.get("/registration", (req, res) => {
@@ -59,16 +61,11 @@ app.get("/login", (req, res) => {
 app.get("/allflights", async (req, res) => {
   const flights = await Flights.find({});
   res.json(flights);
-  // res.send(flights);
-  //
 });
 
-//"/allusers"
 app.get("/allusers", async (req, res) => {
   const users = await Users.find({});
   res.json(users);
-  // res.send(flights);
-  //
 });
 
 app.get("/carts", async (req, res) => {
@@ -110,7 +107,6 @@ app.put("/update", async (req, res) => {
   console.log(`${req.body._id}`);
   console.log(`${req.body.value}`);
   var id = req.body._id;
-  //switchcase
   switch (req.body.characteristic) {
     case "Name":
       await Flights.findByIdAndUpdate(id, { Name: req.body.value });
@@ -224,24 +220,22 @@ app.post("/updateSales", async (req, res) => {
 });
 
 app.post("/updateUser", async (req, res) => {
- 
-  console.log(req.body.first)
-  var id=req.body._id;
+  console.log(req.body.first);
+  var id = req.body._id;
   var User = await Users.findById(id);
-  var FirstName=User.FirstName;
-  var LastName=User.LastName;
-  var Email=User.Email;
-  if(req.body.first!="")
-  FirstName=req.body.first;
-  if(req.body.last!="")
-  LastName=req.body.last;
-  if(req.body.email!="")
-  Email=req.body.email;
-  
-  await Users.findByIdAndUpdate(id, { FirstName: FirstName,
-  LastName:LastName,
-  Email:Email ,});
-  
+  var FirstName = User.FirstName;
+  var LastName = User.LastName;
+  var Email = User.Email;
+  if (req.body.first != "") FirstName = req.body.first;
+  if (req.body.last != "") LastName = req.body.last;
+  if (req.body.email != "") Email = req.body.email;
+
+  await Users.findByIdAndUpdate(id, {
+    FirstName: FirstName,
+    LastName: LastName,
+    Email: Email,
+  });
+
   res.json({ status: 200 });
 });
 
@@ -252,7 +246,7 @@ app.delete("/delete", async (req, res) => {
 });
 
 app.delete("/deleteUser", async (req, res) => {
-  console.log(req.body._id)
+  console.log(req.body._id);
   var _id = req.body._id;
   await Users.findByIdAndDelete(_id);
   res.json({ status: 200 });
@@ -262,9 +256,7 @@ app.delete("/deleteCart", async (req, res) => {
   cart_id = req.body.cart_id;
   var arr = [];
   await Cart.findByIdAndUpdate(cart_id, { Products: arr });
-  // obj = await Cart.findById(cart_id)
-  // await Cart.findByIdAndDelete(cart_id);
-  // await Cart.deleteMany({});
+
   res.json({ status: 200 });
 });
 
@@ -301,8 +293,6 @@ app.post("/create", async (req, res) => {
   });
   res.json({ status: 200 });
 });
-
-
 
 app.post("/createuser", async (req, res) => {
   var cart = await Cart.create({
@@ -373,18 +363,18 @@ io.sockets.on("connection", function (socket) {
 
 let usersConnected = 0;
 
-io.on('connection', (socket) => {
+io.on("connection", (socket) => {
   console.log("user connected");
   usersConnected += 1;
   io.emit("users", `${usersConnected}`);
 
-  socket.on('disconnect', () => {
-    console.log("user disconnect")
+  socket.on("disconnect", () => {
+    console.log("user disconnect");
     usersConnected -= 1;
     io.emit("users", `${usersConnected}`);
   });
 
-  socket.on('message', (message) => {
+  socket.on("message", (message) => {
     console.log(message);
-  })
-})
+  });
+});
