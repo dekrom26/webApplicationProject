@@ -100,8 +100,7 @@
     border: none;
     width:200px;
     cursor: pointer;
-    text-shadow: -2px 2px 2px ;
-
+    
     
   }
   .contact-form .submit-btn2 {
@@ -116,6 +115,8 @@
     border: none;
     width:400px;
     cursor: pointer;
+    text-shadow: 0px 0px 0px ;
+
     
   }
   
